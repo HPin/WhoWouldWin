@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
+		E4AE398C1FFEA56300B3BA00 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE398B1FFEA56300B3BA00 /* LocationViewController.swift */; };
+		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900531FF418A7008896EB /* AppDelegate.swift */; };
 		E6E900561FF418A8008896EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900551FF418A8008896EB /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWouldWin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.debug.xcconfig"; sourceTree = "<group>"; };
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
+		E4AE398B1FFEA56300B3BA00 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E6E900501FF418A7008896EB /* WhoWouldWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWouldWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E900531FF418A7008896EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */,
 				7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +94,7 @@
 		2F2FF3AA95AF175CE4F83DE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */,
 				2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */,
 			);
 			name = Frameworks;
@@ -119,11 +125,12 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6F0AB7C1FFE40B9003FA238 /* Firebase */,
 				E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */,
+				E4AE398B1FFEA56300B3BA00 /* LocationViewController.swift */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E6E900551FF418A8008896EB /* ViewController.swift */,
-				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6E9005D1FF418A8008896EB /* Assets.xcassets */,
 				E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */,
 				E6E900621FF418A8008896EB /* Info.plist */,
@@ -362,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AE398C1FFEA56300B3BA00 /* LocationViewController.swift in Sources */,
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,
 				E6E900561FF418A8008896EB /* ViewController.swift in Sources */,
 				E6E9005C1FF418A8008896EB /* WhoWouldWin.xcdatamodeld in Sources */,
