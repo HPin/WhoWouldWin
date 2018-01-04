@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900531FF418A7008896EB /* AppDelegate.swift */; };
 		E6E900561FF418A8008896EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900551FF418A8008896EB /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 		E6E900611FF418A8008896EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */; };
 		E6E9006C1FF418A8008896EB /* WhoWouldWinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E9006B1FF418A8008896EB /* WhoWouldWinTests.swift */; };
 		E6E900771FF418A8008896EB /* WhoWouldWinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900761FF418A8008896EB /* WhoWouldWinUITests.swift */; };
+		E6F0AB7B1FFE40B0003FA238 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWouldWin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.debug.xcconfig"; sourceTree = "<group>"; };
+		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E6E900501FF418A7008896EB /* WhoWouldWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWouldWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E900531FF418A7008896EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,8 @@
 		E6E900721FF418A8008896EB /* WhoWouldWinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoWouldWinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E900761FF418A8008896EB /* WhoWouldWinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoWouldWinUITests.swift; sourceTree = "<group>"; };
 		E6E900781FF418A8008896EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E6F0AB7D1FFE40BF003FA238 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2FF3AA95AF175CE4F83DE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E6E900471FF418A7008896EB = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +101,8 @@
 				E6E9006A1FF418A8008896EB /* WhoWouldWinTests */,
 				E6E900751FF418A8008896EB /* WhoWouldWinUITests */,
 				E6E900511FF418A7008896EB /* Products */,
+				FCB341FB7CCCDA42075510DB /* Pods */,
+				2F2FF3AA95AF175CE4F83DE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +119,8 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E6F0AB7C1FFE40B9003FA238 /* Firebase */,
+				E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E6E900551FF418A8008896EB /* ViewController.swift */,
 				E6E900571FF418A8008896EB /* Main.storyboard */,
@@ -131,6 +151,23 @@
 			path = WhoWouldWinUITests;
 			sourceTree = "<group>";
 		};
+		E6F0AB7C1FFE40B9003FA238 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E6F0AB7D1FFE40BF003FA238 /* GoogleService-Info.plist */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FCB341FB7CCCDA42075510DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */,
+				AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6E9007B1FF418A8008896EB /* Build configuration list for PBXNativeTarget "WhoWouldWin" */;
 			buildPhases = (
+				41882EEE76507BD39C14A535 /* [CP] Check Pods Manifest.lock */,
 				E6E9004C1FF418A7008896EB /* Sources */,
 				E6E9004D1FF418A7008896EB /* Frameworks */,
 				E6E9004E1FF418A7008896EB /* Resources */,
+				5E72C898482AB71A7CA6A56B /* [CP] Embed Pods Frameworks */,
+				139FD01645D6370F67559E08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6E900611FF418A8008896EB /* LaunchScreen.storyboard in Resources */,
+				E6F0AB7B1FFE40B0003FA238 /* GoogleService-Info.plist in Resources */,
 				E6E9005E1FF418A8008896EB /* Assets.xcassets in Resources */,
 				E6E900591FF418A8008896EB /* Main.storyboard in Resources */,
 			);
@@ -259,6 +300,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		139FD01645D6370F67559E08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41882EEE76507BD39C14A535 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhoWouldWin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E72C898482AB71A7CA6A56B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6E9004C1FF418A7008896EB /* Sources */ = {
@@ -432,6 +529,7 @@
 		};
 		E6E9007C1FF418A8008896EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +544,7 @@
 		};
 		E6E9007D1FF418A8008896EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
