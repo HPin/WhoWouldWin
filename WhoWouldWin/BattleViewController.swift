@@ -8,9 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BattleViewController: UIViewController {
 
     @IBOutlet weak var topView: UIView!
+    
+    @IBAction func aButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func bButton(_ sender: UIButton) {
+    }
     
     override func viewDidLayoutSubviews() {
         topView.layer.cornerRadius = topView.frame.width / 2
