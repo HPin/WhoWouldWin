@@ -22,6 +22,17 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         manager.startUpdatingLocation()
     }
     
+    //checks in 10km radius
+    func locationIsInRange(myLocation: CLLocation, surveyLocation: CLLocation) -> Bool {
+        if myLocation.distance(from: surveyLocation) < 10000 {
+            return true
+        }
+        return false
+    }
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
