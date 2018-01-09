@@ -79,7 +79,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //
+        
+        
+        performSegue(withIdentifier: "categorySegue", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

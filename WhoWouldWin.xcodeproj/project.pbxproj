@@ -11,6 +11,7 @@
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
+		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
 		E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */; };
 		E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */; };
 		E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720F20018168004CE0FB /* CategoriesViewController.swift */; };
@@ -49,6 +50,7 @@
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
 		E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720F20018168004CE0FB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				E6D5720F20018168004CE0FB /* CategoriesViewController.swift */,
 				E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */,
+				E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */,
 			);
 			path = CategoriesTab;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E6E900561FF418A8008896EB /* BattleViewController.swift in Sources */,
 				E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */,
 				E6E9005C1FF418A8008896EB /* WhoWouldWin.xcdatamodeld in Sources */,
+				E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */,
 				E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */,
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
 			);
