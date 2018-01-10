@@ -113,21 +113,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		36949B8B2006A39100BAF700 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		E4C431452006A67D007D4CC6 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		E4C431482006A6CE007D4CC6 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +141,6 @@
 				E6E900511FF418A7008896EB /* Products */,
 				FCB341FB7CCCDA42075510DB /* Pods */,
 				2F2FF3AA95AF175CE4F83DE6 /* Frameworks */,
-				E4C431452006A67D007D4CC6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				E4C431482006A6CE007D4CC6 /* Location */,
-				36949B8320069E1500BAF700 /* Content */,
-				36949B8120069E0900BAF700 /* Sources */,
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E6E900551FF418A8008896EB /* BattleViewController.swift */,
