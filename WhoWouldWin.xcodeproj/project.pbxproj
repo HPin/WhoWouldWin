@@ -149,14 +149,14 @@
 				E6E900551FF418A8008896EB /* BattleViewController.swift */,
 				E66A0CD11FFE7BB400780804 /* LoginViewController.swift */,
 				E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */,
+				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
+				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
 				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6E9005D1FF418A8008896EB /* Assets.xcassets */,
 				E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */,
 				E6E900621FF418A8008896EB /* Info.plist */,
 				E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */,
 				E6E9005A1FF418A8008896EB /* WhoWouldWin.xcdatamodeld */,
-				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
-				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
 			);
 			path = WhoWouldWin;
 			sourceTree = "<group>";
