@@ -306,7 +306,6 @@
                                 </state>
                                 <connections>
                                     <action selector="submitButton:" destination="oqg-fD-DGu" eventType="touchUpInside" id="RX0-ak-6Yz"/>
-                                    <segue destination="WMl-wW-d8n" kind="show" id="LUy-LD-GKh"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-58-aoW">
@@ -344,16 +343,17 @@
                         <outlet property="mapView" destination="3r6-58-aoW" id="ESv-ZO-jr8"/>
                         <outlet property="sliderMap" destination="uaR-NL-aF0" id="qgV-gn-e01"/>
                         <outlet property="submitButton" destination="Ka7-38-6qD" id="Bg1-q0-jvl"/>
+                        <segue destination="WMl-wW-d8n" kind="show" identifier="locationSegue" id="Bn3-wn-dHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33a-zq-pGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4212" y="807.34632683658174"/>
+            <point key="canvasLocation" x="3825" y="788"/>
         </scene>
-        <!--View Controller-->
+        <!--Location Battle View Controller-->
         <scene sceneID="GWM-zg-A3P">
             <objects>
-                <viewController id="WMl-wW-d8n" sceneMemberID="viewController">
+                <viewController id="WMl-wW-d8n" customClass="LocationBattleViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ReJ-Ww-gcZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

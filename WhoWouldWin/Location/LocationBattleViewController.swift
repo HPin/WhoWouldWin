@@ -12,22 +12,23 @@ import FirebaseDatabase
 
 class LocationBattleViewController: UIViewController, CLLocationManagerDelegate {
     
-//    let manager = CLLocationManager()
+    let manager = CLLocationManager()
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
+    var locationRadius:Double = 10
     
     override func viewWillAppear(_ animated: Bool) {
-//        manager.delegate = self
-//        //100 meters is the accurayc: possible changes -> 10m or bestpossible
-//        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//        manager.requestWhenInUseAuthorization()
-//        manager.startUpdatingLocation()
+        manager.delegate = self
+        //100 meters is the accurayc: possible changes -> 10m or bestpossible
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 
     
     //checks in 10km radius
     func locationIsInRange(myLocation: CLLocation, surveyLocation: CLLocation) -> Bool {
-    if myLocation.distance(from: surveyLocation) < 10000 {
+    if myLocation.distance(from: surveyLocation) < locationRadius {
         return true
         }
         return false

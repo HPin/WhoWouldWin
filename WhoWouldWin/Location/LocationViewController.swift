@@ -22,8 +22,17 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
     
     
     @IBAction func submitButton(_ sender: Any) {
-        
+        performSegue(withIdentifier: "locationSegue", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondViewController = segue.destination as! LocationBattleViewController
+        secondViewController.locationRadius = Double(selectedDistance)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Change Radius"
+        navigationItem.backBarButtonItem = backItem
+    }
+    
     
     @IBAction func sliderMap(_ sender: UISlider) {
         selectedDistance = Int(sender.value)
