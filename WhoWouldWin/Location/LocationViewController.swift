@@ -16,23 +16,27 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var sliderMap: UISlider!
     @IBOutlet weak var submitButton: UIButton!
+    var selectedDistance:Int = 50
     
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//    }
+
     
     
     @IBAction func submitButton(_ sender: Any) {
+        
     }
     
-    @IBAction func sliderMap(_ sender: Any) {
+    @IBAction func sliderMap(_ sender: UISlider) {
+        selectedDistance = Int(sender.value)
+        
+        let buttonText:String = "Radius: " + selectedDistance.description + " km"
+        
+        submitButton.setTitle(buttonText, for: .normal)
     }
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        submitButton.setTitle("Radius: " + selectedDistance.description + " km", for: .normal)
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
