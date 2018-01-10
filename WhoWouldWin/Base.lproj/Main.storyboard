@@ -289,18 +289,53 @@
         <!--Item-->
         <scene sceneID="SNr-De-M8u">
             <objects>
-                <viewController id="oqg-fD-DGu" customClass="LocationBattleViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oqg-fD-DGu" customClass="LocationViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6W-cO-8Eg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-NL-aF0">
+                                <rect key="frame" x="85.5" y="401" width="204" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UEw-RE-U6V"/>
+                                    <constraint firstAttribute="height" constant="35" id="UoS-qO-FpB"/>
+                                </constraints>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-38-6qD">
+                                <rect key="frame" x="87.5" y="466" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.026030197360822349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MKR-Oq-2Zg"/>
+                                    <constraint firstAttribute="height" constant="50" id="jWb-hT-G8T"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-58-aoW">
+                                <rect key="frame" x="25" y="40" width="325" height="311"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="Kdz-bs-AAK"/>
+                                    <constraint firstAttribute="height" constant="311" id="aV3-eg-fkl"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3r6-58-aoW" firstAttribute="centerX" secondItem="u6W-cO-8Eg" secondAttribute="centerX" id="43V-ge-cPW"/>
+                            <constraint firstItem="Ka7-38-6qD" firstAttribute="centerX" secondItem="u6W-cO-8Eg" secondAttribute="centerX" id="OcT-qq-s4W"/>
+                            <constraint firstItem="uaR-NL-aF0" firstAttribute="top" secondItem="3r6-58-aoW" secondAttribute="bottom" constant="50" id="SYH-QH-LN6"/>
+                            <constraint firstItem="uaR-NL-aF0" firstAttribute="centerX" secondItem="u6W-cO-8Eg" secondAttribute="centerX" id="ozg-C4-tGE"/>
+                            <constraint firstItem="Ka7-38-6qD" firstAttribute="top" secondItem="uaR-NL-aF0" secondAttribute="bottom" constant="30" id="u6J-yB-JqK"/>
+                            <constraint firstItem="3r6-58-aoW" firstAttribute="top" secondItem="Xg2-c5-qWF" secondAttribute="top" constant="20" id="wyY-MQ-DN1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xg2-c5-qWF"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="DJk-ZS-Pe3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33a-zq-pGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2689" y="810"/>
+            <point key="canvasLocation" x="2688.8000000000002" y="809.14542728635683"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="69q-uu-dpK">
