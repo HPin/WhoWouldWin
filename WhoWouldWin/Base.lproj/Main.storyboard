@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Category-->
         <scene sceneID="Da9-TE-FR3">
             <objects>
-                <viewController id="gtM-fZ-UbI" customClass="CategoriesViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesViewController" id="gtM-fZ-UbI" customClass="CategoriesViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ydP-Fh-x0p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v8Y-lf-f2M"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="4G9-rB-doU"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="tabbar_cat" selectedImage="tabbar_cat" id="4G9-rB-doU"/>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="LUT-S3-gJO" id="cQ0-WU-Bdc"/>
                         <segue destination="M4E-ON-EvH" kind="show" identifier="categorySegue" id="qf3-xv-e0K"/>
@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="3605.5999999999999" y="-690.40479760119945"/>
         </scene>
-        <!--Item-->
+        <!--Who?-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BattleViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BattleViewController" id="BYZ-38-t0r" customClass="BattleViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,7 +258,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9R8-kM-iWY"/>
+                    <tabBarItem key="tabBarItem" title="Who?" image="tabbar_vs" selectedImage="tabbar_vs" id="9R8-kM-iWY"/>
                     <connections>
                         <outlet property="topView" destination="oXU-JA-2ed" id="a1T-jJ-Cp8"/>
                     </connections>
@@ -266,6 +266,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="32.833583208395808"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="5Ty-fd-OKy">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Hp0-EX-dJF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jfQ-Nq-zjd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yMs-w0-fXn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tabbar_settings" id="A50-Zs-yB4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aKV-wX-cZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="1184"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bYj-PT-2Hz">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" id="qwe-wq-QpV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ynX-V7-JN3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5sb-QR-Fys"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" id="crE-ob-8cI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HaA-og-jOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2716" y="983"/>
+        </scene>
+        <!--New-->
+        <scene sceneID="OK5-Qw-Bgt">
+            <objects>
+                <viewController storyboardIdentifier="AddViewController" id="lkz-sP-iuW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fnR-mG-WSL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RRZ-Gn-Vvv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="New" image="tabbar_add" selectedImage="tabbar_add" id="eCg-4d-aJn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eR-GN-Fiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3750" y="788"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="69q-uu-dpK">
@@ -592,10 +640,10 @@
             </objects>
             <point key="canvasLocation" x="993" y="788"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="bgB-1p-Hu4">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ft4-Ra-Smw" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ft4-Ra-Smw" customClass="CustomTabBarController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zLz-Si-u1K">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -603,8 +651,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GdP-qP-hdh"/>
+                        <segue destination="qwe-wq-QpV" kind="relationship" relationship="viewControllers" id="COV-H1-PzI"/>
                         <segue destination="gtM-fZ-UbI" kind="relationship" relationship="viewControllers" id="7rJ-0V-LRP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GdP-qP-hdh"/>
+                        <segue destination="lkz-sP-iuW" kind="relationship" relationship="viewControllers" id="8NM-vn-ORf"/>
+                        <segue destination="Hp0-EX-dJF" kind="relationship" relationship="viewControllers" id="UVx-1T-H7D"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pzX-bZ-0sL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,5 +665,9 @@
     </scenes>
     <resources>
         <image name="aurora" width="750" height="1334"/>
+        <image name="tabbar_add" width="65" height="50"/>
+        <image name="tabbar_cat" width="65" height="50"/>
+        <image name="tabbar_settings" width="65" height="50"/>
+        <image name="tabbar_vs" width="76" height="60"/>
     </resources>
 </document>
