@@ -16,12 +16,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var sliderMap: UISlider!
     @IBOutlet weak var submitButton: UIButton!
     
-    override func viewWillAppear(_ animated: Bool) {
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//    }
     
     
     @IBAction func submitButton(_ sender: Any) {
@@ -34,8 +31,18 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        let span:MKCoordinateSpan = 
+        
     }
 
     override func didReceiveMemoryWarning() {
