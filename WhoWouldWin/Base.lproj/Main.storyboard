@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category-->
+        <!--Categories View Controller-->
         <scene sceneID="Da9-TE-FR3">
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="gtM-fZ-UbI" customClass="CategoriesViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LUT-S3-gJO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="irp-Eu-RPQ">
                                     <size key="itemSize" width="375" height="130"/>
@@ -68,7 +68,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v8Y-lf-f2M"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Category" image="tabbar_cat" selectedImage="tabbar_cat" id="4G9-rB-doU"/>
+                    <navigationItem key="navigationItem" id="k6W-s1-Siv"/>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="LUT-S3-gJO" id="cQ0-WU-Bdc"/>
                         <segue destination="M4E-ON-EvH" kind="show" identifier="categorySegue" id="qf3-xv-e0K"/>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfv-Oj-YDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688.8000000000002" y="-690.40479760119945"/>
+            <point key="canvasLocation" x="3598" y="-691"/>
         </scene>
         <!--Category Battle View Controller-->
         <scene sceneID="vjb-yu-sxm">
@@ -87,12 +87,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aurora" translatesAutoresizingMaskIntoConstraints="NO" id="NKv-M9-mjh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BgA-9M-3ii">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8UF-ua-BTF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTu-ic-VSr">
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jw-g5-89B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3605.5999999999999" y="-690.40479760119945"/>
+            <point key="canvasLocation" x="4514" y="-691"/>
         </scene>
         <!--Who?-->
         <scene sceneID="tne-QT-ifu">
@@ -277,9 +277,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gtM-fZ-UbI" kind="relationship" relationship="viewControllers" id="wZZ-o7-wFo"/>
+                        <segue destination="l7e-Bq-Blz" kind="relationship" relationship="viewControllers" id="wZZ-o7-wFo"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D22-Rx-4Qh"/>
-                        <segue destination="KXL-ZG-qpI" kind="relationship" relationship="viewControllers" id="8as-iW-DG1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="686-OK-7lH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-NL-aF0">
-                                <rect key="frame" x="85.5" y="445" width="204" height="36"/>
+                                <rect key="frame" x="85.5" y="401" width="204" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="UEw-RE-U6V"/>
                                     <constraint firstAttribute="height" constant="35" id="UoS-qO-FpB"/>
@@ -305,7 +304,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-38-6qD">
-                                <rect key="frame" x="87.5" y="510" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="466" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.026030197360822349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="MKR-Oq-2Zg"/>
@@ -320,7 +319,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-58-aoW">
-                                <rect key="frame" x="25" y="84" width="325" height="311"/>
+                                <rect key="frame" x="25" y="40" width="325" height="311"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="Kdz-bs-AAK"/>
                                     <constraint firstAttribute="height" constant="311" id="aV3-eg-fkl"/>
@@ -689,24 +688,24 @@
             </objects>
             <point key="canvasLocation" x="993" y="788"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="l2r-jV-H6y">
+        <!--Category-->
+        <scene sceneID="alJ-KL-0MR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KXL-ZG-qpI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="DJk-ZS-Pe3"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l7e-Bq-Blz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Category" image="tabbar_cat" selectedImage="tabbar_cat" id="4G9-rB-doU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DYE-sh-tpG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PZY-w3-BZQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="oqg-fD-DGu" kind="relationship" relationship="rootViewController" id="zP7-E3-I5E"/>
+                        <segue destination="gtM-fZ-UbI" kind="relationship" relationship="rootViewController" id="hiF-Is-7Jp"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3AU-g2-PF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypa-Ib-VbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688" y="808.69565217391312"/>
+            <point key="canvasLocation" x="2688" y="-690.85457271364328"/>
         </scene>
     </scenes>
     <resources>
