@@ -279,7 +279,6 @@
                     <connections>
                         <segue destination="l7e-Bq-Blz" kind="relationship" relationship="viewControllers" id="wZZ-o7-wFo"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D22-Rx-4Qh"/>
-                        <segue destination="KXL-ZG-qpI" kind="relationship" relationship="viewControllers" id="8as-iW-DG1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="686-OK-7lH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-NL-aF0">
-                                <rect key="frame" x="85.5" y="445" width="204" height="36"/>
+                                <rect key="frame" x="85.5" y="401" width="204" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="UEw-RE-U6V"/>
                                     <constraint firstAttribute="height" constant="35" id="UoS-qO-FpB"/>
@@ -305,7 +304,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-38-6qD">
-                                <rect key="frame" x="87.5" y="510" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="466" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.026030197360822349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="MKR-Oq-2Zg"/>
@@ -320,7 +319,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-58-aoW">
-                                <rect key="frame" x="25" y="84" width="325" height="311"/>
+                                <rect key="frame" x="25" y="40" width="325" height="311"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="Kdz-bs-AAK"/>
                                     <constraint firstAttribute="height" constant="311" id="aV3-eg-fkl"/>
