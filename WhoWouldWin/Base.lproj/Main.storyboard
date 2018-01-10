@@ -202,12 +202,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aurora" translatesAutoresizingMaskIntoConstraints="NO" id="kFw-ex-wFx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTq-YL-FCx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jG0-Bh-OsC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXU-JA-2ed">
@@ -267,32 +267,32 @@
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="32.833583208395808"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="DBN-bo-3T4">
+            <objects>
+                <tabBarController id="6kt-wu-ceZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0lc-It-KAW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gtM-fZ-UbI" kind="relationship" relationship="viewControllers" id="wZZ-o7-wFo"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D22-Rx-4Qh"/>
+                        <segue destination="oqg-fD-DGu" kind="relationship" relationship="viewControllers" id="8as-iW-DG1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="686-OK-7lH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1898" y="33"/>
+        </scene>
         <!--Item-->
         <scene sceneID="SNr-De-M8u">
             <objects>
-                <viewController id="oqg-fD-DGu" customClass="LocationViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oqg-fD-DGu" customClass="LocationBattleViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6W-cO-8Eg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K8Z-l2-41W">
-                                <rect key="frame" x="20" y="73" width="339" height="207"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HKf-6E-Y5g">
-                                <rect key="frame" x="42" y="379" width="304" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAB-5P-1kn">
-                                <rect key="frame" x="127" y="475" width="121" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.17269148137623025" green="1" blue="0.0041649984567410092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xg2-c5-qWF"/>
                     </view>
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33a-zq-pGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688.8000000000002" y="809.14542728635683"/>
+            <point key="canvasLocation" x="2689" y="810"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="69q-uu-dpK">
@@ -403,6 +403,7 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="signInButton:" destination="J3q-fS-PC6" eventType="touchUpInside" id="l0A-C4-4Fx"/>
+                                                <segue destination="6kt-wu-ceZ" kind="show" identifier="fromLoginToStart" id="EJX-3F-87f"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -442,7 +443,6 @@
                     <connections>
                         <outlet property="eMailTextField" destination="a9z-4j-Sxv" id="Nl5-Ku-Mbs"/>
                         <outlet property="passwordTextField" destination="Ub5-my-ALg" id="TdD-0E-NT0"/>
-                        <segue destination="ft4-Ra-Smw" kind="show" identifier="fromLoginToStart" id="JuV-MD-7Gp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-KS-bxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -626,25 +626,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5b-o9-wAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="788"/>
-        </scene>
-        <!--Custom Tab Bar Controller-->
-        <scene sceneID="bgB-1p-Hu4">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ft4-Ra-Smw" customClass="CustomTabBarController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zLz-Si-u1K">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="gtM-fZ-UbI" kind="relationship" relationship="viewControllers" id="7rJ-0V-LRP"/>
-                        <segue destination="oqg-fD-DGu" kind="relationship" relationship="viewControllers" id="PqX-dk-vst"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pzX-bZ-0sL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1855" y="33"/>
         </scene>
     </scenes>
     <resources>
