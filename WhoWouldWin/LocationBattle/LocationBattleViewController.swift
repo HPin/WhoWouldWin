@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class LocationBattleViewController: UIViewController, CLLocationManagerDelegate {
 
+    var ref:DatabaseReference?
+    var refHandle: DatabaseHandle?
     
     let manager = CLLocationManager()
         
@@ -22,6 +24,19 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        ref = Database.database().reference()
+        //var arr: [Double] = [(manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!]
+        
+        let dic: Dictionary = [
+            "Longitude" : manager.location?.coordinate.longitude,
+            "Latitude" : manager.location?.coordinate.latitude
+        ]
+        
+        
+        ref?.child("Locations").childByAutoId().setValue(dic)
+        
+        
         
     }
     
