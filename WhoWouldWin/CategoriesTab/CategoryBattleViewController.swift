@@ -31,7 +31,7 @@ class CategoryBattleViewController: UIViewController {
         
         ref = Database.database().reference()
         
-        let random = Int(arc4random_uniform(3))
+        let random = Int(arc4random_uniform(2)) + 1
         let battleID = categoryName + " " + String(random)
         print("----")
         print(categoryName)
