@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import CoreLocation
+import FirebaseDatabase
 
-class LocationBattleViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class LocationBattleViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let manager = CLLocationManager()
+    var ref: DatabaseReference?
+    var refHandle: DatabaseHandle?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        manager.delegate = self
+        //100 meters is the accurayc: possible changes -> 10m or bestpossible
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //checks in 10km radius
+    func locationIsInRange(myLocation: CLLocation, surveyLocation: CLLocation) -> Bool {
+    if myLocation.distance(from: surveyLocation) < 10000 {
+        return true
+        }
+        return false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
-
+    
 }
+
+
