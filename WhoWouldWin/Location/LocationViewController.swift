@@ -7,9 +7,31 @@
 //
 
 import UIKit
+import MapKit
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController, CLLocationManagerDelegate  {
 
+    let manager = CLLocationManager()
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var sliderMap: UISlider!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
+    
+    @IBAction func submitButton(_ sender: Any) {
+    }
+    
+    @IBAction func sliderMap(_ sender: Any) {
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

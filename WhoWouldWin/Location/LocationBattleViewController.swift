@@ -12,16 +12,16 @@ import FirebaseDatabase
 
 class LocationBattleViewController: UIViewController, CLLocationManagerDelegate {
     
-    let manager = CLLocationManager()
+//    let manager = CLLocationManager()
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
     override func viewWillAppear(_ animated: Bool) {
-        manager.delegate = self
-        //100 meters is the accurayc: possible changes -> 10m or bestpossible
-        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+//        manager.delegate = self
+//        //100 meters is the accurayc: possible changes -> 10m or bestpossible
+//        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        manager.requestWhenInUseAuthorization()
+//        manager.startUpdatingLocation()
     }
 
     
