@@ -14,6 +14,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     var categories = [String]()
+    var categoryClicked: String?
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
@@ -80,8 +81,19 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        categoryClicked = categories[indexPath.row]
         
         performSegue(withIdentifier: "categorySegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "categorySegue" {
+            if let detailsVC = segue.destination as? CategoryBattleViewController {
+                
+                detailsVC.categoryName = self.categoryClicked
+                
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

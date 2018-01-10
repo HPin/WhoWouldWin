@@ -14,18 +14,31 @@ class CategoryBattleViewController: UIViewController {
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
+    var categoryName: String!
+    
     @IBOutlet weak var battleNameLabel: UILabel!
     @IBOutlet weak var contender1Label: UILabel!
     @IBOutlet weak var contender2Label: UILabel!
     @IBOutlet weak var percent1Label: UILabel!
     @IBOutlet weak var percent2Label: UILabel!
     
+    @IBAction func nextButton(_ sender: CustomButton) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         
-        refHandle = ref?.child("Categories").child("Fight").child("Fight 1").observe(.value, with: { (snapshot) in
+        let random = Int(arc4random_uniform(3))
+        let battleID = categoryName + " " + String(random)
+        print("----")
+        print(categoryName)
+        print(battleID)
+        print(random)
+        
+        refHandle = ref?.child("Categories").child(categoryName).child(battleID).observe(.value, with: { (snapshot) in
             
             print(snapshot)
             
