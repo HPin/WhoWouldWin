@@ -10,6 +10,7 @@
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E4C4313F20063299007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */; };
+		E4C4314320065F89007D4CC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4C4314220065F89007D4CC6 /* GoogleService-Info.plist */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
@@ -24,7 +25,6 @@
 		E6E900611FF418A8008896EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */; };
 		E6E9006C1FF418A8008896EB /* WhoWouldWinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E9006B1FF418A8008896EB /* WhoWouldWinTests.swift */; };
 		E6E900771FF418A8008896EB /* WhoWouldWinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900761FF418A8008896EB /* WhoWouldWinUITests.swift */; };
-		E6F0AB7B1FFE40B0003FA238 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,7 @@
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
+		E4C4314220065F89007D4CC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		E6E900721FF418A8008896EB /* WhoWouldWinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoWouldWinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E900761FF418A8008896EB /* WhoWouldWinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoWouldWinUITests.swift; sourceTree = "<group>"; };
 		E6E900781FF418A8008896EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E4C43141200659EB007D4CC6 /* LocationBattle */ = {
+			isa = PBXGroup;
+			children = (
+				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
+			);
+			path = LocationBattle;
+			sourceTree = "<group>";
+		};
 		E6D572112001816D004CE0FB /* CategoriesTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,18 +152,18 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E4C43141200659EB007D4CC6 /* LocationBattle */,
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E6E900551FF418A8008896EB /* BattleViewController.swift */,
 				E66A0CD11FFE7BB400780804 /* LoginViewController.swift */,
 				E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */,
 				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
-				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
 				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6E9005D1FF418A8008896EB /* Assets.xcassets */,
+				E4C4314220065F89007D4CC6 /* GoogleService-Info.plist */,
 				E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */,
 				E6E900621FF418A8008896EB /* Info.plist */,
-				E6F0AB7A1FFE40B0003FA238 /* GoogleService-Info.plist */,
 				E6E9005A1FF418A8008896EB /* WhoWouldWin.xcdatamodeld */,
 			);
 			path = WhoWouldWin;
@@ -299,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6E900611FF418A8008896EB /* LaunchScreen.storyboard in Resources */,
-				E6F0AB7B1FFE40B0003FA238 /* GoogleService-Info.plist in Resources */,
+				E4C4314320065F89007D4CC6 /* GoogleService-Info.plist in Resources */,
 				E6E9005E1FF418A8008896EB /* Assets.xcassets in Resources */,
 				E6E900591FF418A8008896EB /* Main.storyboard in Resources */,
 			);
