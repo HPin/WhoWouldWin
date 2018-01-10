@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		36949B7E2006596B00BAF700 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36949B7D2006596B00BAF700 /* GoogleService-Info.plist */; };
 		36949B802006602C00BAF700 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36949B7F2006602C00BAF700 /* CustomTabBarController.swift */; };
-		36949B8220069E0A00BAF700 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 36949B8120069E0900BAF700 /* Sources */; };
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
@@ -51,14 +50,6 @@
 		2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWouldWin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36949B7D2006596B00BAF700 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36949B7F2006602C00BAF700 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		36949B8120069E0900BAF700 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
-		36949B8420069E1500BAF700 /* ExampleBackgroundContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBackgroundContentView.swift; sourceTree = "<group>"; };
-		36949B8520069E1500BAF700 /* ExampleBouncesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBouncesContentView.swift; sourceTree = "<group>"; };
-		36949B8620069E1500BAF700 /* ExampleAnimateTipsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAnimateTipsContentView.swift; sourceTree = "<group>"; };
-		36949B8720069E1500BAF700 /* ExampleBasicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleBasicContentView.swift; sourceTree = "<group>"; };
-		36949B8820069E1500BAF700 /* ExampleHighlightableContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleHighlightableContentView.swift; sourceTree = "<group>"; };
-		36949B8920069E1500BAF700 /* ExampleTipsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTipsContentView.swift; sourceTree = "<group>"; };
-		36949B8A20069E1500BAF700 /* ExampleIrregularityContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityContentView.swift; sourceTree = "<group>"; };
 		758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.debug.xcconfig"; sourceTree = "<group>"; };
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -122,18 +113,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		36949B8320069E1500BAF700 /* Content */ = {
+		36949B8B2006A39100BAF700 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				36949B8420069E1500BAF700 /* ExampleBackgroundContentView.swift */,
-				36949B8520069E1500BAF700 /* ExampleBouncesContentView.swift */,
-				36949B8620069E1500BAF700 /* ExampleAnimateTipsContentView.swift */,
-				36949B8720069E1500BAF700 /* ExampleBasicContentView.swift */,
-				36949B8820069E1500BAF700 /* ExampleHighlightableContentView.swift */,
-				36949B8920069E1500BAF700 /* ExampleTipsContentView.swift */,
-				36949B8A20069E1500BAF700 /* ExampleIrregularityContentView.swift */,
+				E4C4313E20063299007D4CC6 /* LocationBattleViewController.swift */,
 			);
-			path = Content;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E4C431452006A67D007D4CC6 /* Recovered References */ = {
@@ -349,7 +334,6 @@
 				36949B7E2006596B00BAF700 /* GoogleService-Info.plist in Resources */,
 				E6E9005E1FF418A8008896EB /* Assets.xcassets in Resources */,
 				E6E900591FF418A8008896EB /* Main.storyboard in Resources */,
-				36949B8220069E0A00BAF700 /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +394,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -418,7 +401,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
