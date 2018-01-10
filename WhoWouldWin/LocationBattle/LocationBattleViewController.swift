@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseDatabase
 
 class LocationBattleViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -21,7 +22,10 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
     }
+    
+    //var location = CLLocationCoordinate2D(latitude: 10.30, longitude: 44.34)
         
     //checks in 10km radius
     func locationIsInRange(myLocation: CLLocation, surveyLocation: CLLocation) -> Bool {
@@ -30,6 +34,8 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         }
         return false
     }
+    
+    
         
         
         
