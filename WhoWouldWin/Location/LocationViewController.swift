@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate  {
 
@@ -41,8 +42,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(location.coordinate.latitude, location.coordinate.longitude)
-        let myLoction:CLLocationCoordinate2D
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLoction:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(myLoction, span)
+        mapView.setRegion(region, animated: true)
+        
+        self.mapView.showsUserLocation = true
         
     }
 
