@@ -23,6 +23,13 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        guard let myLocation:CLLocation = manager.location else {
+            print("Couldn't get current location!")
+            return
+        }
+        let myLatitude = myLocation.coordinate.latitude
+        let myLongitude = myLocation.coordinate.longitude
+        
         
         ref = Database.database().reference()
         
@@ -32,14 +39,10 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
                 let latitude:Double = dic["Latitude"] as! Double
                 let longitude:Double = dic["Longitude"] as! Double
                 let location = CLLocation(latitude: latitude, longitude: longitude)
-                let location1 = CLLocation(latitude: 50.785834, longitude: -122.406417)
+                let location1 = CLLocation(latitude: myLatitude, longitude: myLongitude)
                 if self.locationIsInRange(myLocation: location, surveyLocation: location1){
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
-                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    //there is a Battle with the same location!
+                    
                 }
                 
             }
