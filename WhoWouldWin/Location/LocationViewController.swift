@@ -10,13 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate  {
+class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate  {
 
     let manager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var sliderMap: UISlider!
     @IBOutlet weak var submitButton: UIButton!
-    var selectedDistance:Int = 50
+    var selectedDistance:Int = 1
     
 
     
@@ -40,7 +40,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
         let buttonText:String = "Radius: " + selectedDistance.description + " km"
         
         submitButton.setTitle(buttonText, for: .normal)
+        showCircle(coordinate: (manager.location?.coordinate)!, radius: Double(selectedDistance), mapView: mapView)
     }
+    
     
     
     override func viewDidLoad() {
@@ -50,16 +52,19 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        showCircle(coordinate: (manager.location?.coordinate)!, radius: Double(selectedDistance), mapView: mapView)
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(3, 3)
         let myLoction:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLoction, span)
         mapView.setRegion(region, animated: true)
-        
         self.mapView.showsUserLocation = true
         
     }
@@ -79,5 +84,20 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate  {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func mapView(_ mapView: MKMapView, rendererFor overlay: MKCircle) -> MKOverlayRenderer {
+            let circle = MKCircleRenderer(overlay: overlay)
+            circle.strokeColor = UIColor.red
+            circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
+            circle.lineWidth = 1
+            return circle
+    }
+    
+    func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, mapView: MKMapView) {
+        self.mapView.delegate = self
+        let circle = MKCircle(center: coordinate, radius: radius)
+        mapView.add(circle)
+    }
+  
 
 }
