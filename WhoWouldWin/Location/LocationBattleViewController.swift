@@ -26,27 +26,25 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         
         ref = Database.database().reference()
         
-        refHandle = ref?.child("Locations").observe(.value, with: { (snapshot) in
-            for location in snapshot.children{
-                print(location)
+        ref?.child("Locations").observe(.childAdded, with: { (snapshot) in
+            if let dic = snapshot.value as? [String:AnyObject] {
+                print(dic)
+                let latitude:Double = dic["Latitude"] as! Double
+                let longitude:Double = dic["Longitude"] as! Double
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                let location1 = CLLocation(latitude: 50.785834, longitude: -122.406417)
+                if self.locationIsInRange(myLocation: location, surveyLocation: location1){
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                    print("LECK MEINE EIER ES FUNKTIONIERT FICKEN!!!!")
+                }
+                
             }
         })
         
-        //let childSnapshot = snapshot.childSnapshotForPath(child.key)
-        
-        
-//        let databaseHandle = databaseRef.observe(.value, with: { (snapshot) in
-//            for item in snapshot.children {
-//
-//                if let dbLocation = snapshot.childSnapshot(forPath: "LocationName") as? String {
-//
-//                    print (dbLocation)
-//                }
-//
-//                print(item)
-//
-//            }
-
 
     }
 
@@ -54,7 +52,7 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
     
     //checks the radius
     func locationIsInRange(myLocation: CLLocation, surveyLocation: CLLocation) -> Bool {
-    if myLocation.distance(from: surveyLocation) < locationRadius {
+    if myLocation.distance(from: surveyLocation) < locationRadius*1000 {
         return true
         }
         return false
