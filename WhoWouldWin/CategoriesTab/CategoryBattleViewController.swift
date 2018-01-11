@@ -45,11 +45,11 @@ class CategoryBattleViewController: UIViewController {
             if let dict = snapshot.value as? [String : [String : AnyObject]] {
                 
                 self.contender1Label.text = dict["Contender 1"]!["Name"] as? String
-                let percent1 = dict["Contender 1"]!["Percentage"] as! Int
+                let percent1 = dict["Contender 1"]!["Votes"] as! Int
                 self.percent1Label.text = String(percent1)
                 
                 self.contender2Label.text = dict["Contender 2"]!["Name"] as? String
-                let percent2 = dict["Contender 2"]!["Percentage"] as! Int
+                let percent2 = dict["Contender 2"]!["Votes"] as! Int
                 self.percent2Label.text = String(percent2)
             }
             

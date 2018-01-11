@@ -22,7 +22,7 @@ class CustomTabBar: ESTabBarController {
         let v1 = self.storyboard?.instantiateViewController(withIdentifier: "locTab") as! UINavigationController
         let v2 = self.storyboard?.instantiateViewController(withIdentifier: "catTab") as! UINavigationController
         let v3 = self.storyboard?.instantiateViewController(withIdentifier: "vsTab") as! BattleViewController
-        let v4 = self.storyboard?.instantiateViewController(withIdentifier: "addTab") as! UIViewController
+        let v4 = self.storyboard?.instantiateViewController(withIdentifier: "addTab") as! UINavigationController
         let v5 = self.storyboard?.instantiateViewController(withIdentifier: "settTab") as! UIViewController
         
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "tabbar_loc"), selectedImage: UIImage(named: "tabbar_loc"), tag: 0)
