@@ -14,7 +14,8 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     var categories = [String]()
-    var categoryClicked: String?
+    var categoryClicked: String = "Fight"   // default: First picker entry
+    var battleCount: UInt = 0
     
     @IBOutlet weak var locationSegControl: UISegmentedControl!
     @IBOutlet weak var categoryPicker: UIPickerView!
@@ -23,7 +24,13 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        // add to firebase
+        
+        let battleNo = categoryClicked + " " + String(battleCount)
+        
+        let battleRef = ref?.child("Categories").child(categoryClicked).child(battleNo)
+        
+        battleRef?.child("Contender 1").setValue(["Name": "Jakob", "Votes" : 0])
+        battleRef?.child("Contender 2").setValue(["Name": "Toaster", "Votes" : 0])
     }
     
     override func viewDidLoad() {
@@ -37,6 +44,11 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.categories.append(post)
             self.categoryPicker.reloadAllComponents()
         })
+        
+        ref?.child("Categories").child(categoryClicked).observeSingleEvent(of: .value, with: { (snapshot) in
+            self.battleCount = snapshot.childrenCount
+        })
+       
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
