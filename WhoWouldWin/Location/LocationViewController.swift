@@ -18,8 +18,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBOutlet weak var submitButton: UIButton!
     var selectedDistance:Int = 1
     
-
-    
     
     @IBAction func submitButton(_ sender: Any) {
         performSegue(withIdentifier: "locationSegue", sender: self)
