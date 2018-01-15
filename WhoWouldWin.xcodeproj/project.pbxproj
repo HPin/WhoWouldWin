@@ -18,8 +18,6 @@
 		36949BCB2007BDD400BAF700 /* ExampleIrregularityContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36949BC42007BDD400BAF700 /* ExampleIrregularityContentView.swift */; };
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
 		E49869922007E8DE00F3CAF7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49869912007E8DE00F3CAF7 /* AddViewController.swift */; };
-		E49869942007E9FB00F3CAF7 /* AddCategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49869932007E9FB00F3CAF7 /* AddCategoryBattleViewController.swift */; };
-		E49869962007EA0600F3CAF7 /* AddLocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49869952007EA0600F3CAF7 /* AddLocationBattleViewController.swift */; };
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
 		E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */; };
@@ -70,8 +68,6 @@
 		758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.debug.xcconfig"; sourceTree = "<group>"; };
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
 		E49869912007E8DE00F3CAF7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		E49869932007E9FB00F3CAF7 /* AddCategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryBattleViewController.swift; sourceTree = "<group>"; };
-		E49869952007EA0600F3CAF7 /* AddLocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationBattleViewController.swift; sourceTree = "<group>"; };
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E4C431462006A6C8007D4CC6 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
@@ -147,13 +143,45 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
-		E4C431482006A6CE007D4CC6 /* Location */ = {
+		E4C431482006A6CE007D4CC6 /* LocationTab */ = {
 			isa = PBXGroup;
 			children = (
 				E4C431462006A6C8007D4CC6 /* LocationViewController.swift */,
 				E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */,
 			);
-			path = Location;
+			path = LocationTab;
+			sourceTree = "<group>";
+		};
+		E64E5C96200A3EF400FB254B /* BattleTab */ = {
+			isa = PBXGroup;
+			children = (
+				E6E900551FF418A8008896EB /* BattleViewController.swift */,
+			);
+			path = BattleTab;
+			sourceTree = "<group>";
+		};
+		E64E5C97200A3EFE00FB254B /* AddingTab */ = {
+			isa = PBXGroup;
+			children = (
+				E49869912007E8DE00F3CAF7 /* AddViewController.swift */,
+			);
+			path = AddingTab;
+			sourceTree = "<group>";
+		};
+		E64E5C98200A3F0D00FB254B /* SettingsTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SettingsTab;
+			sourceTree = "<group>";
+		};
+		E64E5C99200A3F5100FB254B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E66A0CD11FFE7BB400780804 /* LoginViewController.swift */,
+				E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E6D572112001816D004CE0FB /* CategoriesTab */ = {
@@ -191,24 +219,22 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
-				E4C431482006A6CE007D4CC6 /* Location */,
-				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
-				E6E900551FF418A8008896EB /* BattleViewController.swift */,
-				E66A0CD11FFE7BB400780804 /* LoginViewController.swift */,
-				E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */,
 				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
+				36949BBB2007BDAA00BAF700 /* CustomTabBar.swift */,
+				E4C431482006A6CE007D4CC6 /* LocationTab */,
+				E6D572112001816D004CE0FB /* CategoriesTab */,
+				E64E5C96200A3EF400FB254B /* BattleTab */,
+				E64E5C97200A3EFE00FB254B /* AddingTab */,
+				E64E5C98200A3F0D00FB254B /* SettingsTab */,
 				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6E9005D1FF418A8008896EB /* Assets.xcassets */,
 				36949B7D2006596B00BAF700 /* GoogleService-Info.plist */,
 				E6E9005F1FF418A8008896EB /* LaunchScreen.storyboard */,
 				E6E900621FF418A8008896EB /* Info.plist */,
 				E6E9005A1FF418A8008896EB /* WhoWouldWin.xcdatamodeld */,
-				36949BBB2007BDAA00BAF700 /* CustomTabBar.swift */,
-				E49869912007E8DE00F3CAF7 /* AddViewController.swift */,
-				E49869932007E9FB00F3CAF7 /* AddCategoryBattleViewController.swift */,
-				E49869952007EA0600F3CAF7 /* AddLocationBattleViewController.swift */,
 			);
 			path = WhoWouldWin;
 			sourceTree = "<group>";
@@ -443,11 +469,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */,
-				E49869962007EA0600F3CAF7 /* AddLocationBattleViewController.swift in Sources */,
 				E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */,
 				E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */,
 				36949BC62007BDD400BAF700 /* ExampleBouncesContentView.swift in Sources */,
-				E49869942007E9FB00F3CAF7 /* AddCategoryBattleViewController.swift in Sources */,
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,
 				36949BBC2007BDAA00BAF700 /* CustomTabBar.swift in Sources */,
 				E6E900561FF418A8008896EB /* BattleViewController.swift in Sources */,

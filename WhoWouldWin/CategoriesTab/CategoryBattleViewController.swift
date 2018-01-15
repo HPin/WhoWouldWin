@@ -15,6 +15,7 @@ class CategoryBattleViewController: UIViewController {
     var refHandle: DatabaseHandle?
     
     var categoryName: String!
+    var battleCount: UInt = 0
     
     @IBOutlet weak var battleNameLabel: UILabel!
     @IBOutlet weak var contender1Label: UILabel!
@@ -31,12 +32,8 @@ class CategoryBattleViewController: UIViewController {
         
         ref = Database.database().reference()
         
-        let random = Int(arc4random_uniform(2)) + 1
+        let random = Int(arc4random_uniform(2))
         let battleID = categoryName + " " + String(random)
-        print("----")
-        print(categoryName)
-        print(battleID)
-        print(random)
         
         refHandle = ref?.child("Categories").child(categoryName).child(battleID).observe(.value, with: { (snapshot) in
             
