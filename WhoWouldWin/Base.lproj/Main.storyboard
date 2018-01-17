@@ -125,8 +125,8 @@
                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzA-uw-C2x" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
-                                            <rect key="frame" x="162" y="552" width="60" height="60"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzA-uw-C2x" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
+                                            <rect key="frame" x="162" y="490" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                             <color key="tintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,6 +146,34 @@
                                                 <action selector="nextButton:" destination="M4E-ON-EvH" eventType="touchUpInside" id="VXb-OQ-bZ1"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-9p-bjS">
+                                            <rect key="frame" x="231" y="398" width="124" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <state key="normal" title="vote for 2"/>
+                                            <connections>
+                                                <action selector="vote2Button:" destination="M4E-ON-EvH" eventType="touchUpInside" id="S8v-1H-jT0"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51E-We-lqP">
+                                            <rect key="frame" x="20" y="398" width="97" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="vote for 1"/>
+                                            <connections>
+                                                <action selector="vote1Button:" destination="M4E-ON-EvH" eventType="touchUpInside" id="Fzn-CD-HcW"/>
+                                            </connections>
+                                        </button>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There are no battles left!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV4-VC-LQZ">
+                                            <rect key="frame" x="47" y="110" width="282" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Eka-LH-pBp" firstAttribute="top" secondItem="IVI-ec-37y" secondAttribute="bottom" constant="10" id="97y-I7-qCV"/>
@@ -185,13 +213,17 @@
                         <outlet property="battleNameLabel" destination="hTu-ic-VSr" id="37n-ND-iYb"/>
                         <outlet property="contender1Label" destination="NO1-9C-qqc" id="FiA-VW-Enz"/>
                         <outlet property="contender2Label" destination="IVI-ec-37y" id="rCX-BM-QsM"/>
+                        <outlet property="errorLabel" destination="rV4-VC-LQZ" id="VEu-Nb-fEr"/>
+                        <outlet property="nextButton" destination="RzA-uw-C2x" id="Z8W-Hn-T3n"/>
                         <outlet property="percent1Label" destination="U0n-va-T6q" id="bDc-ph-YhE"/>
                         <outlet property="percent2Label" destination="Eka-LH-pBp" id="Tda-dV-fxU"/>
+                        <outlet property="vote1Button" destination="51E-We-lqP" id="UmE-1c-I3P"/>
+                        <outlet property="vote2Button" destination="tEf-9p-bjS" id="XB7-O5-hsa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jw-g5-89B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4514" y="-691"/>
+            <point key="canvasLocation" x="4512.8000000000002" y="-691.304347826087"/>
         </scene>
         <!--Battle View Controller-->
         <scene sceneID="tne-QT-ifu">
