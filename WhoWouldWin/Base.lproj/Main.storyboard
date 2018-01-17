@@ -887,10 +887,13 @@
                                             <rect key="frame" x="21" y="50" width="335" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="location battle"/>
-                                                <segment title="global battle"/>
+                                                <segment title="Global"/>
+                                                <segment title="Location"/>
                                             </segments>
                                             <color key="tintColor" red="0.84483045339999996" green="0.84077233080000002" blue="0.64670687910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="GlobalOrLocationBattle:" destination="8RS-CY-uMS" eventType="valueChanged" id="bzn-bu-HBt"/>
+                                            </connections>
                                         </segmentedControl>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location or global battle?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TC1-xF-tHX">
                                             <rect key="frame" x="17" y="16" width="339" height="26"/>
