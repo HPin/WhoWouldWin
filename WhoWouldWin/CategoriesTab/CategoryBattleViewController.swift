@@ -35,28 +35,43 @@ class CategoryBattleViewController: UIViewController {
         let random = Int(arc4random_uniform(2))
         let battleID = categoryName + " " + String(random)
         
-        refHandle = ref?.child("Categories").child(categoryName).child(battleID).observe(.value, with: { (snapshot) in
-            
+        refHandle = ref?.child("Categories").child(categoryName).observe(.childAdded, with: { (snapshot) in
             print(snapshot)
+            print("--------------")
             
             if let dict = snapshot.value as? [String : [String : AnyObject]] {
-                
                 self.contender1Label.text = dict["Contender 1"]!["Name"] as? String
                 let percent1 = dict["Contender 1"]!["Votes"] as! Int
                 self.percent1Label.text = String(percent1)
-                
+
                 self.contender2Label.text = dict["Contender 2"]!["Name"] as? String
                 let percent2 = dict["Contender 2"]!["Votes"] as! Int
                 self.percent2Label.text = String(percent2)
             }
-            
-//            self.battleNameLabel.text = "abc"
-//
-//            if let dict = snapshot.value as? [String : AnyObject] {
-//                self.contender1Label.text = dict["Name"] as? String
-//                self.percent1Label.text = dict["Percentage"] as? String
-//            }
         })
+        
+//        refHandle = ref?.child("Categories").child(categoryName).child(battleID).observe(.value, with: { (snapshot) in
+//
+//            print(snapshot)
+//
+//            if let dict = snapshot.value as? [String : [String : AnyObject]] {
+//
+//                self.contender1Label.text = dict["Contender 1"]!["Name"] as? String
+//                let percent1 = dict["Contender 1"]!["Votes"] as! Int
+//                self.percent1Label.text = String(percent1)
+//
+//                self.contender2Label.text = dict["Contender 2"]!["Name"] as? String
+//                let percent2 = dict["Contender 2"]!["Votes"] as! Int
+//                self.percent2Label.text = String(percent2)
+//            }
+//
+////            self.battleNameLabel.text = "abc"
+////
+////            if let dict = snapshot.value as? [String : AnyObject] {
+////                self.contender1Label.text = dict["Name"] as? String
+////                self.percent1Label.text = dict["Percentage"] as? String
+////            }
+//        })
 
     }
 

@@ -13,7 +13,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
-    var categories = [String]()
+    var categories = ["Fight", "Rap Battle", "Beauty Contest"]
     var categoryClicked: String = "Fight"   // default: First picker entry
     var battleCount: UInt = 0
     
@@ -25,25 +25,23 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         
-        let battleNo = categoryClicked + " " + String(battleCount)
+        let battleRef = ref?.child("Categories").child(categoryClicked).childByAutoId()
+        battleRef?.child("Contender 1").setValue(["Name": name1Label.text, "Votes" : 0])
+        battleRef?.child("Contender 2").setValue(["Name": name2Label.text, "Votes" : 0])
         
-        let battleRef = ref?.child("Categories").child(categoryClicked).child(battleNo)
         
-        battleRef?.child("Contender 1").setValue(["Name": "Jakob", "Votes" : 0])
-        battleRef?.child("Contender 2").setValue(["Name": "Toaster", "Votes" : 0])
+//        let battleNo = categoryClicked + " " + String(battleCount)
+//
+//        let battleRef = ref?.child("Categories").child(categoryClicked).child(battleNo)
+//
+//        battleRef?.child("Contender 1").setValue(["Name": "Jakob", "Votes" : 0])
+//        battleRef?.child("Contender 2").setValue(["Name": "Toaster", "Votes" : 0])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        
-        refHandle = ref?.child("Categories").observe(.childAdded, with: { (snapshot) in
-            
-            let post = snapshot.key
-            self.categories.append(post)
-            self.categoryPicker.reloadAllComponents()
-        })
         
         ref?.child("Categories").child(categoryClicked).observeSingleEvent(of: .value, with: { (snapshot) in
             self.battleCount = snapshot.childrenCount
