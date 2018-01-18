@@ -16,67 +16,100 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     
+    var ref: DatabaseReference?
+    var refHandle: DatabaseHandle?
+    
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: CustomButton) {
         var nickName = ""
-        var eMail = ""
+        var myEmail = ""
         var password = ""
+        var errorAlertMessage = ""
         
         var isNameValid = false
         var isEMailValid = false
-        var isPasswordValid = false
+        
         
         if nameTextField.text != nil {
-            // check if name is valid
             nickName = nameTextField.text!
             
             isNameValid = true
         } else {
-            // throw alert
+            errorAlertMessage.append("Nickname")
         }
         
         if eMailTextField.text != nil {
-            // check if mail is valid
-            eMail = eMailTextField.text!
+            myEmail = eMailTextField.text!
             
             isEMailValid = true
         } else {
-            // throw alert
+            errorAlertMessage.append(",E-Mail")
         }
         
         if passwordTextField.text != nil {
-            // check if pw is valid
             password = passwordTextField.text!
             
             if password.count < 6 {
                 // throw alert if pw too short
-            } else {
-                isPasswordValid = true
+                return
             }
-        } else {
-            // throw alert
+        }
+        
+        if isNameValid != true || isEMailValid != true {
+            //alert with errorAlertMessage
+            
+            
+            return
         }
         
         
-        // store new user account in firebase:
-        if isPasswordValid && isEMailValid && isNameValid {
-
-            Auth.auth().createUser(withEmail: eMail, password: password) { (user, error) in
-                
-                if error != nil {
-                    print(error)
+        print("--------------------")
+        print("---FIREBASE CHECK---")
+        print("--------------------")
+        //check if User already exists
+        ref = Database.database().reference()
+        
+        refHandle = ref?.child("Users").observe(.childAdded, with: { (snapshot) in
+            print(snapshot)
+            if let dic = snapshot.value as? [String:AnyObject] {
+                let name = dic["name"] as! String
+                if name == nickName {
+                    print("This nickname already exists!")
                     return
                 }
-                
-                print("user successfully authenticated")
+                let email = dic["email"] as! String
+                if email == myEmail {
+                    print("This E-Mail already exists!")
+                    return
+                }
             }
+        })
+        
+        print("--------------------")
+        print("--AUTHENTIFICATION--")
+        print("--------------------")
+        // store new user account in firebase:
+        Auth.auth().createUser(withEmail: myEmail, password: password) { (user, error) in
+            if error != nil {
+                print(error)
+                return
+                }
+            print("user successfully authenticated")
+            print("#######################")
+            print("#######################")
+            print(user?.displayName)
+            print("#######################")
+            print("#######################")
+            
+            //store USER into DATABASE
+            let userDB = self.ref?.child("Users").childByAutoId()
+            userDB?.setValue(["name": nickName, "email" : myEmail, "uid": user?.uid])
+            
         }
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     
