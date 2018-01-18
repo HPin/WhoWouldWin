@@ -416,6 +416,12 @@
                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-Eg-Qup">
+                                            <rect key="frame" x="20" y="194" width="335" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contender 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw9-XA-BYr">
                                             <rect key="frame" x="20" y="276.5" width="335" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -424,12 +430,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sn-vt-g10">
                                             <rect key="frame" x="20" y="313" width="335" height="32"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-Eg-Qup">
-                                            <rect key="frame" x="20" y="194.5" width="335" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -452,7 +452,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="nextButton:" destination="M4E-ON-EvH" eventType="touchUpInside" id="P0B-Nu-jEo"/>
+                                                <action selector="nextButton:" destination="WMl-wW-d8n" eventType="touchUpInside" id="uNj-AT-TwE"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-aO-osf">
@@ -462,7 +462,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <state key="normal" title="vote for 2"/>
                                             <connections>
-                                                <action selector="vote2Button:" destination="M4E-ON-EvH" eventType="touchUpInside" id="dZh-Ys-dQt"/>
+                                                <action selector="vote2Button:" destination="WMl-wW-d8n" eventType="touchUpInside" id="2HG-Um-aXS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCl-kn-p3o">
@@ -472,7 +472,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="vote for 1"/>
                                             <connections>
-                                                <action selector="vote1Button:" destination="M4E-ON-EvH" eventType="touchUpInside" id="W5G-uz-7Al"/>
+                                                <action selector="vote1Button:" destination="WMl-wW-d8n" eventType="touchUpInside" id="FY6-sD-7s9"/>
                                             </connections>
                                         </button>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There are no battles left!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUk-BV-gc2">
@@ -518,6 +518,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dKC-84-svG"/>
                     </view>
+                    <connections>
+                        <outlet property="contender1Label" destination="2DE-Ux-9mo" id="YZz-jL-Wzk"/>
+                        <outlet property="contender2Label" destination="zw9-XA-BYr" id="0LV-2S-bVH"/>
+                        <outlet property="errorLabel" destination="iUk-BV-gc2" id="67F-Ke-c0y"/>
+                        <outlet property="nextButton" destination="g1a-UZ-Sc3" id="6YQ-Xt-hM1"/>
+                        <outlet property="percentage1Label" destination="n6l-Eg-Qup" id="UWn-pk-WPK"/>
+                        <outlet property="percentage2Label" destination="1sn-vt-g10" id="fdY-v3-z3j"/>
+                        <outlet property="vote1Button" destination="NCl-kn-p3o" id="yPW-iP-j6R"/>
+                        <outlet property="vote2Button" destination="UAy-aO-osf" id="3jg-KN-hXk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIL-Ou-Zwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
