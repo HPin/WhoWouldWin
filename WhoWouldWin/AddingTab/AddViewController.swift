@@ -37,7 +37,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             battleRef?.child("Contender 2").setValue(["Name": name2Label.text, "Votes" : 0])
         }
         else if globalOrLocation == 1{
-            let battleRef = ref?.child("Locations").child(categoryClicked).childByAutoId()
             manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             manager.requestWhenInUseAuthorization()
@@ -46,7 +45,8 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             guard let longitude:Double = manager.location?.coordinate.longitude else {return}
             
             //write in the actual data
-            battleRef?.setValue(["Latitude": latitude, "Longitude": longitude])
+            let battleRef = ref?.child("Locations").childByAutoId()
+            battleRef?.setValue(["Latitude": latitude, "Longitude": longitude, "Category": categoryClicked])
             battleRef?.child("Contender 1").setValue(["Name": name1Label.text, "Votes": 0])
             battleRef?.child("Contender 2").setValue(["Name": name2Label.text, "Votes": 0])
         }

@@ -16,7 +16,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var sliderMap: UISlider!
     @IBOutlet weak var submitButton: UIButton!
-    var selectedDistance:Int = 1
+    var selectedDistance:Int = 50
     
     
     @IBAction func submitButton(_ sender: Any) {
