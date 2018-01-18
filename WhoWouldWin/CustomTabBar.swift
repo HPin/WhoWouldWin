@@ -17,7 +17,7 @@ class CustomTabBar: ESTabBarController {
         
         
         tabBar.shadowImage = UIImage(named: "transparent")
-        tabBar.backgroundImage = UIImage(named: "background_dark")
+        tabBar.backgroundImage = UIImage(named: "background_red")
         
         let v1 = self.storyboard?.instantiateViewController(withIdentifier: "locTab") as! UINavigationController
         let v2 = self.storyboard?.instantiateViewController(withIdentifier: "catTab") as! UINavigationController
@@ -34,6 +34,7 @@ class CustomTabBar: ESTabBarController {
         
         self.viewControllers = [v1, v2, v3, v4, v5]
         
+        self.selectedIndex = 2
         self.delegate = self
     }
     
