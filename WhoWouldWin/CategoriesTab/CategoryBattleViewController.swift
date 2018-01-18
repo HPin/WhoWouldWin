@@ -89,8 +89,8 @@ class CategoryBattleViewController: UIViewController {
                 }
                 self.idArr.append(snapshot.key)
             }
+            self.displayBattle()
         })
-        displayBattle()
     }
 
     func displayBattle() {
