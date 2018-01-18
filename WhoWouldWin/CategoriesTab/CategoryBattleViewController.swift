@@ -51,7 +51,6 @@ class CategoryBattleViewController: UIViewController {
         
         battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
         
-        //battlesArr?.remove(at: randomIndex)
         self.percent1Label.text = String(votesContender1)
         
         vote1Button.isHidden = true
@@ -66,9 +65,12 @@ class CategoryBattleViewController: UIViewController {
         let battleRef = ref?.child("Categories").child(categoryName).child(ID)
         
         battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
+
+        self.percent2Label.text = String(votesContender2)
         
-        battlesArr?.remove(at: randomIndex)
-        displayBattle()
+        vote1Button.isHidden = true
+        vote2Button.isHidden = true
+        nextButton.isHidden = false
     }
     
     
@@ -82,30 +84,16 @@ class CategoryBattleViewController: UIViewController {
             print(snapshot.key)
             if let dict = snapshot.value as? [String : [String : AnyObject]] {
                 
-//                guard let name1 = dict["Contender 1"]!["Name"] as? String else {return}
-//                guard let votes1 = dict["Contender 1"]!["Votes"] as? Int else {return}
-//                guard let name2 = dict["Contender 2"]!["Name"] as? String else {return}
-//                guard let votes2 = dict["Contender 2"]!["Votes"] as? Int else {return}
-//
-//                let testDict = ["Contender 1" : ["Name" : name1,
-//                                                "Votes" : votes1],
-//                                "Contender 2" : ["Name" : name2,
-//                                                 "Votes" : votes2]]
-                
                 if self.battlesArr?.append(dict) == nil {
                     self.battlesArr = [dict]
                 }
                 self.idArr.append(snapshot.key)
-                
-                self.displayBattle()
             }
         })
-
+        displayBattle()
     }
 
     func displayBattle() {
-        //print(battlesArr)
-        
         if let arr = battlesArr {
             let len = arr.count
             if len != 0 {
