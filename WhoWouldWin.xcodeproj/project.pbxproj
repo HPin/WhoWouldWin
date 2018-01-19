@@ -25,8 +25,10 @@
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
 		E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */; };
+		E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */; };
 		E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */; };
 		E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720F20018168004CE0FB /* CategoriesViewController.swift */; };
+		E6D7D8E620114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */; };
 		E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900531FF418A7008896EB /* AppDelegate.swift */; };
 		E6E900561FF418A8008896EB /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E900551FF418A8008896EB /* BattleViewController.swift */; };
 		E6E900591FF418A8008896EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E900571FF418A8008896EB /* Main.storyboard */; };
@@ -75,8 +77,10 @@
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
 		E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBattleCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720F20018168004CE0FB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleVCCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6E900501FF418A7008896EB /* WhoWouldWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWouldWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E900531FF418A7008896EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E900551FF418A8008896EB /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				E6E900551FF418A8008896EB /* BattleViewController.swift */,
+				E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */,
 			);
 			path = BattleTab;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				E6D5720F20018168004CE0FB /* CategoriesViewController.swift */,
 				E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */,
 				E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */,
+				E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */,
 			);
 			path = CategoriesTab;
 			sourceTree = "<group>";
@@ -486,8 +492,10 @@
 				36949BC82007BDD400BAF700 /* ExampleBasicContentView.swift in Sources */,
 				36949BC52007BDD400BAF700 /* ExampleBackgroundContentView.swift in Sources */,
 				36949BCB2007BDD400BAF700 /* ExampleIrregularityContentView.swift in Sources */,
+				E6D7D8E620114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift in Sources */,
 				E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */,
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
+				E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
