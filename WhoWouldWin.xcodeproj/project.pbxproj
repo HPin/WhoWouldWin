@@ -25,6 +25,7 @@
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
 		E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */; };
+		E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */; };
 		E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */; };
 		E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720F20018168004CE0FB /* CategoriesViewController.swift */; };
 		E6D7D8E620114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */; };
@@ -76,6 +77,7 @@
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
 		E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBattleCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720F20018168004CE0FB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleVCCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				E6D5720F20018168004CE0FB /* CategoriesViewController.swift */,
 				E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */,
 				E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */,
+				E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */,
 			);
 			path = CategoriesTab;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				E6D7D8E620114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift in Sources */,
 				E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */,
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
+				E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

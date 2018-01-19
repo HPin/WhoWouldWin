@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class CategoryBattleViewController: UIViewController {
+class CategoryBattleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
@@ -24,103 +24,147 @@ class CategoryBattleViewController: UIViewController {
     var categoryName: String!
     var battleCount: UInt = 0
     
-    @IBOutlet weak var battleNameLabel: UILabel!
-    @IBOutlet weak var contender1Label: UILabel!
-    @IBOutlet weak var contender2Label: UILabel!
-    @IBOutlet weak var percent1Label: UILabel!
-    @IBOutlet weak var percent2Label: UILabel!
+    @IBOutlet weak var centerCircleView: UIView!
+    @IBOutlet weak var battleCollectionView: UICollectionView!
     
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var nextButton: CustomButton!
-    @IBOutlet weak var vote2Button: UIButton!
-    @IBOutlet weak var vote1Button: UIButton!
-    @IBAction func nextButton(_ sender: CustomButton) {
-        vote1Button.isHidden = false
-        vote2Button.isHidden = false
-        nextButton.isHidden = true
-        
-        battlesArr?.remove(at: randomIndex)
-        idArr.remove(at: randomIndex)
-        displayBattle()
-    }
-    @IBAction func vote1Button(_ sender: UIButton) {
-        votesContender1 += 1
-        
-        let ID = idArr[randomIndex]
-        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-        
-        battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
-        
-        self.percent1Label.text = String(votesContender1)
-        
-        vote1Button.isHidden = true
-        vote2Button.isHidden = true
-        nextButton.isHidden = false
+//    @IBAction func nextButton(_ sender: CustomButton) {
+//        vote1Button.isHidden = false
+//        vote2Button.isHidden = false
+//        nextButton.isHidden = true
+//
+//        battlesArr?.remove(at: randomIndex)
+//        idArr.remove(at: randomIndex)
+//        displayBattle()
+//    }
+//    @IBAction func vote1Button(_ sender: UIButton) {
+//        votesContender1 += 1
+//
+//        let ID = idArr[randomIndex]
+//        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
+//
+//        battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
+//
+//        self.percent1Label.text = String(votesContender1)
+//
+//        vote1Button.isHidden = true
+//        vote2Button.isHidden = true
+//        nextButton.isHidden = false
+//    }
+//
+//    @IBAction func vote2Button(_ sender: UIButton) {
+//        votesContender2 += 1
+//
+//        let ID = idArr[randomIndex]
+//        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
+//
+//        battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
+//
+//        self.percent2Label.text = String(votesContender2)
+//
+//        vote1Button.isHidden = true
+//        vote2Button.isHidden = true
+//        nextButton.isHidden = false
+//    }
+    
+    override func viewDidLayoutSubviews() {
+        centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
+        centerCircleView.layer.borderWidth = 6
+        let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        centerCircleView.layer.borderColor = myColor.cgColor
     }
     
-    @IBAction func vote2Button(_ sender: UIButton) {
-        votesContender2 += 1
-        
-        let ID = idArr[randomIndex]
-        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-        
-        battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
-
-        self.percent2Label.text = String(votesContender2)
-        
-        vote1Button.isHidden = true
-        vote2Button.isHidden = true
-        nextButton.isHidden = false
+    override func viewWillAppear(_ animated: Bool) {
+        reloadCollectionView()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
+//        ref = Database.database().reference()
+//        
+//        refHandle = ref?.child("Categories").child(categoryName).observe(.childAdded, with: { (snapshot) in
+//            
+//            print(snapshot.key)
+//            if let dict = snapshot.value as? [String : [String : AnyObject]] {
+//                
+//                if self.battlesArr?.append(dict) == nil {
+//                    self.battlesArr = [dict]
+//                }
+//                self.idArr.append(snapshot.key)
+//            }
+//            self.displayBattle()
+//        })
         
-        refHandle = ref?.child("Categories").child(categoryName).observe(.childAdded, with: { (snapshot) in
-            
-            print(snapshot.key)
-            if let dict = snapshot.value as? [String : [String : AnyObject]] {
-                
-                if self.battlesArr?.append(dict) == nil {
-                    self.battlesArr = [dict]
-                }
-                self.idArr.append(snapshot.key)
-            }
-            self.displayBattle()
-        })
+        // ----- collection view:-----
+        let itemWidth = UIScreen.main.bounds.width
+        let itemHeight = (battleCollectionView.frame.height + 49) / 2 // 49: tab bar
+        
+        let customLayout = UICollectionViewFlowLayout()
+        customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        customLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
+        
+        customLayout.minimumLineSpacing = 20
+        
+        battleCollectionView.collectionViewLayout = customLayout
+        
+        reloadCollectionView()
+        
+    }
+    
+    func reloadCollectionView() {
+        battleCollectionView?.reloadData()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CatBattleCollectionViewCell
+        cell.nameLabel.text = "Swift Guy"
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("voted for dude")
         
     }
 
     func displayBattle() {
-        if let arr = battlesArr {
-            let len = arr.count
-            if len != 0 {
-                errorLabel.isHidden = true
-                randomIndex = Int(arc4random_uniform(UInt32(len)))
-                
-                let dict = arr[randomIndex]
-                self.contender1Label.text = dict["Contender 1"]!["Name"] as? String
-                let votes1 = dict["Contender 1"]!["Votes"] as! Int
-                self.percent1Label.text = String(votes1)
-                
-                self.contender2Label.text = dict["Contender 2"]!["Name"] as? String
-                let votes2 = dict["Contender 2"]!["Votes"] as! Int
-                self.percent2Label.text = String(votes2)
-                
-                votesContender1 = votes1
-                votesContender2 = votes2
-            } else {
-                vote1Button.isHidden = true
-                vote2Button.isHidden = true
-                nextButton.isHidden = true
-                errorLabel.isHidden = false
-                
-            }
-            
-        }
+//        if let arr = battlesArr {
+//            let len = arr.count
+//            if len != 0 {
+//                errorLabel.isHidden = true
+//                randomIndex = Int(arc4random_uniform(UInt32(len)))
+//
+//                let dict = arr[randomIndex]
+//                self.contender1Label.text = dict["Contender 1"]!["Name"] as? String
+//                let votes1 = dict["Contender 1"]!["Votes"] as! Int
+//                self.percent1Label.text = String(votes1)
+//
+//                self.contender2Label.text = dict["Contender 2"]!["Name"] as? String
+//                let votes2 = dict["Contender 2"]!["Votes"] as! Int
+//                self.percent2Label.text = String(votes2)
+//
+//                votesContender1 = votes1
+//                votesContender2 = votes2
+//            } else {
+//                vote1Button.isHidden = true
+//                vote2Button.isHidden = true
+//                nextButton.isHidden = true
+//                errorLabel.isHidden = false
+//
+//            }
+//
+//        }
     }
 
 }
