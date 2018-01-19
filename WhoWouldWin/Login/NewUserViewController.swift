@@ -66,52 +66,72 @@ class NewUserViewController: UIViewController {
         }
         
         
-        print("--------------------")
-        print("---FIREBASE CHECK---")
-        print("--------------------")
-        //check if User already exists
-        ref = Database.database().reference()
         
-        refHandle = ref?.child("Users").observe(.childAdded, with: { (snapshot) in
-            print(snapshot)
-            if let dic = snapshot.value as? [String:AnyObject] {
-                let name = dic["name"] as! String
-                if name == nickName {
-                    print("This nickname already exists!")
-                    return
-                }
-                let email = dic["email"] as! String
-                if email == myEmail {
-                    print("This E-Mail already exists!")
-                    return
-                }
+        firebaseCheckDatabase(nickName: nickName, myEmail: myEmail, password: password) { (success) in
+            if success {
+                self.authentificateUser(nickName: nickName, myEmail: myEmail, password: password)
+                self.dismiss(animated: true, completion: nil)
             }
-        })
-        
-        print("--------------------")
-        print("--AUTHENTIFICATION--")
-        print("--------------------")
-        // store new user account in firebase:
-        Auth.auth().createUser(withEmail: myEmail, password: password) { (user, error) in
-            if error != nil {
-                print(error)
-                return
-                }
-            print("user successfully authenticated")
-            print("#######################")
-            print("#######################")
-            print(user?.displayName)
-            print("#######################")
-            print("#######################")
-            
-            //store USER into DATABASE
-            let userDB = self.ref?.child("Users").childByAutoId()
-            userDB?.setValue(["name": nickName, "email" : myEmail, "uid": user?.uid])
-            
+            else{
+                print("+++++++++++++++++++")
+                print("No authentification")
+                print("+++++++++++++++++++")
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }
     
+    func authentificateUser(nickName: String, myEmail: String, password: String){
+        print("--------------------")
+        print("--AUTHENTIFICATION--")
+        print("--------------------")
+        // store new user account in firebase:
+        
+        Auth.auth().createUser(withEmail: myEmail, password: password) { (user, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                print("user successfully authenticated")
+                print("#######################")
+                print("#######################")
+                print("#######################")
+                print("#######################")
+                
+                //store USER into DATABASE
+                let userDB = self.ref?.child("Users").childByAutoId()
+                userDB?.setValue(["name": nickName, "email" : myEmail, "uid": user?.uid])
+            
+        }
+    }
+    
+    
+    func firebaseCheckDatabase(nickName: String, myEmail: String, password: String, completion:@escaping (Bool) -> Void){
+        print("--------------------")
+        print("---FIREBASE CHECK---")
+        print("--------------------")
+        //check if User already exists
+        var checkDB = true
+        self.ref = Database.database().reference()
+        
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { snapshot in
+            print("Children ")
+            print(snapshot.childrenCount)
+            print("+++++++++")
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                if let dic = rest.value as? [String:AnyObject]{
+                    if dic["name"] as? String == nickName {
+                        checkDB = false
+                    }
+                    if dic["email"] as? String == myEmail {
+                        checkDB = false
+                    }
+                }
+            }
+            completion(checkDB)
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
