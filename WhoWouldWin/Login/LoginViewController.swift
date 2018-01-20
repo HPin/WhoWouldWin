@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var eMailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var ref: DatabaseReference?
+    var refHandle: DatabaseHandle?
     
     
     @IBAction func signInButton(_ sender: CustomButton) {
-        
         performSegue(withIdentifier: "fromLoginToStart", sender: self)
     }
     
