@@ -27,7 +27,6 @@ class NewUserViewController: UIViewController {
         var nickName = ""
         var myEmail = ""
         var password = ""
-        var passwordConf = ""
         
         var isNameValid = false
         var isEMailValid = false
