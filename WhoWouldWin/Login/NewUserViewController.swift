@@ -103,6 +103,7 @@ class NewUserViewController: UIViewController {
                 if success {
                     self.authentificateUser(nickName: nickName, myEmail: myEmail, password: password)
                     self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "fromLoginToStart", sender: self)
                 } else{
                     var errorMessage = ""
                     if nameExists {
@@ -141,7 +142,7 @@ class NewUserViewController: UIViewController {
     }
     
     
-    func firebaseCheckDatabase(nickName: String, myEmail: String, password: String, completion:@escaping (Bool, Bool, Bool) -> Void){
+    func firebaseCheckDatabase(nickName: String, myEmail: String, password: String, completion: @escaping (Bool, Bool, Bool) -> Void){
         //check if User already exists
         var checkDB = true
         var nameExists = false
