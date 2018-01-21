@@ -18,7 +18,56 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func signInButton(_ sender: CustomButton) {
-        performSegue(withIdentifier: "fromLoginToStart", sender: self)
+//        var errorMessage = ""
+//
+//        if eMailTextField.text == "" || passwordTextField.text == ""{
+//            if eMailTextField.text == "" {
+//                errorMessage.append("E-Mail ")
+//            }
+//            if passwordTextField.text == ""{
+//                errorMessage.append("Password ")
+//            }
+//            passwordTextField.text = ""
+//            eMailTextField.text = ""
+//            var alertMessage = "Following fields have to be filled in properly: "
+//            alertMessage.append(errorMessage)
+//            let alert = UIAlertController(title: "Error", message: alertMessage, preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                alert.dismiss(animated: true, completion: nil)
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//
+//        else {
+//            Auth.auth().signIn(withEmail: eMailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+//                if user != nil {
+//                    //sign in successfull
+//                    self.performSegue(withIdentifier: "fromLoginToStart", sender: self)
+//                }
+//                else {
+//                    //there is an error
+//                    guard let myError = error?.localizedDescription else {
+//                        self.passwordTextField.text = ""
+//                        self.eMailTextField.text = ""
+//                        let alert = UIAlertController(title: "Error", message: "Try again.", preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                            alert.dismiss(animated: true, completion: nil)
+//                        }))
+//                        self.present(alert, animated: true, completion: nil)
+//                        return
+//                    }
+//                    self.passwordTextField.text = ""
+//                    self.eMailTextField.text = ""
+//                    let alert = UIAlertController(title: "Error", message: myError, preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                        alert.dismiss(animated: true, completion: nil)
+//                    }))
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            })
+//
+//        }
+        self.performSegue(withIdentifier: "fromLoginToStart", sender: self)
     }
     
     override func viewDidLoad() {

@@ -639,7 +639,6 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="signInButton:" destination="J3q-fS-PC6" eventType="touchUpInside" id="l0A-C4-4Fx"/>
-                                                <segue destination="6kt-wu-ceZ" kind="show" identifier="fromLoginToStart" id="EJX-3F-87f"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -679,6 +678,7 @@
                     <connections>
                         <outlet property="eMailTextField" destination="a9z-4j-Sxv" id="Nl5-Ku-Mbs"/>
                         <outlet property="passwordTextField" destination="Ub5-my-ALg" id="TdD-0E-NT0"/>
+                        <segue destination="6kt-wu-ceZ" kind="show" identifier="fromLoginToStart" id="Kcc-U2-lqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-KS-bxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
