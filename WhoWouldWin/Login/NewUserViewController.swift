@@ -101,8 +101,7 @@ class NewUserViewController: UIViewController {
             firebaseCheckDatabase(nickName: nickName, myEmail: myEmail, password: password) { (success, nameExists, mailExists) in
                 if success {
                     self.authentificateUser(nickName: nickName, myEmail: myEmail, password: password)
-                    self.dismiss(animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "fromLoginToStart", sender: LoginViewController.self)
+                    self.performSegue(withIdentifier: "fromCreateToLogin", sender: self)
                 } else{
                     var errorMessage = ""
                     if nameExists {

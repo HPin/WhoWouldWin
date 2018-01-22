@@ -857,6 +857,7 @@
                         <outlet property="nameTextField" destination="oKo-K8-uBo" id="67f-sk-eYu"/>
                         <outlet property="passwordConfirmTextField" destination="oJN-9b-PVr" id="ueJ-SP-3V8"/>
                         <outlet property="passwordTextField" destination="oVm-HX-CuL" id="ygK-4Z-7MI"/>
+                        <segue destination="6kt-wu-ceZ" kind="show" identifier="fromCreateToLogin" id="ZFo-vw-s75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5b-o9-wAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1108,4 +1109,7 @@
         <image name="aurora" width="750" height="1334"/>
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZFo-vw-s75"/>
+    </inferredMetricsTieBreakers>
 </document>
