@@ -102,7 +102,7 @@ class NewUserViewController: UIViewController {
                 if success {
                     self.authentificateUser(nickName: nickName, myEmail: myEmail, password: password)
                     self.dismiss(animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "fromLoginToStart", sender: self)
+                    self.performSegue(withIdentifier: "fromLoginToStart", sender: LoginViewController.self)
                 } else{
                     var errorMessage = ""
                     if nameExists {
