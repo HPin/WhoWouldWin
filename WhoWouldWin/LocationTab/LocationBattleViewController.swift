@@ -88,32 +88,34 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         
         
         ref = Database.database().reference()
-        
-        refHandle = ref?.child("Locations").observe(.childAdded, with: { (snapshot) in
+        refHandle = ref?.child("Locations").observe(.value, with: { (snapshot) in
             print(snapshot)
-            if let dic = snapshot.value as? [String:AnyObject] {
-                let latitude:Double = dic["Latitude"] as! Double
-                let longitude:Double = dic["Longitude"] as! Double
-                let location = CLLocation(latitude: latitude, longitude: longitude)
-                let location1 = CLLocation(latitude: myLatitude, longitude: myLongitude)
-                print("-----------------------------------")
-                print("Location: ", latitude , longitude)
-                print("My Location: ", myLatitude , myLongitude)
-                print("-----------------------------------")
-                if self.locationIsInRange(myLocation: location, surveyLocation: location1){
-                    print("There is a fight in your location")
-                    if self.battlesArr?.append(dic) == nil {
-                        self.battlesArr = [dic]
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                if let dic = rest.value as? [String:AnyObject] {
+                    print(dic)
+                    let latitude:Double = dic["Latitude"] as! Double
+                    let longitude:Double = dic["Longitude"] as! Double
+                    let location = CLLocation(latitude: latitude, longitude: longitude)
+                    let location1 = CLLocation(latitude: myLatitude, longitude: myLongitude)
+                    print("-----------------------------------")
+                    print("Location: ", latitude , longitude)
+                    print("My Location: ", myLatitude , myLongitude)
+                    print("-----------------------------------")
+                    if self.locationIsInRange(myLocation: location, surveyLocation: location1){
+                        print("There is a fight in your location")
+                        if self.battlesArr?.append(dic) == nil {
+                            self.battlesArr = [dic]
+                        }
+                        self.idArr.append(snapshot.key)
                     }
-                    self.idArr.append(snapshot.key)
-                }
-                else {
-                    print("There is no fight in your location")
+                    else {
+                        print("There is no fight in your location")
+                    }
                 }
             }
-            self.displayBattle()
+                self.displayBattle()
         })
-        
     }
     
     override func viewDidLoad() {

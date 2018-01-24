@@ -225,12 +225,12 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E4C431482006A6CE007D4CC6 /* LocationTab */,
 				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
 				36949BBB2007BDAA00BAF700 /* CustomTabBar.swift */,
-				E4C431482006A6CE007D4CC6 /* LocationTab */,
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E64E5C96200A3EF400FB254B /* BattleTab */,
 				E64E5C97200A3EFE00FB254B /* AddingTab */,
