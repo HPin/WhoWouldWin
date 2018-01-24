@@ -35,7 +35,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBAction func sliderMap(_ sender: UISlider) {
         selectedDistance = Int(sender.value)
         
-        let buttonText:String = "Radius: " + selectedDistance.description + " km"
+        let buttonText:String = "Search Radius: " + selectedDistance.description + " km"
         
         submitButton.setTitle(buttonText, for: .normal)
         showCircle(coordinate: (manager.location?.coordinate)!, radius: Double(selectedDistance), mapView: mapView)
@@ -45,7 +45,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        submitButton.setTitle("Radius: " + selectedDistance.description + " km", for: .normal)
+        submitButton.setTitle("Search Radius: " + selectedDistance.description + " km", for: .normal)
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
