@@ -107,6 +107,9 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
                     }
                     self.idArr.append(snapshot.key)
                 }
+                else {
+                    print("There is no fight in your location")
+                }
             }
             self.displayBattle()
         })
