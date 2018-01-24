@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "mainicontb.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "background_red.png",
       "scale" : "2x"
     },
     {
