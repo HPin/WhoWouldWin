@@ -17,9 +17,9 @@ class ExampleIrregularityBasicContentView: ExampleBouncesContentView {
         textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
         iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        highlightIconColor = UIColor.init(red: 187/255.0, green: 24/255.0, blue: 34/255.0, alpha: 1.0)
-        backdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 28/255.0, alpha: 1.0)
-        highlightBackdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 28/255.0, alpha: 1.0)
+        highlightIconColor = UIColor.init(red: 128/255.0, green: 21/255.0, blue: 21/255.0, alpha: 1.0)
+        backdropColor = UIColor.init(red: 170/255.0, green: 57/255.0, blue: 57/255.0, alpha: 1.0)
+        highlightBackdropColor = UIColor.init(red: 170/255.0, green: 57/255.0, blue: 57/255.0, alpha: 1.0)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -32,7 +32,7 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
+        self.imageView.backgroundColor = UIColor.init(red: 212/255.0, green: 106/255.0, blue: 106/255.0, alpha: 1.0)
         self.imageView.layer.borderWidth = 1.0
         self.imageView.layer.borderColor = UIColor.init(white: 235 / 255.0, alpha: 1.0).cgColor
         self.imageView.layer.cornerRadius = 35
@@ -43,7 +43,7 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         
         //textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        //iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightIconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         backdropColor = .clear
         highlightBackdropColor = .clear
@@ -82,6 +82,7 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     }
     
     public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
+        
         UIView.beginAnimations("small", context: nil)
         UIView.setAnimationDuration(0.2)
         let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
