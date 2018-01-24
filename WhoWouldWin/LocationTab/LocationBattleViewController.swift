@@ -63,6 +63,7 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         votesContender2 += 1
 
         let ID = idArr[randomIndex]
+        ref = Database.database().reference()
         let battleRef = ref?.child("Locations").child(ID)
 
         battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
@@ -74,7 +75,10 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         nextButton.isHidden = false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.requestWhenInUseAuthorization()
@@ -107,19 +111,15 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
                         if self.battlesArr?.append(dic) == nil {
                             self.battlesArr = [dic]
                         }
-                        self.idArr.append(snapshot.key)
+                        self.idArr.append(rest.key)
                     }
                     else {
                         print("There is no fight in your location")
                     }
                 }
             }
-                self.displayBattle()
+            self.displayBattle()
         })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func displayBattle() {
