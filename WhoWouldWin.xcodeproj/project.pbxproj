@@ -22,6 +22,7 @@
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
 		E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
+		E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
 		E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */; };
@@ -74,6 +75,7 @@
 		E4C431462006A6C8007D4CC6 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOrLocationViewController.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
 		E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E49869912007E8DE00F3CAF7 /* AddViewController.swift */,
+				E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */,
 			);
 			path = AddingTab;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */,
 				E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */,
 				E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */,
+				E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */,
 				36949BC62007BDD400BAF700 /* ExampleBouncesContentView.swift in Sources */,
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,
 				36949BBC2007BDAA00BAF700 /* CustomTabBar.swift in Sources */,

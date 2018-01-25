@@ -10,5 +10,8 @@ import UIKit
 
 class CatBattleCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var contenderImageView: UIImageView!
+    @IBOutlet weak var colorOverlay: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
 }
