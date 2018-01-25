@@ -641,9 +641,22 @@
                                                 <action selector="signInButton:" destination="J3q-fS-PC6" eventType="touchUpInside" id="l0A-C4-4Fx"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-iK-Qxc">
+                                            <rect key="frame" x="239" y="8" width="128" height="51"/>
+                                            <color key="backgroundColor" red="0.8805609029652921" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="128" id="DEo-ex-b02"/>
+                                                <constraint firstAttribute="height" constant="51" id="hVy-xG-Xz0"/>
+                                            </constraints>
+                                            <state key="normal" title="skip"/>
+                                            <connections>
+                                                <segue destination="6kt-wu-ceZ" kind="show" id="56N-zR-d2n"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="eIj-mv-g70" firstAttribute="centerX" secondItem="887-Si-Y7J" secondAttribute="centerX" id="6hi-pP-44a"/>
+                                        <constraint firstAttribute="trailing" secondItem="hBK-iK-Qxc" secondAttribute="trailing" constant="8" id="8ao-5S-Eax"/>
                                         <constraint firstItem="VOf-nL-VSQ" firstAttribute="leading" secondItem="a9z-4j-Sxv" secondAttribute="leading" id="AbP-mM-NYe"/>
                                         <constraint firstItem="j4W-nC-9hm" firstAttribute="top" secondItem="Ub5-my-ALg" secondAttribute="bottom" constant="30" id="BhO-ib-5QA"/>
                                         <constraint firstItem="VOf-nL-VSQ" firstAttribute="leading" secondItem="887-Si-Y7J" secondAttribute="leading" constant="50" id="BvI-Ze-wwA"/>
@@ -652,6 +665,7 @@
                                         <constraint firstItem="Ub5-my-ALg" firstAttribute="leading" secondItem="j4W-nC-9hm" secondAttribute="leading" id="Veg-dF-fiT"/>
                                         <constraint firstItem="VOf-nL-VSQ" firstAttribute="trailing" secondItem="a9z-4j-Sxv" secondAttribute="trailing" id="WLd-bj-60Y"/>
                                         <constraint firstItem="Ub5-my-ALg" firstAttribute="trailing" secondItem="j4W-nC-9hm" secondAttribute="trailing" id="btL-XB-rKW"/>
+                                        <constraint firstItem="hBK-iK-Qxc" firstAttribute="top" secondItem="887-Si-Y7J" secondAttribute="top" constant="8" id="igO-HO-tdb"/>
                                         <constraint firstItem="a9z-4j-Sxv" firstAttribute="trailing" secondItem="Ub5-my-ALg" secondAttribute="trailing" id="jBY-hK-CE5"/>
                                         <constraint firstItem="Ub5-my-ALg" firstAttribute="top" secondItem="a9z-4j-Sxv" secondAttribute="bottom" constant="30" id="jyU-YF-u9M"/>
                                         <constraint firstAttribute="bottom" secondItem="eIj-mv-g70" secondAttribute="bottom" constant="46" id="k90-qG-C57"/>
@@ -683,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-KS-bxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="33"/>
+            <point key="canvasLocation" x="992.79999999999995" y="32.833583208395808"/>
         </scene>
         <!--New User View Controller-->
         <scene sceneID="k6W-HS-5se">
@@ -1110,6 +1124,6 @@
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZFo-vw-s75"/>
+        <segue reference="Kcc-U2-lqg"/>
     </inferredMetricsTieBreakers>
 </document>
