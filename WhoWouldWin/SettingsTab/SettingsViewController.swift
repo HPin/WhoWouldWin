@@ -119,7 +119,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 0{
+            if indexPath.row == 0{}
+            else if indexPath.row == 1{}
+        }
+        else if indexPath.section == 1{
+            if indexPath.row == 0{}
+            else if indexPath.row == 1{}
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
