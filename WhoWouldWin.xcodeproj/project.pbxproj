@@ -21,6 +21,7 @@
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
 		E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */; };
+		E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
@@ -77,6 +78,7 @@
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E4C431462006A6C8007D4CC6 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
+		E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOrLocationViewController.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 			path = LocationTab;
 			sourceTree = "<group>";
 		};
+		E4F5020C201CABC20019B8B5 /* SettingsTab */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */,
+			);
+			path = SettingsTab;
+			sourceTree = "<group>";
+		};
 		E64E5C96200A3EF400FB254B /* BattleTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +247,7 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E4F5020C201CABC20019B8B5 /* SettingsTab */,
 				E4C431482006A6CE007D4CC6 /* LocationTab */,
 				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
@@ -512,6 +523,7 @@
 				E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */,
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
 				E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */,
+				E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
