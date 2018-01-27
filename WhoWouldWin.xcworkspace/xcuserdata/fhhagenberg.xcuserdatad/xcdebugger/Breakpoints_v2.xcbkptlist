@@ -42,7 +42,7 @@
                   moduleName = "WhoWouldWin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/CategoriesTab/CategoryBattleViewController.swift"
-                  timestampString = "538776903.533336"
+                  timestampString = "538783483.296801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
@@ -57,7 +57,7 @@
                   moduleName = "WhoWouldWin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/CategoriesTab/CategoryBattleViewController.swift"
-                  timestampString = "538776903.535376"
+                  timestampString = "538783483.2996221"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "106"
@@ -864,6 +864,198 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783483.284408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783483.285059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783487.92171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WhoWouldWin.MyBattlesViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "WhoWouldWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+                  timestampString = "538783487.927055"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.UInt) -&gt; () in WhoWouldWin.MyBattlesViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "WhoWouldWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+                  timestampString = "538783487.929014"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783488.438635"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783488.821563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.UInt) -&gt; () in WhoWouldWin.MyBattlesViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "WhoWouldWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+                  timestampString = "538783488.8274111"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in closure #1 (Swift.String, Swift.UInt) -&gt; () in WhoWouldWin.MyBattlesViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "WhoWouldWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+                  timestampString = "538783488.829321"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783489.313458"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783489.749482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhoWouldWin/SettingsTab/MyBattlesViewController.swift"
+            timestampString = "538783490.2570601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
