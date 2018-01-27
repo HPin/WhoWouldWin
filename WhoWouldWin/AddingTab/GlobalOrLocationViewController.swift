@@ -12,6 +12,7 @@ class GlobalOrLocationViewController: UIViewController, UIPickerViewDelegate, UI
 
     var categories = ["Fight", "Rap Battle", "Beauty Contest"]
     var categoryClicked: String = "Fight"   // default: First picker entry
+    var isGlobalBattle: Bool = true
     
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
@@ -89,6 +90,24 @@ class GlobalOrLocationViewController: UIViewController, UIPickerViewDelegate, UI
         }
     }
     
+    @IBAction func globalButton(_ sender: UIButton) {
+        isGlobalBattle = true
+        performSegue(withIdentifier: "createCont1Segue", sender: self)
+    }
+    @IBAction func locationButton(_ sender: UIButton) {
+        isGlobalBattle = false
+        performSegue(withIdentifier: "createCont1Segue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createCont1Segue" {
+            if let destVC = segue.destination as? CreateContender1ViewController {
+                
+                destVC.categoryClicked = self.categoryClicked
+                destVC.isGlobalBattle = self.isGlobalBattle
+                
+            }
+        }
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

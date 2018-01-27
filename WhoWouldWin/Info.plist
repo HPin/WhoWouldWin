@@ -24,6 +24,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Without your permission you can never add photos to battles.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Who would Win uses your location for location based comparisions</string>
 	<key>UIRequiredDeviceCapabilities</key>
