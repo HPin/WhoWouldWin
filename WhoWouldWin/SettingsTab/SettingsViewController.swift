@@ -24,8 +24,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let imageName = UIImage(named: "Wait")
-        self.userImage?.image = imageName
+        if self.userImage.image == nil {
+            let imageName = UIImage(named: "Wait")
+            self.userImage?.image = imageName
+        }
         print("ViewwillApear")
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         getNumberOfBattles(uid: userUID) { (numberOfBattles) in
