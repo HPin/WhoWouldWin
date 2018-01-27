@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var settingsTableView: UITableView!
     
     let sections = ["Profile","Team"]
-    let cellLabels = [["User","Battlescollection"], ["About", "Contact"]]
+    let cellLabels = [["User","My Battles"], ["About", "Contact"]]
     
     
     override func viewDidLoad() {
