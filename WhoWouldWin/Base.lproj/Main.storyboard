@@ -886,7 +886,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5b-o9-wAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="788"/>
+            <point key="canvasLocation" x="1550" y="1537"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="alJ-KL-0MR">
@@ -934,12 +934,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="usY-9W-nmV">
-                                <rect key="frame" x="0.0" y="269" width="375" height="349"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="usY-9W-nmV">
+                                <rect key="frame" x="0.0" y="240" width="375" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="7Ow-FH-xJQ" style="IBUITableViewCellStyleDefault" id="Rzy-g2-fOK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" textLabel="7Ow-FH-xJQ" style="IBUITableViewCellStyleDefault" id="Rzy-g2-fOK">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rzy-g2-fOK" id="AAO-Yo-7fe">
@@ -957,20 +956,56 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GeB-eB-4V4" id="y61-ib-Gg5"/>
+                                    <outlet property="delegate" destination="GeB-eB-4V4" id="3vU-dt-ZYR"/>
+                                </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="upt-on-BmJ">
-                                <rect key="frame" x="67" y="115" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="upt-on-BmJ">
+                                <rect key="frame" x="67" y="100" width="240" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="1XI-QI-SVM"/>
+                                    <constraint firstAttribute="width" constant="240" id="NaC-hc-XmM"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOr-fa-1eC">
-                                <rect key="frame" x="81" y="20" width="213" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOr-fa-1eC">
+                                <rect key="frame" x="80" y="25" width="215" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="iFT-Ld-hBi"/>
+                                    <constraint firstAttribute="width" constant="215" id="j4o-o7-D3f"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-o6-aVs">
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="pqu-jQ-E4l"/>
+                                </constraints>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOutButton:" destination="GeB-eB-4V4" eventType="touchUpInside" id="12c-Wq-lJO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZOr-fa-1eC" firstAttribute="top" secondItem="g1E-iQ-zr5" secondAttribute="top" constant="5" id="IKX-sP-bLe"/>
+                            <constraint firstItem="cwA-o6-aVs" firstAttribute="leading" secondItem="g1E-iQ-zr5" secondAttribute="leading" id="L1B-aT-cne"/>
+                            <constraint firstItem="usY-9W-nmV" firstAttribute="leading" secondItem="g1E-iQ-zr5" secondAttribute="leading" id="QXx-Ff-Uhh"/>
+                            <constraint firstItem="cwA-o6-aVs" firstAttribute="top" secondItem="usY-9W-nmV" secondAttribute="bottom" id="Tel-Pl-qca"/>
+                            <constraint firstItem="cwA-o6-aVs" firstAttribute="bottom" secondItem="g1E-iQ-zr5" secondAttribute="bottom" id="WW4-iw-1pY"/>
+                            <constraint firstItem="usY-9W-nmV" firstAttribute="trailing" secondItem="g1E-iQ-zr5" secondAttribute="trailing" id="XYr-S2-fkZ"/>
+                            <constraint firstItem="usY-9W-nmV" firstAttribute="top" secondItem="upt-on-BmJ" secondAttribute="bottom" constant="20" id="ZAj-5k-u7q"/>
+                            <constraint firstItem="upt-on-BmJ" firstAttribute="centerX" secondItem="ghy-sJ-gcD" secondAttribute="centerX" id="kxd-pH-9pm"/>
+                            <constraint firstItem="ZOr-fa-1eC" firstAttribute="centerX" secondItem="ghy-sJ-gcD" secondAttribute="centerX" id="sXt-pI-l6m"/>
+                            <constraint firstItem="cwA-o6-aVs" firstAttribute="trailing" secondItem="g1E-iQ-zr5" secondAttribute="trailing" id="whE-e7-LzR"/>
+                            <constraint firstItem="upt-on-BmJ" firstAttribute="top" secondItem="ZOr-fa-1eC" secondAttribute="bottom" constant="5" id="zzw-CO-nV7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g1E-iQ-zr5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="MY4-7l-x59"/>
@@ -978,11 +1013,12 @@
                         <outlet property="settingsTableView" destination="usY-9W-nmV" id="B4F-hm-Eg5"/>
                         <outlet property="userImage" destination="upt-on-BmJ" id="NLx-s2-CiO"/>
                         <outlet property="usernameLabel" destination="ZOr-fa-1eC" id="ftR-YO-yZc"/>
+                        <segue destination="J3q-fS-PC6" kind="show" identifier="fromSettingsToLogin" id="Adb-uD-6uT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3Y-7e-yV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.8" y="1611.5442278860571"/>
+            <point key="canvasLocation" x="49" y="1495"/>
         </scene>
         <!--Create Contender1 View Controller-->
         <scene sceneID="xWx-uq-h4p">
@@ -1567,6 +1603,6 @@ Local battles can be found in the location tab (the left one)</string>
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kcc-U2-lqg"/>
+        <segue reference="ZFo-vw-s75"/>
     </inferredMetricsTieBreakers>
 </document>

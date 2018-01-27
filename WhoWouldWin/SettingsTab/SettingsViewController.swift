@@ -10,7 +10,34 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let sections = ["Profile","Team"]
+    let cellLabels = [["User","Battlescollection"], ["About", "Contact"]]
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section]
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellLabels[section].count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
+        
+        cell.textLabel?.text = cellLabels[indexPath.section][indexPath.row]
+        
+        let imageName = UIImage(named: cellLabels[indexPath.section][indexPath.row])
+        cell.imageView?.image = imageName
+        
+        return cell
+    }
+    
 
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
@@ -49,7 +76,25 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func signOutButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Sign out", message: "Do you really want to sign out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            do {
+                try Auth.auth().signOut()
+                self.performSegue(withIdentifier: "fromSettingsToLogin", sender: self)
+            } catch let logOutError {
+                print(logOutError)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 
