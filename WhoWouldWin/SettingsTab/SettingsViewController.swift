@@ -23,30 +23,80 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     let cellLabels = [["User","My Battles"], ["About", "Contact"]]
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("test")
-        let userUID = Auth.auth().currentUser?.uid
-        getUsernameFromUID(uid: userUID!) { (userName) in
-             print(userName)
-            self.usernameLabel.text = userName
+    override func viewWillAppear(_ animated: Bool) {
+        let imageName = UIImage(named: "Wait")
+        self.userImage?.image = imageName
+        print("ViewwillApear")
+        guard let userUID = Auth.auth().currentUser?.uid else {return}
+        getNumberOfBattles(uid: userUID) { (numberOfBattles) in
+            let numberBattles = Int(numberOfBattles)
+            
+            if numberBattles < 10 {
+                let imageName = UIImage(named: "Beginner")
+                UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
+            }
+            else if numberBattles >= 10 && numberBattles < 25 {
+                let imageName = UIImage(named: "Advanced")
+                UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
+            }
+            else if numberBattles >= 25 && numberBattles < 45 {
+                let imageName = UIImage(named: "Profi")
+                UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
+            }
+            else if numberBattles >= 45 {
+                let imageName = UIImage(named: "Expert")
+                UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
+            }
+            
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("test")
+
+    }
+    //        let userUID = Auth.auth().currentUser?.uid
+    //        getUsernameFromUID(uid: userUID!) { (userName) in
+    //             print(userName)
+    //            self.usernameLabel.text = userName
+    //        }
     
-    func getUsernameFromUID(uid: String, completion: @escaping (String) -> Void) {
+    func getNumberOfBattles(uid: String, completion: @escaping (UInt) -> Void){
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot{
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
-                        completion(dic["name"] as! String)
+                        if (dic["battles"] != nil) {
+                            guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
+                            completion(numberOfBattles)
+                        } else {
+                            completion(0)
+                        }
                     }
                 }
             }
         }
     }
+    
+    
+    
+    
+//    func getUsernameFromUID(uid: String, completion: @escaping (String) -> Void) {
+//        ref = Database.database().reference()
+//        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
+//            let enumerator = snapshot.children
+//            while let rest = enumerator.nextObject() as? DataSnapshot{
+//                if let dic = rest.value as? [String:AnyObject]{
+//                    if dic["uid"] as? String == uid{
+//                        completion(dic["name"] as! String)
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     @IBAction func signOutButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Sign out", message: "Do you really want to sign out?", preferredStyle: .alert)
@@ -66,6 +116,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section]
