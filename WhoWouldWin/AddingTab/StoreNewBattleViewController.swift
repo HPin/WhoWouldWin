@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import FirebaseStorage
 
 class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -65,43 +66,43 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         print("c2" + nameC2)
         
         if isGlobal {
-            
+
             let battleRef = ref?.child("Categories").child(category).childByAutoId()
-            
+
             if let img1Data = UIImagePNGRepresentation(img1) {
-                
+
                 let randomID = NSUUID().uuidString
                 let storageRef = Storage.storage().reference().child(randomID + ".png")
                 let uploadTask = storageRef.putData(img1Data, metadata: nil, completion: { (metadata, error) in
-                    
+
                     guard let metadata = metadata else {
                         print("----An error occurred!")
                         return
                     }
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let imgURL = metadata.downloadURL()?.absoluteString
-                    
+
                     battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": imgURL])
                 })
             }
-            
+
             if let img2Data = UIImagePNGRepresentation(img2) {
-                
+
                 let randomID = NSUUID().uuidString
                 let storageRef = Storage.storage().reference().child(randomID + ".png")
                 let uploadTask = storageRef.putData(img2Data, metadata: nil, completion: { (metadata, error) in
-                    
+
                     guard let metadata = metadata else {
                         print("----An error occurred!")
                         return
                     }
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let imgURL = metadata.downloadURL()?.absoluteString
-                    
+
                     battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
                 })
             }
-            
+
         } else {
             manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -109,7 +110,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             manager.startUpdatingLocation()
             guard let latitude:Double = manager.location?.coordinate.latitude else {return}
             guard let longitude:Double = manager.location?.coordinate.longitude else {return}
-            
+
             //write in the actual data
             let battleRef = ref?.child("Locations").childByAutoId()
             battleRef?.setValue(["Latitude": latitude, "Longitude": longitude, "Category": category])

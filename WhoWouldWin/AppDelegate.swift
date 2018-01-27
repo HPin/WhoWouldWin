@@ -17,9 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         FirebaseApp.configure()     // initialize firebase
-        
+        if Auth.auth().currentUser != nil {
+            print("Automatic Sign In")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CustomTabBar")
+            self.window!.rootViewController = initialViewController
+        }
         return true
     }
 

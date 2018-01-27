@@ -19,31 +19,29 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var settingsTableView: UITableView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("test")
         let userUID = Auth.auth().currentUser?.uid
-        usernameLabel.text = getUsernameFromUID(uid: userUID!)
-        
+        getUsernameFromUID(uid: userUID!) { (userName) in
+             print(userName)
+            self.usernameLabel.text = userName
+        }
     }
     
     
-    func getUsernameFromUID(uid: String) -> String {
-        var username = ""
+    func getUsernameFromUID(uid: String, completion: @escaping (String) -> Void) {
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot{
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
-                        username = (dic["name"] as? String)!
-                        break
+                        completion(dic["name"] as! String)
                     }
                 }
             }
         }
-        return username
     }
 
     override func didReceiveMemoryWarning() {
