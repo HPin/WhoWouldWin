@@ -34,6 +34,37 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         storeInDatabase()
     }
     
+    func storeGlobalInUser(uid: String, keyString: String) {
+        ref = Database.database().reference()
+        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot{
+                if let dic = rest.value as? [String:AnyObject]{
+                    if dic["uid"] as? String == uid{
+                        let myRef = rest.ref
+                        myRef.child("globalbattles").childByAutoId().setValue(keyString)
+                    }
+                }
+            }
+        }
+    }
+    
+    func storeLocationInUser(uid: String, keyString: String) {
+        ref = Database.database().reference()
+        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot{
+                if let dic = rest.value as? [String:AnyObject]{
+                    if dic["uid"] as? String == uid{
+                        let myRef = rest.ref
+                        myRef.child("locationBattles").childByAutoId().setValue(keyString)
+                    }
+                }
+            }
+        }
+    }
+    
+    
     func storeInDatabase() {
         guard let isGlobal = isGlobalBattle else {
             print("isglobal nil")
@@ -102,6 +133,10 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
                     battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
                 })
             }
+            guard let myUID = Auth.auth().currentUser?.uid else {return}
+            guard let myKeyString = battleRef?.key else {return}
+            storeGlobalInUser(uid: myUID, keyString: myKeyString)
+            
 
         } else {
             manager.delegate = self
@@ -116,6 +151,10 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             battleRef?.setValue(["Latitude": latitude, "Longitude": longitude, "Category": category])
             battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes": 0])
             battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes": 0])
+            
+            guard let myUID = Auth.auth().currentUser?.uid else {return}
+            guard let myKeyString = battleRef?.key else {return}
+            storeLocationInUser(uid: myUID, keyString: myKeyString)
         }
     }
 }
