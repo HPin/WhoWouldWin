@@ -12,4 +12,7 @@ class BattleVCCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var contenderImageView: UIImageView!
+    @IBOutlet weak var blackOverlay: UIView!
+    @IBOutlet weak var percentLabel: UILabel!
 }
