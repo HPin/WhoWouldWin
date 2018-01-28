@@ -27,7 +27,6 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     var imageURLContender2: String?
     
     var categoryName: String!
-    var battleCount: UInt = 0
     
     var hasVotedFor1: Bool = false
     var hasVotedFor2: Bool = false
@@ -76,7 +75,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLayoutSubviews() {
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
-        centerCircleView.layer.borderWidth = 6
+        centerCircleView.layer.borderWidth = 4
         let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
         centerCircleView.layer.borderColor = myColor.cgColor
     }

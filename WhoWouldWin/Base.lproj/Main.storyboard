@@ -235,7 +235,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="596"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swiftyGuy" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-DV-GHd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swiftyGuy" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-DV-GHd">
                                                     <rect key="frame" x="0.0" y="0.0" width="186" height="596"/>
                                                 </imageView>
                                                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46l-f5-2AG" userLabel="BlackOverlay">
@@ -304,6 +304,15 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXU-JA-2ed">
                                 <rect key="frame" x="40" y="-116" width="295" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWn-7a-5n5">
+                                        <rect key="frame" x="106" y="144" width="83" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -319,6 +328,7 @@
                     <tabBarItem key="tabBarItem" title="" id="9R8-kM-iWY"/>
                     <connections>
                         <outlet property="battleCollectionView" destination="wQn-Sv-WRT" id="lCT-S8-GMt"/>
+                        <outlet property="categoryLabel" destination="zWn-7a-5n5" id="3iH-cf-LS2"/>
                         <outlet property="centerCircleView" destination="UHk-Oj-Zkc" id="PeP-JR-FgJ"/>
                         <outlet property="topView" destination="oXU-JA-2ed" id="a1T-jJ-Cp8"/>
                     </connections>
