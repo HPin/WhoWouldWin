@@ -72,8 +72,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             while let rest = enumerator.nextObject() as? DataSnapshot{
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
-                        if (dic["battles"] != nil) {
+                        
+                        if (dic["globalbattles"] != nil) {
                             guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
+                            if(dic["locationbattles"] != nil){
+                                
+                            }
                             completion(numberOfBattles)
                         } else {
                             completion(0)
@@ -142,24 +146,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0{
             if indexPath.row == 0{}
             else if indexPath.row == 1{
-                guard let userUID = Auth.auth().currentUser?.uid else {return}
-                getUserBattles(uid: userUID) { (key, numberBattles) in
-                    self.ref = Database.database().reference()
-                    self.ref?.child("Users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
-                        let enumerator = snapshot.children
-                        while let rest = enumerator.nextObject() as? DataSnapshot{
-                            if let dic = rest.value as? [String:String]{
-                                for (_,value) in dic{
-                                    self.battlesIDs.append(value)
-                                }
-                                
-                            }
-                        }
-                    })
-                }
-                
+                performSegue(withIdentifier: "fromSettingsToBattles", sender: self)
             }
-            performSegue(withIdentifier: "fromSettingsToBattles", sender: self)
         }
         else if indexPath.section == 1{
             if indexPath.row == 0{}
@@ -190,11 +178,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? MyBattlesViewController {
-            vc.battlesIDs = self.battlesIDs
-        }
-    }
+
     
     
 }
