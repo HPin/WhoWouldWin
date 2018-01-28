@@ -106,7 +106,7 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
                     if let dic = rest.value as? [String:AnyObject]{
                         if dic["user"] as? String == uid{
                             guard   let contender1 = dic["Contender 1"] as? [String:AnyObject],
-                                    let contender2 = dic["Contender 1"] as? [String:AnyObject],
+                                    let contender2 = dic["Contender 2"] as? [String:AnyObject],
                                     let name1 = contender1["Name"] as? String,
                                     let name2 = contender2["Name"] as? String,
                                     let vote1 = contender1["Votes"] as? Int,
