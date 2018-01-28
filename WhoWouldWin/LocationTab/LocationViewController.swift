@@ -38,7 +38,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         let buttonText:String = "Search Radius: " + selectedDistance.description + " km"
         
         submitButton.setTitle(buttonText, for: .normal)
-        showCircle(coordinate: (manager.location?.coordinate)!, radius: Double(selectedDistance), mapView: mapView)
+        
     }
     
     
@@ -51,7 +51,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-        showCircle(coordinate: (manager.location?.coordinate)!, radius: Double(selectedDistance), mapView: mapView)
         
         
     }
@@ -83,19 +82,5 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     }
     */
     
-    private func mapView(_ mapView: MKMapView, rendererFor overlay: MKCircle) -> MKOverlayRenderer {
-            let circle = MKCircleRenderer(overlay: overlay)
-            circle.strokeColor = UIColor.red
-            circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
-            circle.lineWidth = 1
-            return circle
-    }
-    
-    func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, mapView: MKMapView) {
-        self.mapView.delegate = self
-        let circle = MKCircle(center: coordinate, radius: radius)
-        mapView.add(circle)
-    }
-  
 
 }
