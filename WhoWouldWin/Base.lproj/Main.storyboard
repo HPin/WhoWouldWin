@@ -945,7 +945,7 @@
         <!--Settings View Controller-->
         <scene sceneID="sH8-7v-GXT">
             <objects>
-                <viewController storyboardIdentifier="settTab" id="GeB-eB-4V4" customClass="SettingsViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GeB-eB-4V4" customClass="SettingsViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghy-sJ-gcD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1701,7 +1701,7 @@ Local battles can be found in the location tab (the left one)</string>
         <!--Item-->
         <scene sceneID="e6y-1r-G69">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TSH-PC-hnZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settTab" automaticallyAdjustsScrollViewInsets="NO" id="TSH-PC-hnZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="MY4-7l-x59"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="maU-ML-6x0">
