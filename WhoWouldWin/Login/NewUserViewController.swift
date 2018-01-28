@@ -9,12 +9,13 @@
 import UIKit
 import Firebase
 
-class NewUserViewController: UIViewController {
+class NewUserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var eMailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
@@ -167,6 +168,60 @@ class NewUserViewController: UIViewController {
             }
             completion(checkDB, nameExists, mailExists)
         })
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let totalHeight = view.frame.height
+        let textFieldY = textField.frame.origin.y
+        let textFieldDistanceFromBottom = totalHeight - textFieldY
+        
+        let offset = 280 - textFieldDistanceFromBottom
+        
+        
+        if offset > 0 {
+            UIView.animateKeyframes(withDuration: 0.9, delay: 0.0, options: [], animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
+                    self.scrollView.setContentOffset(CGPoint(x: 0, y: offset + 10), animated: false)
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+                    self.scrollView.setContentOffset(CGPoint(x: 0, y: offset - 3), animated: false)
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+                    self.scrollView.setContentOffset(CGPoint(x: 0, y: offset), animated: false)
+                })
+                
+            }, completion: nil)
+        } else {
+            UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
+                    textField.transform = CGAffineTransform(translationX: 0, y: 10)
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+                    textField.transform = CGAffineTransform(translationX: 0, y: -5)
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+                    textField.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+                
+            }, completion: nil)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     override func viewDidLoad() {
