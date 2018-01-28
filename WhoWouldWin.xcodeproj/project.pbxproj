@@ -434,7 +434,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		139FD01645D6370F67559E08 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -467,7 +467,7 @@
 		};
 		5E72C898482AB71A7CA6A56B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (

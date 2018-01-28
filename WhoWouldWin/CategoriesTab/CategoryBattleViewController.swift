@@ -23,6 +23,8 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     var nameContender2: String = ""
     var votesContender1: Double = 0
     var votesContender2: Double = 0
+    var imageURLContender1: String?
+    var imageURLContender2: String?
     
     var categoryName: String!
     var battleCount: UInt = 0
@@ -158,17 +160,21 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
                 if let name1 = dict["Contender 1"]!["Name"] as? String {
                     nameContender1 = name1
                 }
-                
                 if let votes1 = dict["Contender 1"]!["Votes"] as? Double {
                     votesContender1 = votes1
+                }
+                if let imgURL1 = dict["Contender 1"]!["Image"] as? String {
+                    imageURLContender1 = imgURL1
                 }
                 
                 if let name2 = dict["Contender 2"]!["Name"] as? String {
                     nameContender2 = name2
                 }
-                
                 if let votes2 = dict["Contender 2"]!["Votes"] as? Double {
                     votesContender2 = votes2
+                }
+                if let imgURL2 = dict["Contender 2"]!["Image"] as? String {
+                    imageURLContender2 = imgURL2
                 }
                 
                 reloadCollectionView()
@@ -199,13 +205,63 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CatBattleCollectionViewCell
         
         var name = "empty"
+        cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
+        cell.colorOverlay.alpha = 1
+        
         if indexPath.row == 0 {
+            //cell.contenderImageView.transform = CGAffineTransform(translationX: 0, y: -400)
+            
             name = nameContender1
+            
+            if let imgURLString = imageURLContender1 {
+                
+                let url = URL(string: imgURLString)
+                
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    
+                    if error != nil {   // if download not successful, close url session
+                        print(error)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {  // get main UI thread
+                        cell.contenderImageView.image = UIImage(data: data!)
+                        UIView.animate(withDuration: 0.5, animations: {
+                            cell.colorOverlay.alpha = 0.35
+                        })
+                    }
+                    
+                }).resume()
+            }
         }
         if indexPath.row == 1 {
             name = nameContender2
+
+            print(imageURLContender2)
+            
+            if let imgURLString = imageURLContender2 {
+
+                let url = URL(string: imgURLString)
+                
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+
+                    if error != nil {   // if download not successful, close url session
+                        print(error)
+                        return
+                    }
+
+                    DispatchQueue.main.async {  // get main UI thread
+                        cell.contenderImageView.image = UIImage(data: data!)
+                        UIView.animate(withDuration: 0.5, animations: {
+                            cell.colorOverlay.alpha = 0.35
+                        })
+                    }
+
+                }).resume()
+            }
         }
         cell.nameLabel.text = name
+        
         
         
         if hasVotedFor1 {
@@ -233,7 +289,10 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
                 cell.percentLabel.text = String(100 - percent1)  + "\n%"
             }
             cell.percentLabel.isHidden = false
-
+        } else {
+            // reset cell
+            cell.percentLabel.isHidden = true
+            cell.colorOverlay.backgroundColor = UIColor.black
         }
         
         return cell
@@ -271,6 +330,8 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             hasVotedFor2 = false
             
             reloadCollectionView()
+            loadNextBattle()
+            
         }
         if indexPath.row == 1 {
             votesContender2 += 1
@@ -284,9 +345,31 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             hasVotedFor1 = false
             
             reloadCollectionView()
+            loadNextBattle()
         }
-       
-
+    }
+    
+    
+    
+    
+    func loadNextBattle() {
+        
+        UIView.animate(withDuration: 0.3, delay: 5, options: .curveEaseIn, animations: {
+            self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
+        }, completion: { (finished) in
+            self.hasVotedFor1 = false
+            self.hasVotedFor2 = false
+            
+            self.battlesArr?.remove(at: self.randomIndex)
+            self.idArr.remove(at: self.randomIndex)
+            self.displayBattle()
+            
+            self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.battleCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+        })
+    
     }
 
 //    func displayBattle() {
