@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let sections = ["Profile","Team"]
     let cellLabels = [["User","My Battles"], ["About", "Contact"]]
+    var battlesIDs = [String]()
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,11 +72,34 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             while let rest = enumerator.nextObject() as? DataSnapshot{
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
-                        if (dic["battles"] != nil) {
+                        
+                        if (dic["globalbattles"] != nil) {
                             guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
+                            if(dic["locationbattles"] != nil){
+                                
+                            }
                             completion(numberOfBattles)
                         } else {
                             completion(0)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserBattles(uid: String, completion: @escaping (String,UInt) -> Void){
+        ref = Database.database().reference()
+        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot{
+                if let dic = rest.value as? [String:AnyObject]{
+                    if dic["uid"] as? String == uid{
+                        if (dic["battles"] != nil) {
+                            guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
+                            completion(rest.key,numberOfBattles)
+                        } else {
+                            print("No battles")
                         }
                     }
                 }
@@ -154,4 +178,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
+
+    
+    
 }

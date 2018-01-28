@@ -34,7 +34,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         storeInDatabase()
     }
     
-    func storeGlobalInUser(uid: String, keyString: String) {
+    func storeGlobalBattlesInUser(uid: String, keyString: String) {
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
@@ -49,7 +49,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         }
     }
     
-    func storeLocationInUser(uid: String, keyString: String) {
+    func storeLocalBattlesInUser(uid: String, keyString: String) {
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
@@ -57,7 +57,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
                         let myRef = rest.ref
-                        myRef.child("locationBattles").childByAutoId().setValue(keyString)
+                        myRef.child("localbattles").childByAutoId().setValue(keyString)
                     }
                 }
             }
@@ -135,7 +135,9 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             }
             guard let myUID = Auth.auth().currentUser?.uid else {return}
             guard let myKeyString = battleRef?.key else {return}
-            storeGlobalInUser(uid: myUID, keyString: myKeyString)
+            storeGlobalBattlesInUser(uid: myUID, keyString: myKeyString)
+            
+            battleRef?.child("user").setValue(myUID)
             
 
         } else {
@@ -154,7 +156,9 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             
             guard let myUID = Auth.auth().currentUser?.uid else {return}
             guard let myKeyString = battleRef?.key else {return}
-            storeLocationInUser(uid: myUID, keyString: myKeyString)
+            storeLocalBattlesInUser(uid: myUID, keyString: myKeyString)
+            
+            battleRef?.child("user").setValue(myUID)
         }
     }
 }
