@@ -36,8 +36,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="danceBattle3" translatesAutoresizingMaskIntoConstraints="NO" id="SAO-18-9dw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-je-hdv" userLabel="BlackOverlay">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARb-FB-aBX">
-                                                    <rect key="frame" x="99" y="46.5" width="178.5" height="38.5"/>
+                                                    <rect key="frame" x="99" y="46" width="178.5" height="38.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -48,9 +55,18 @@
                                         <constraints>
                                             <constraint firstItem="ARb-FB-aBX" firstAttribute="centerY" secondItem="XE9-xv-eq0" secondAttribute="centerY" id="952-TD-OAO"/>
                                             <constraint firstItem="ARb-FB-aBX" firstAttribute="centerX" secondItem="XE9-xv-eq0" secondAttribute="centerX" id="CtT-Ik-XHP"/>
+                                            <constraint firstItem="Bsh-je-hdv" firstAttribute="leading" secondItem="XE9-xv-eq0" secondAttribute="leading" id="DHt-1a-opN"/>
+                                            <constraint firstItem="SAO-18-9dw" firstAttribute="top" secondItem="XE9-xv-eq0" secondAttribute="top" id="LeB-Ig-yJL"/>
+                                            <constraint firstItem="SAO-18-9dw" firstAttribute="leading" secondItem="XE9-xv-eq0" secondAttribute="leading" id="Vir-Lh-08D"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bsh-je-hdv" secondAttribute="trailing" id="Wp8-a0-nxe"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bsh-je-hdv" secondAttribute="bottom" id="XTN-I9-Qj5"/>
+                                            <constraint firstItem="Bsh-je-hdv" firstAttribute="top" secondItem="XE9-xv-eq0" secondAttribute="top" id="bZ3-N2-FUA"/>
+                                            <constraint firstAttribute="bottom" secondItem="SAO-18-9dw" secondAttribute="bottom" id="eqU-EA-hsU"/>
+                                            <constraint firstAttribute="trailing" secondItem="SAO-18-9dw" secondAttribute="trailing" id="zPz-9V-nGI"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameLabel" destination="ARb-FB-aBX" id="PMm-cp-Joo"/>
+                                            <outlet property="picImageView" destination="SAO-18-9dw" id="WiT-Y0-HR1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1704,6 +1720,7 @@ Local battles can be found in the location tab (the left one)</string>
     </scenes>
     <resources>
         <image name="aurora" width="750" height="1334"/>
+        <image name="danceBattle3" width="1280" height="847"/>
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>

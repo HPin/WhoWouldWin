@@ -13,7 +13,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
-    var categories = [String]()
+    var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
     var categoryClicked: String?
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
@@ -25,16 +25,16 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
-        
-        refHandle = ref?.child("Categories").observe(.childAdded, with: { (snapshot) in
-            
-            let post = snapshot.key
-            
-            self.categories.append(post)
-            self.reloadCollectionView()
-            
-        })
+//        ref = Database.database().reference()
+//
+//        refHandle = ref?.child("Categories").observe(.childAdded, with: { (snapshot) in
+//
+//            let post = snapshot.key
+//
+//            self.categories.append(post)
+//            self.reloadCollectionView()
+//
+//        })
         
         
         
@@ -46,8 +46,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         customLayout.itemSize = CGSize(width: itemSize, height: 120)
         customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumInteritemSpacing = 20
-        customLayout.minimumLineSpacing = 20
+        customLayout.minimumInteritemSpacing = 10
+        customLayout.minimumLineSpacing = 10
         
         categoriesCollectionView.collectionViewLayout = customLayout
         
@@ -74,10 +74,33 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
-        cell.nameLabel.text = categories[indexPath.row]
+        
+        switch indexPath.row {
+        case 0:
+            cell.picImageView.image = UIImage(named: "beautyContest.jpg")
+        case 1:
+            cell.picImageView.image = UIImage(named: "danceBattle3.jpg")
+        case 2:
+            cell.picImageView.image = UIImage(named: "fight2.jpg")
+        case 3:
+            cell.picImageView.image = UIImage(named: "rapBattle1.jpg")
+        default:
+            print("invalid indexpath")
+        }
+        
+        let textAttributes = [
+            NSAttributedStringKey.strokeColor : UIColor.black,
+            NSAttributedStringKey.foregroundColor : UIColor.white,
+            NSAttributedStringKey.strokeWidth : -1,
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 40)
+        ] as [NSAttributedStringKey : Any]
+        
+        let name = categories[indexPath.row]
+        cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
         
         return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
