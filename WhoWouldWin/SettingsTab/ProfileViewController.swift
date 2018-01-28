@@ -20,18 +20,13 @@ class ProfileViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        usermail.text = Auth.auth().currentUser?.email
         guard let userUID = Auth.auth().currentUser?.uid else {return}
-            getUsernameFromUID(uid: userUID) { (userName) in
-                self.username.text = userName
-            }
         getNumberOfBattles(uid: userUID) { (numberOfBattles) in
-            let numberBattles = Int(numberOfBattles)
-            self.usercount.text = String(numberBattles)
+            self.usercount.text = String(numberOfBattles)
         }
     }
     
-    func getNumberOfBattles(uid: String, completion: @escaping (UInt) -> Void){
+    func getNumberOfBattles(uid: String, completion: @escaping (Int) -> Void){
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
@@ -39,10 +34,11 @@ class ProfileViewController: UIViewController {
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
                         if (dic["battles"] != nil) {
-                            guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
-                            completion(numberOfBattles)
-                        } else {
+                            if let battles = dic["battles"] as? [String:String]{
+                                completion(battles.count)
+                            }else {
                             completion(0)
+                            }
                         }
                     }
                 }
@@ -55,8 +51,11 @@ class ProfileViewController: UIViewController {
         let imageName = UIImage(named: "Profile")
         profileImageView?.image = imageName
         profileImageView.layer.cornerRadius = 20
-
-        // Do any additional setup after loading the view.
+        usermail.text = Auth.auth().currentUser?.email
+        guard let userUID = Auth.auth().currentUser?.uid else {return}
+        getUsernameFromUID(uid: userUID) { (userName) in
+            self.username.text = userName
+        }
     }
     
     

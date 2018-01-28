@@ -32,21 +32,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         print("ViewwillApear")
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         getNumberOfBattles(uid: userUID) { (numberOfBattles) in
-            let numberBattles = Int(numberOfBattles)
             
-            if numberBattles < 10 {
+            if numberOfBattles < 10 {
                 let imageName = UIImage(named: "Beginner")
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
-            else if numberBattles >= 10 && numberBattles < 25 {
+            else if numberOfBattles >= 10 && numberOfBattles < 25 {
                 let imageName = UIImage(named: "Advanced")
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
-            else if numberBattles >= 25 && numberBattles < 45 {
+            else if numberOfBattles >= 25 && numberOfBattles < 45 {
                 let imageName = UIImage(named: "Profi")
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
-            else if numberBattles >= 45 {
+            else if numberOfBattles >= 45 {
                 let imageName = UIImage(named: "Expert")
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
@@ -60,22 +59,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
-    func getNumberOfBattles(uid: String, completion: @escaping (UInt) -> Void){
+    func getNumberOfBattles(uid: String, completion: @escaping (Int) -> Void){
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot{
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
-                        
-                        if (dic["globalbattles"] != nil) {
-                            guard let numberOfBattles = dic["battles"]?.childrenCount else {return}
-                            if(dic["locationbattles"] != nil){
-                                
+                        if (dic["battles"] != nil) {
+                            if let battles = dic["battles"] as? [String:String]{
+                                completion(battles.count)
+                            }else {
+                                completion(0)
                             }
-                            completion(numberOfBattles)
-                        } else {
-                            completion(0)
                         }
                     }
                 }
