@@ -123,9 +123,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
             
         else if indexPath.section == 1{
-            if indexPath.row == 0{}
-            else if indexPath.row == 1{}
+            if indexPath.row == 0{          performSegue(withIdentifier: "fromSettingsToAbout", sender: self)}
+            else if indexPath.row == 1{     performSegue(withIdentifier: "fromSettingsToContact", sender: self)}
         }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

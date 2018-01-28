@@ -1046,8 +1046,8 @@
                         <segue destination="J3q-fS-PC6" kind="show" identifier="fromSettingsToLogin" id="Adb-uD-6uT"/>
                         <segue destination="raa-ik-idu" kind="show" identifier="fromSettingsToProfile" id="Agc-eG-LSZ"/>
                         <segue destination="Tcb-bF-DKT" kind="show" identifier="fromSettingsToBattles" id="rCv-cO-mdO"/>
-                        <segue destination="DxV-Jg-8SD" kind="show" id="N10-IN-cDC"/>
-                        <segue destination="TMr-eD-nqr" kind="show" id="fgP-AK-bO5"/>
+                        <segue destination="DxV-Jg-8SD" kind="show" identifier="fromSettingsToAbout" id="N10-IN-cDC"/>
+                        <segue destination="TMr-eD-nqr" kind="show" identifier="fromSettingsToContact" id="fgP-AK-bO5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3Y-7e-yV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1261,31 +1261,112 @@
             </objects>
             <point key="canvasLocation" x="-383.19999999999999" y="2319.490254872564"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="2DZ-i0-h9p">
             <objects>
-                <viewController id="DxV-Jg-8SD" sceneMemberID="viewController">
+                <viewController id="DxV-Jg-8SD" customClass="AboutViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHA-in-FBC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-FA-BSS">
+                                <rect key="frame" x="80" y="89" width="215" height="170"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-Se-cjP">
+                                <rect key="frame" x="0.0" y="296" width="375" height="322"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-Qt-y1x">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vfx-VT-fhU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CTQ-Qt-y1x" firstAttribute="top" secondItem="5bR-Se-cjP" secondAttribute="top" id="8wO-24-ukN"/>
+                                    <constraint firstItem="CTQ-Qt-y1x" firstAttribute="leading" secondItem="5bR-Se-cjP" secondAttribute="leading" id="Od7-wt-CTb"/>
+                                    <constraint firstAttribute="bottom" secondItem="CTQ-Qt-y1x" secondAttribute="bottom" id="amb-Mm-bFk"/>
+                                    <constraint firstAttribute="trailing" secondItem="CTQ-Qt-y1x" secondAttribute="trailing" id="kVJ-Fh-diD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DdI-FA-BSS" firstAttribute="top" secondItem="jnc-7t-Jg1" secondAttribute="top" constant="25" id="5fO-fq-f6B"/>
+                            <constraint firstAttribute="trailing" secondItem="5bR-Se-cjP" secondAttribute="trailing" id="71u-qC-Dns"/>
+                            <constraint firstItem="5bR-Se-cjP" firstAttribute="top" secondItem="DdI-FA-BSS" secondAttribute="bottom" constant="37" id="C7C-hu-5cz"/>
+                            <constraint firstItem="5bR-Se-cjP" firstAttribute="bottom" secondItem="jnc-7t-Jg1" secondAttribute="bottom" id="IOJ-h9-VrH"/>
+                            <constraint firstItem="5bR-Se-cjP" firstAttribute="centerX" secondItem="DdI-FA-BSS" secondAttribute="centerX" id="K97-PW-XJL"/>
+                            <constraint firstItem="DdI-FA-BSS" firstAttribute="leading" secondItem="jnc-7t-Jg1" secondAttribute="leading" constant="80" id="Xj9-u4-w6Y"/>
+                            <constraint firstItem="5bR-Se-cjP" firstAttribute="leading" secondItem="fHA-in-FBC" secondAttribute="leading" id="i8R-1C-oy5"/>
+                            <constraint firstItem="5bR-Se-cjP" firstAttribute="top" secondItem="fHA-in-FBC" secondAttribute="top" constant="296" id="mcq-wW-FWB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jnc-7t-Jg1"/>
                     </view>
+                    <connections>
+                        <outlet property="aboutImageView" destination="DdI-FA-BSS" id="359-WJ-EKB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jgx-lV-NNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="2321"/>
+            <point key="canvasLocation" x="421.60000000000002" y="2319.490254872564"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="Ewj-Ue-3KH">
             <objects>
-                <viewController id="TMr-eD-nqr" sceneMemberID="viewController">
+                <viewController id="TMr-eD-nqr" customClass="ContactViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ccx-LD-vCo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kZg-Rc-NQA">
+                                <rect key="frame" x="80" y="89" width="215" height="179"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfc-jZ-iRS">
+                                <rect key="frame" x="0.0" y="296" width="375" height="322"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RKx-FR-JcH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-Rx-iiv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0ie-MB-RWI">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="GaW-Rx-iiv" secondAttribute="trailing" id="LV8-L5-Af1"/>
+                                        <constraint firstItem="GaW-Rx-iiv" firstAttribute="leading" secondItem="RKx-FR-JcH" secondAttribute="leading" id="UJw-QN-cfZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="GaW-Rx-iiv" secondAttribute="bottom" id="WQb-A1-z55"/>
+                                        <constraint firstItem="GaW-Rx-iiv" firstAttribute="top" secondItem="RKx-FR-JcH" secondAttribute="top" id="wCc-ur-TnE"/>
+                                    </constraints>
+                                </view>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kZg-Rc-NQA" firstAttribute="leading" secondItem="ycf-XY-J6p" secondAttribute="leading" constant="80" id="Tn6-9f-q8M"/>
+                            <constraint firstItem="dfc-jZ-iRS" firstAttribute="leading" secondItem="ccx-LD-vCo" secondAttribute="leading" id="TqN-e6-7NK"/>
+                            <constraint firstItem="dfc-jZ-iRS" firstAttribute="centerX" secondItem="kZg-Rc-NQA" secondAttribute="centerX" id="Ze7-hv-WLU"/>
+                            <constraint firstItem="kZg-Rc-NQA" firstAttribute="centerX" secondItem="ccx-LD-vCo" secondAttribute="centerX" id="cc8-dg-J2j"/>
+                            <constraint firstItem="ycf-XY-J6p" firstAttribute="bottom" secondItem="kZg-Rc-NQA" secondAttribute="bottom" constant="350" id="hOq-hI-mYn"/>
+                            <constraint firstItem="kZg-Rc-NQA" firstAttribute="top" secondItem="ycf-XY-J6p" secondAttribute="top" constant="25" id="oK1-gH-hpe"/>
+                            <constraint firstItem="dfc-jZ-iRS" firstAttribute="bottom" secondItem="ycf-XY-J6p" secondAttribute="bottom" id="p8J-q3-n7Z"/>
+                            <constraint firstItem="dfc-jZ-iRS" firstAttribute="top" secondItem="kZg-Rc-NQA" secondAttribute="bottom" constant="28" id="tyA-2g-jGr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ycf-XY-J6p"/>
                     </view>
+                    <connections>
+                        <outlet property="contactImageView" destination="kZg-Rc-NQA" id="df0-W7-1HG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NS-1W-KUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -24,6 +24,8 @@
 		E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */; };
 		E4F50210201D1E780019B8B5 /* MyBattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */; };
 		E4F50212201E7A710019B8B5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50211201E7A710019B8B5 /* ProfileViewController.swift */; };
+		E4F50214201E85710019B8B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50213201E85710019B8B5 /* AboutViewController.swift */; };
+		E4F50216201E858E0019B8B5 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50215201E858E0019B8B5 /* ContactViewController.swift */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
 		E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
@@ -83,6 +85,8 @@
 		E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattlesViewController.swift; sourceTree = "<group>"; };
 		E4F50211201E7A710019B8B5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E4F50213201E85710019B8B5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		E4F50215201E858E0019B8B5 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOrLocationViewController.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */,
 				E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */,
 				E4F50211201E7A710019B8B5 /* ProfileViewController.swift */,
+				E4F50213201E85710019B8B5 /* AboutViewController.swift */,
+				E4F50215201E858E0019B8B5 /* ContactViewController.swift */,
 			);
 			path = SettingsTab;
 			sourceTree = "<group>";
@@ -520,7 +526,9 @@
 				E49869922007E8DE00F3CAF7 /* AddViewController.swift in Sources */,
 				E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */,
 				E6AB49C7201BDBD20050FFBD /* StoreNewBattleViewController.swift in Sources */,
+				E4F50216201E858E0019B8B5 /* ContactViewController.swift in Sources */,
 				E6E9005C1FF418A8008896EB /* WhoWouldWin.xcdatamodeld in Sources */,
+				E4F50214201E85710019B8B5 /* AboutViewController.swift in Sources */,
 				36949BC92007BDD400BAF700 /* ExampleHighlightableContentView.swift in Sources */,
 				E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */,
 				36949BC82007BDD400BAF700 /* ExampleBasicContentView.swift in Sources */,
