@@ -22,16 +22,26 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLayoutSubviews() {
         topView.layer.cornerRadius = topView.frame.width / 2
+        topView.layer.borderWidth = 4
+        topView.layer.borderColor = UIColor.white.cgColor
+        topView.backgroundColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
         
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
-        centerCircleView.layer.borderWidth = 6
+        centerCircleView.layer.borderWidth = 4
         let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
         centerCircleView.layer.borderColor = myColor.cgColor
+        
+        let size = centerCircleView.sizeThatFits(self.view.bounds.size)
+        centerCircleView.frame = CGRect.init(x: (self.view.bounds.size.width - size.width) / 2.0, y: (self.view.bounds.size.height - size.height) / 1.9 , width: size.width, height: size.height)
+        
+        let sizeTop = topView.sizeThatFits(self.view.bounds.size)
+        topView.frame = CGRect.init(x: (self.view.bounds.size.width - sizeTop.width) / 2.0, y:(-sizeTop.height/1.5) , width: sizeTop.width, height: sizeTop.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         reloadCollectionView()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +54,21 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
 
         //----- collection view:----------------
-        let itemSize = UIScreen.main.bounds.width / 2 - 5   // - x means x pts spacing
+        let itemSize = UIScreen.main.bounds.width / 2 - 4   // - x means x pts spacing
         
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         customLayout.itemSize = CGSize(width: itemSize, height: view.bounds.height)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumInteritemSpacing = 5
+        customLayout.minimumInteritemSpacing = 4
         //customLayout.minimumLineSpacing = 20
         
         battleCollectionView.collectionViewLayout = customLayout
         
         reloadCollectionView()
     }
+    
 
     func getData(completion: @escaping (Bool) -> Void){
         
