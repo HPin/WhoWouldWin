@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class MyBattlesViewController: UIViewController {
+class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     struct battle {
         var Contender1: String
@@ -21,11 +22,16 @@ class MyBattlesViewController: UIViewController {
     var myBattlesCat = [String: [battle]]()
     var myBattlesLoc = [String: [battle]]()
     
+    @IBOutlet weak var myTableView: UITableView!
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var battlesViewImage: UIImageView!
     
+    @IBAction func segmentedControlSwitch(_ sender: UISegmentedControl) {
+        myTableView.reloadData()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         guard let userUID = Auth.auth().currentUser?.uid else {return}
@@ -35,14 +41,7 @@ class MyBattlesViewController: UIViewController {
                 if successCat{
                     self.getLocationBattles(uid: userUID, completion: { (successLoc) in
                         if successLoc{
-                            print("--------------------")
-                            print("--------------------")
-                            print(self.myBattlesCat)
-                            print("--------------------")
-                            print(self.myBattlesLoc)
-                            print("--------------------")
-                            print("--------------------")
-                            print("--------------------")
+                          self.myTableView.reloadData()
                         }
                     })
                 }
@@ -126,23 +125,62 @@ class MyBattlesViewController: UIViewController {
         }
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if segmentedControl.selectedSegmentIndex == 0{
+            return myBattlesCat.keys.count
+        }
+        else {
+            return myBattlesLoc.keys.count
+        }
     }
     
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if segmentedControl.selectedSegmentIndex == 0{
+            let keysArray = Array(myBattlesCat.keys)
+            return (myBattlesCat[keysArray[section]]?.count)!
+        }
+        else {
+            let keysArray = Array(myBattlesLoc.keys)
+            return (myBattlesLoc[keysArray[section]]?.count)!
+        }
     }
-    */
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if segmentedControl.selectedSegmentIndex == 0{
+            let keysArray = Array(myBattlesCat.keys)
+            return keysArray[section]
+        }
+        else {
+            let keysArray = Array(myBattlesLoc.keys)
+            return keysArray[section]
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cellText = ""
+        if segmentedControl.selectedSegmentIndex == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+            let keysArray = Array(myBattlesCat.keys)
+            let contender1 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender1
+            cellText.append(contender1!)
+            cellText.append(" vs. ")
+            let contender2 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender2
+            cellText.append(contender2!)
+            cell.textLabel?.text = cellText
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+            let keysArray = Array(myBattlesLoc.keys)
+            let contender1 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender1
+            cellText.append(contender1!)
+            cellText.append(" vs. ")
+            let contender2 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender2
+            cellText.append(contender2!)
+            cell.textLabel?.text = cellText
+            return cell
+        }
+    }
 
 }
