@@ -18,8 +18,8 @@ class ExampleIrregularityBasicContentView: ExampleBouncesContentView {
         highlightTextColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
         iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightIconColor = UIColor.init(red: 128/255.0, green: 21/255.0, blue: 21/255.0, alpha: 1.0)
-        backdropColor = UIColor.init(red: 170/255.0, green: 57/255.0, blue: 57/255.0, alpha: 1.0)
-        highlightBackdropColor = UIColor.init(red: 170/255.0, green: 57/255.0, blue: 57/255.0, alpha: 1.0)
+        backdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
+        highlightBackdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -40,6 +40,10 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         let transform = CGAffineTransform.identity
         self.imageView.transform = transform
         self.superview?.bringSubview(toFront: self)
+        
+        self.imageView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        self.imageView.layer.shadowColor = UIColor.gray.cgColor
         
         //textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
