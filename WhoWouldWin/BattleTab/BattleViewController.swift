@@ -74,17 +74,17 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         //----- collection view:----------------
         let itemSize = UIScreen.main.bounds.width / 2 - 4   // - x means x pts spacing
-        
+
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         customLayout.itemSize = CGSize(width: itemSize, height: view.bounds.height)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
-        
+
         customLayout.minimumInteritemSpacing = 4
         //customLayout.minimumLineSpacing = 20
-        
+
         battleCollectionView.collectionViewLayout = customLayout
-        
+
         reloadCollectionView()
     }
     
@@ -127,23 +127,23 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 
                 let dict = arr[randomIndexBattle]
                 
-                if let name1 = dict["Contender 1"]!["Name"] as? String {
+                if let name1 = dict["Contender 1"]?["Name"] as? String {
                     nameContender1 = name1
                 }
-                if let votes1 = dict["Contender 1"]!["Votes"] as? Double {
+                if let votes1 = dict["Contender 1"]?["Votes"] as? Double {
                     votesContender1 = votes1
                 }
-                if let imgURL1 = dict["Contender 1"]!["Image"] as? String {
+                if let imgURL1 = dict["Contender 1"]?["Image"] as? String {
                     imageURLContender1 = imgURL1
                 }
                 
-                if let name2 = dict["Contender 2"]!["Name"] as? String {
+                if let name2 = dict["Contender 2"]?["Name"] as? String {
                     nameContender2 = name2
                 }
-                if let votes2 = dict["Contender 2"]!["Votes"] as? Double {
+                if let votes2 = dict["Contender 2"]?["Votes"] as? Double {
                     votesContender2 = votes2
                 }
-                if let imgURL2 = dict["Contender 2"]!["Image"] as? String {
+                if let imgURL2 = dict["Contender 2"]?["Image"] as? String {
                     imageURLContender2 = imgURL2
                 }
                 
