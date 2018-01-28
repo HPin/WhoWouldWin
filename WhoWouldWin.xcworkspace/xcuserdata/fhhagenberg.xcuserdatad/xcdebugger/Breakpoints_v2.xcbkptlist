@@ -42,11 +42,11 @@
                   moduleName = "WhoWouldWin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/CategoriesTab/CategoryBattleViewController.swift"
-                  timestampString = "538852646.655784"
+                  timestampString = "538869719.805627"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
@@ -57,11 +57,11 @@
                   moduleName = "WhoWouldWin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fhhagenberg/Desktop/Semester_3/Project/WhoWouldWin/WhoWouldWin/CategoriesTab/CategoryBattleViewController.swift"
-                  timestampString = "538852646.659114"
+                  timestampString = "538869719.808257"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
                   offsetFromSymbolStart = "25">
                </Location>
             </Locations>

@@ -59,11 +59,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         print("test")
 
     }
-    //        let userUID = Auth.auth().currentUser?.uid
-    //        getUsernameFromUID(uid: userUID!) { (userName) in
-    //             print(userName)
-    //            self.usernameLabel.text = userName
-    //        }
     
     func getNumberOfBattles(uid: String, completion: @escaping (UInt) -> Void){
         ref = Database.database().reference()
@@ -107,23 +102,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
-    
-    
-//    func getUsernameFromUID(uid: String, completion: @escaping (String) -> Void) {
-//        ref = Database.database().reference()
-//        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
-//            let enumerator = snapshot.children
-//            while let rest = enumerator.nextObject() as? DataSnapshot{
-//                if let dic = rest.value as? [String:AnyObject]{
-//                    if dic["uid"] as? String == uid{
-//                        completion(dic["name"] as! String)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     @IBAction func signOutButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Sign out", message: "Do you really want to sign out?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
@@ -144,11 +122,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
-            if indexPath.row == 0{}
-            else if indexPath.row == 1{
-                performSegue(withIdentifier: "fromSettingsToBattles", sender: self)
-            }
+            if indexPath.row == 0{          performSegue(withIdentifier: "fromSettingsToProfile", sender: self)}
+            else if indexPath.row == 1{     performSegue(withIdentifier: "fromSettingsToBattles", sender: self)}
         }
+            
         else if indexPath.section == 1{
             if indexPath.row == 0{}
             else if indexPath.row == 1{}

@@ -34,7 +34,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         storeInDatabase()
     }
     
-    func storeGlobalBattlesInUser(uid: String, keyString: String) {
+    func storeBattlesInUser(uid: String, keyString: String) {
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
@@ -42,27 +42,13 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["uid"] as? String == uid{
                         let myRef = rest.ref
-                        myRef.child("globalbattles").childByAutoId().setValue(keyString)
+                        myRef.child("battles").childByAutoId().setValue(keyString)
                     }
                 }
             }
         }
     }
-    
-    func storeLocalBattlesInUser(uid: String, keyString: String) {
-        ref = Database.database().reference()
-        ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
-            let enumerator = snapshot.children
-            while let rest = enumerator.nextObject() as? DataSnapshot{
-                if let dic = rest.value as? [String:AnyObject]{
-                    if dic["uid"] as? String == uid{
-                        let myRef = rest.ref
-                        myRef.child("localbattles").childByAutoId().setValue(keyString)
-                    }
-                }
-            }
-        }
-    }
+
     
     
     func storeInDatabase() {
@@ -136,7 +122,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             }
             guard let myUID = Auth.auth().currentUser?.uid else {return}
             guard let myKeyString = battleRef?.key else {return}
-            storeGlobalBattlesInUser(uid: myUID, keyString: myKeyString)
+            storeBattlesInUser(uid: myUID, keyString: myKeyString)
             
             battleRef?.child("user").setValue(myUID)
             
@@ -159,7 +145,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             
             guard let myUID = Auth.auth().currentUser?.uid else {return}
             guard let myKeyString = battleRef?.key else {return}
-            storeLocalBattlesInUser(uid: myUID, keyString: myKeyString)
+            storeBattlesInUser(uid: myUID, keyString: myKeyString)
             
             battleRef?.child("user").setValue(myUID)
             
