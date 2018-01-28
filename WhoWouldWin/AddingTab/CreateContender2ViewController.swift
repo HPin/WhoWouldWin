@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateContender2ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class CreateContender2ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
 
     var categoryClicked: String?
     var isGlobalBattle: Bool?
@@ -149,6 +149,31 @@ class CreateContender2ViewController: UIViewController, UINavigationControllerDe
 
             }
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [], animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
+                textField.transform = CGAffineTransform(translationX: 0, y: 10)
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+                textField.transform = CGAffineTransform(translationX: 0, y: -5)
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+                textField.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+            
+        }, completion: nil)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
