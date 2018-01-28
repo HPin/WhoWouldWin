@@ -27,26 +27,28 @@ class MyBattlesViewController: UIViewController {
         battlesViewImage.layer.cornerRadius = 20
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        guard let userUID = Auth.auth().currentUser?.uid else {return}
-        
-        getNumberOfBattles(uid: userUID) { (key, numberBattles) in
-            self.ref = Database.database().reference()
-            self.ref?.child("Users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
-                let enumerator = snapshot.children
-                while let rest = enumerator.nextObject() as? DataSnapshot{
-                    if let dic = rest.value as? [String:String]{
-                        for (key,value) in dic{
-                            self.battlesIDs.append(value)
-                        }
-                    }
-                }
-            })
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        guard let userUID = Auth.auth().currentUser?.uid else {return}
+//        
+//        getUserBattles(uid: userUID) { (key, numberBattles) in
+//            self.ref = Database.database().reference()
+//            self.ref?.child("Users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+//                let enumerator = snapshot.children
+//                while let rest = enumerator.nextObject() as? DataSnapshot{
+//                    if let dic = rest.value as? [String:String]{
+//                        for (key,value) in dic{
+//                            self.battlesIDs.append(value)
+//                        }
+//                        
+//                    }
+//                }
+//            })
+//        }
+//        
+//    }
     
 
-    func getNumberOfBattles(uid: String, completion: @escaping (String,UInt) -> Void){
+    func getUserBattles(uid: String, completion: @escaping (String,UInt) -> Void){
         ref = Database.database().reference()
         ref?.child("Users").observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
