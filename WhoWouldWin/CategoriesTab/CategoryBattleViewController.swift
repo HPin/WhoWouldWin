@@ -156,23 +156,23 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
                 
                 let dict = arr[randomIndex]
                 
-                if let name1 = dict["Contender 1"]!["Name"] as? String {
+                if let name1 = dict["Contender 1"]?["Name"] as? String {
                     nameContender1 = name1
                 }
-                if let votes1 = dict["Contender 1"]!["Votes"] as? Double {
+                if let votes1 = dict["Contender 1"]?["Votes"] as? Double {
                     votesContender1 = votes1
                 }
-                if let imgURL1 = dict["Contender 1"]!["Image"] as? String {
+                if let imgURL1 = dict["Contender 1"]?["Image"] as? String {
                     imageURLContender1 = imgURL1
                 }
                 
-                if let name2 = dict["Contender 2"]!["Name"] as? String {
+                if let name2 = dict["Contender 2"]?["Name"] as? String {
                     nameContender2 = name2
                 }
-                if let votes2 = dict["Contender 2"]!["Votes"] as? Double {
+                if let votes2 = dict["Contender 2"]?["Votes"] as? Double {
                     votesContender2 = votes2
                 }
-                if let imgURL2 = dict["Contender 2"]!["Image"] as? String {
+                if let imgURL2 = dict["Contender 2"]?["Image"] as? String {
                     imageURLContender2 = imgURL2
                 }
                 
