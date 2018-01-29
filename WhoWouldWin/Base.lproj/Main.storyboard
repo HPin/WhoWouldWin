@@ -1305,7 +1305,7 @@
                                                     <color key="textColor" red="1" green="0.0" blue="0.046772837529804434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app is made for playfully ask people" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGP-kq-RQH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playfully ask people's" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGP-kq-RQH">
                                                     <rect key="frame" x="23" y="118" width="330" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="330" id="21U-Wq-Zyv"/>
@@ -1315,10 +1315,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at the results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibO-hY-D0Q">
-                                                    <rect key="frame" x="138" y="220" width="100" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and watch the results." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibO-hY-D0Q">
+                                                    <rect key="frame" x="88" y="220" width="200" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="UdN-0c-x4c"/>
+                                                        <constraint firstAttribute="width" constant="200" id="UdN-0c-x4c"/>
                                                         <constraint firstAttribute="height" constant="50" id="nGU-4q-sZj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1328,7 +1328,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0XK-mO-Zil">
                                                     <rect key="frame" x="23" y="150" width="330" height="50"/>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to compare two different things and look" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTt-h0-9II">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="opinion on battles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTt-h0-9II">
                                                     <rect key="frame" x="23" y="169" width="330" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="330" id="Y8f-eD-nzN"/>
@@ -1639,13 +1639,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WY5-9u-hGO">
-                                <rect key="frame" x="16" y="244" width="351" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="180"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your battle has been created!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-z6-v7l">
                                 <rect key="frame" x="16" y="135" width="351" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1653,8 +1646,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLA-Je-QVA">
+                                <rect key="frame" x="16" y="303" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.78754526376724243" green="0.39840668439865112" blue="0.18178129196166992" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="QZc-J6-YhY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Back to main!">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pta-UP-RrD" firstAttribute="trailing" secondItem="JLA-Je-QVA" secondAttribute="trailing" constant="16" id="7V9-FV-zb3"/>
+                            <constraint firstItem="JLA-Je-QVA" firstAttribute="centerY" secondItem="scX-58-iIF" secondAttribute="centerY" id="P70-yF-vBc"/>
+                            <constraint firstItem="JLA-Je-QVA" firstAttribute="leading" secondItem="Pta-UP-RrD" secondAttribute="leading" constant="16" id="dao-uu-GaO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Pta-UP-RrD"/>
                     </view>
                 </viewController>
@@ -1899,7 +1908,6 @@ Local battles can be found in the location tab (the left one)</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Suo-WD-xis" firstAttribute="trailing" secondItem="PlT-q7-ekp" secondAttribute="trailing" constant="16" id="0oC-Ca-cEf"/>
                             <constraint firstItem="cdP-51-Kh7" firstAttribute="leading" secondItem="Suo-WD-xis" secondAttribute="leading" constant="16" id="1HM-AA-eFE"/>
