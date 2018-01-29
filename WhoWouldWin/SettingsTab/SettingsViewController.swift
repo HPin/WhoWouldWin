@@ -104,7 +104,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             alert.dismiss(animated: true, completion: nil)
             do {
                 try Auth.auth().signOut()
-                self.performSegue(withIdentifier: "fromSettingsToLogin", sender: self)
+                self.present(self.storyboard!.instantiateViewController(withIdentifier: "Login") as UIViewController, animated: true, completion: nil)
             } catch let logOutError {
                 print(logOutError)
             }

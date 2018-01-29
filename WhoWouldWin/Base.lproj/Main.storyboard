@@ -574,24 +574,24 @@
         <!--Login View Controller-->
         <scene sceneID="69q-uu-dpK">
             <objects>
-                <viewController id="J3q-fS-PC6" customClass="LoginViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="J3q-fS-PC6" customClass="LoginViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O60-mo-ckb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aurora" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-3f-4mm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eko-nt-eA9">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="887-Si-Y7J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15m-OO-3uN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9z-4j-Sxv">
                                         <rect key="frame" x="50" y="291" width="275" height="30"/>
@@ -1058,7 +1058,6 @@
                     <connections>
                         <outlet property="settingsTableView" destination="usY-9W-nmV" id="B4F-hm-Eg5"/>
                         <outlet property="userImage" destination="upt-on-BmJ" id="NLx-s2-CiO"/>
-                        <segue destination="J3q-fS-PC6" kind="show" identifier="fromSettingsToLogin" id="Adb-uD-6uT"/>
                         <segue destination="raa-ik-idu" kind="show" identifier="fromSettingsToProfile" id="Agc-eG-LSZ"/>
                         <segue destination="Tcb-bF-DKT" kind="show" identifier="fromSettingsToBattles" id="rCv-cO-mdO"/>
                         <segue destination="DxV-Jg-8SD" kind="show" identifier="fromSettingsToAbout" id="N10-IN-cDC"/>
@@ -1763,7 +1762,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeL-2S-B8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7964" y="1610.6446776611695"/>
+            <point key="canvasLocation" x="7908" y="1611"/>
         </scene>
         <!--Item-->
         <scene sceneID="t2I-bt-v4C">
@@ -2067,7 +2066,7 @@ Local battles can be found in the location tab (the left one)</string>
                         <outlet property="nameTextField" destination="IVA-vG-NM2" id="LXy-of-5NT"/>
                         <outlet property="saveButton" destination="73O-6T-C9J" id="kao-aL-F2A"/>
                         <outlet property="topLabel" destination="MAx-3W-mKA" id="aQk-jz-ZXd"/>
-                        <segue destination="FJX-uj-TRZ" kind="show" identifier="createNewBattleSegue" id="vZL-bc-e74"/>
+                        <segue destination="FJX-uj-TRZ" kind="presentation" identifier="createNewBattleSegue" id="vZL-bc-e74"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zA-j3-T6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2100,6 +2099,6 @@ Local battles can be found in the location tab (the left one)</string>
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZFo-vw-s75"/>
+        <segue reference="Kcc-U2-lqg"/>
     </inferredMetricsTieBreakers>
 </document>
