@@ -13,6 +13,10 @@ import FirebaseStorage
 
 class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBAction func backToBattle(_ sender: UIButton) {
+        self.present(self.storyboard!.instantiateViewController(withIdentifier: "CustomTabBar") as UIViewController, animated: true, completion: nil)
+    }
+    
     // data passed from previous VCs:
     var categoryClicked: String?
     var isGlobalBattle: Bool?

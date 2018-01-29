@@ -1325,9 +1325,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0XK-mO-Zil">
-                                                    <rect key="frame" x="23" y="150" width="330" height="50"/>
-                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="opinion on battles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTt-h0-9II">
                                                     <rect key="frame" x="23" y="169" width="330" height="50"/>
                                                     <constraints>
@@ -1368,7 +1365,6 @@
                                                 <constraint firstItem="jvr-sr-vii" firstAttribute="trailing" secondItem="vfx-VT-fhU" secondAttribute="trailingMargin" id="Yav-Rr-S2V"/>
                                                 <constraint firstItem="GVT-Lx-cAT" firstAttribute="centerX" secondItem="vfx-VT-fhU" secondAttribute="centerX" id="fHf-j8-5ob"/>
                                                 <constraint firstItem="ML3-V3-kCB" firstAttribute="leading" secondItem="vfx-VT-fhU" secondAttribute="leading" constant="11" id="jXV-0p-zo5"/>
-                                                <constraint firstItem="0XK-mO-Zil" firstAttribute="centerX" secondItem="vfx-VT-fhU" secondAttribute="centerX" id="kTC-R2-3Gi"/>
                                                 <constraint firstItem="ML3-V3-kCB" firstAttribute="centerY" secondItem="jvr-sr-vii" secondAttribute="centerY" id="r7e-n1-bQO"/>
                                                 <constraint firstItem="ibO-hY-D0Q" firstAttribute="top" secondItem="eTt-h0-9II" secondAttribute="bottom" constant="1" id="rji-bI-yNI"/>
                                                 <constraint firstItem="xGP-kq-RQH" firstAttribute="centerX" secondItem="vfx-VT-fhU" secondAttribute="centerX" id="yjL-WL-wRb"/>
@@ -1591,7 +1587,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Z4-fR-kc5" firstAttribute="trailing" secondItem="8fL-0i-78y" secondAttribute="trailing" constant="16" id="0pX-0Z-rO8"/>
                             <constraint firstItem="yvL-vj-hmV" firstAttribute="leading" secondItem="8Z4-fR-kc5" secondAttribute="leading" constant="16" id="1cE-EH-wyz"/>
@@ -1656,9 +1652,12 @@
                                 <state key="normal" title="Back to main!">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToBattle:" destination="FJX-uj-TRZ" eventType="touchUpInside" id="RUQ-zY-sHi"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pta-UP-RrD" firstAttribute="trailing" secondItem="JLA-Je-QVA" secondAttribute="trailing" constant="16" id="7V9-FV-zb3"/>
                             <constraint firstItem="JLA-Je-QVA" firstAttribute="centerY" secondItem="scX-58-iIF" secondAttribute="centerY" id="P70-yF-vBc"/>
@@ -1908,6 +1907,7 @@ Local battles can be found in the location tab (the left one)</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Suo-WD-xis" firstAttribute="trailing" secondItem="PlT-q7-ekp" secondAttribute="trailing" constant="16" id="0oC-Ca-cEf"/>
                             <constraint firstItem="cdP-51-Kh7" firstAttribute="leading" secondItem="Suo-WD-xis" secondAttribute="leading" constant="16" id="1HM-AA-eFE"/>
@@ -2041,7 +2041,7 @@ Local battles can be found in the location tab (the left one)</string>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o0h-mF-82m" firstAttribute="centerY" secondItem="ew5-vQ-Poc" secondAttribute="centerY" id="0HH-vh-wJC"/>
                             <constraint firstItem="73O-6T-C9J" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="1Hc-Xv-7ou"/>
