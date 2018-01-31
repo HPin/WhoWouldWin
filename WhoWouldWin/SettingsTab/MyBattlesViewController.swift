@@ -210,6 +210,7 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
         return sectionHeaderView
     }
     
+  
 
 
 }
