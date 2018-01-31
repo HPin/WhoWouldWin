@@ -19,7 +19,8 @@
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
 		E49869922007E8DE00F3CAF7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49869912007E8DE00F3CAF7 /* AddViewController.swift */; };
 		E4AE398E1FFEA60400B3BA00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */; };
-		E4C2C859202256F700F26782 /* MyBattleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2C858202256F700F26782 /* MyBattleCellTableViewCell.swift */; };
+		E4C2C85B2022780500F26782 /* MyBattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2C85A2022780500F26782 /* MyBattleCollectionViewCell.swift */; };
+		E4C2C85D20227B0600F26782 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */; };
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
 		E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */; };
 		E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */; };
@@ -81,7 +82,8 @@
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
 		E49869912007E8DE00F3CAF7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		E4AE398D1FFEA60300B3BA00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		E4C2C858202256F700F26782 /* MyBattleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattleCellTableViewCell.swift; sourceTree = "<group>"; };
+		E4C2C85A2022780500F26782 /* MyBattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattleCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E4C431462006A6C8007D4CC6 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
 		E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -181,10 +183,11 @@
 			children = (
 				E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */,
 				E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */,
+				E4C2C85A2022780500F26782 /* MyBattleCollectionViewCell.swift */,
 				E4F50211201E7A710019B8B5 /* ProfileViewController.swift */,
 				E4F50213201E85710019B8B5 /* AboutViewController.swift */,
 				E4F50215201E858E0019B8B5 /* ContactViewController.swift */,
-				E4C2C858202256F700F26782 /* MyBattleCellTableViewCell.swift */,
+				E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */,
 			);
 			path = SettingsTab;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,
 				36949BBC2007BDAA00BAF700 /* CustomTabBar.swift in Sources */,
 				E6E900561FF418A8008896EB /* BattleViewController.swift in Sources */,
+				E4C2C85B2022780500F26782 /* MyBattleCollectionViewCell.swift in Sources */,
 				36949BCA2007BDD400BAF700 /* ExampleTipsContentView.swift in Sources */,
 				36949BC72007BDD400BAF700 /* ExampleAnimateTipsContentView.swift in Sources */,
 				E6AB49C3201B375D0050FFBD /* CreateContender1ViewController.swift in Sources */,
@@ -533,6 +537,7 @@
 				E6E9005C1FF418A8008896EB /* WhoWouldWin.xcdatamodeld in Sources */,
 				E4F50214201E85710019B8B5 /* AboutViewController.swift in Sources */,
 				36949BC92007BDD400BAF700 /* ExampleHighlightableContentView.swift in Sources */,
+				E4C2C85D20227B0600F26782 /* SectionHeaderView.swift in Sources */,
 				E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */,
 				36949BC82007BDD400BAF700 /* ExampleBasicContentView.swift in Sources */,
 				E4F50210201D1E780019B8B5 /* MyBattlesViewController.swift in Sources */,
@@ -543,7 +548,6 @@
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
 				E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */,
 				E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */,
-				E4C2C859202256F700F26782 /* MyBattleCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,12 @@
 import UIKit
 import Firebase
 
-class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     
     
     struct battle {
@@ -24,18 +29,18 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
     var myBattlesCat = [String: [battle]]()
     var myBattlesLoc = [String: [battle]]()
     
-    @IBOutlet weak var myTableView: UITableView!
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var battlesViewImage: UIImageView!
     
     @IBAction func segmentedControlSwitch(_ sender: UISegmentedControl) {
-        myTableView.reloadData()
+        collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        myBattlesCat = [:]
+        myBattlesLoc = [:]
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         
         getCategories { (categories) in
@@ -43,7 +48,7 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
                 if successCat{
                     self.getLocationBattles(uid: userUID, completion: { (successLoc) in
                         if successLoc{
-                          self.myTableView.reloadData()
+                          self.collectionView.reloadData()
                         }
                     })
                 }
@@ -53,9 +58,7 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageName = UIImage(named: "settingsmybattle")
-        battlesViewImage?.image = imageName
-        battlesViewImage.layer.cornerRadius = 20
+        
     }
     
     func getLocationBattles(uid: String, completion: @escaping (Bool) -> Void){
@@ -131,17 +134,9 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if segmentedControl.selectedSegmentIndex == 0{
-            return myBattlesCat.keys.count
-        }
-        else {
-            return myBattlesLoc.keys.count
-        }
-    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0{
             let keysArray = Array(myBattlesCat.keys)
             return (myBattlesCat[keysArray[section]]?.count)!
@@ -152,36 +147,69 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var picturename = "cell"
         if segmentedControl.selectedSegmentIndex == 0{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! MyBattleCollectionViewCell
             let keysArray = Array(myBattlesCat.keys)
-            return keysArray[section]
+            let contender1 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender1
+            cell.contender1Label.text = contender1
+            let contender2 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender2
+            cell.contender2Label.text = contender2
+            
+            picturename.append(keysArray[indexPath.section])
+            cell.categoryImageView?.image = UIImage(named: picturename)
+            
+            return cell
         }
         else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! MyBattleCollectionViewCell
             let keysArray = Array(myBattlesLoc.keys)
-            return keysArray[section]
+            let contender1 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender1
+            cell.contender1Label.text = contender1
+            let contender2 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender2
+            cell.contender2Label.text = contender2
+            
+            picturename.append(keysArray[indexPath.section])
+            cell.categoryImageView?.image = UIImage(named: picturename)
+            
+            return cell
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         if segmentedControl.selectedSegmentIndex == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MyBattleCellTableViewCell
-            let keysArray = Array(myBattlesCat.keys)
-            let contender1 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender1
-            cell.Contender1Label.text = contender1
-            let contender2 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender2
-            cell.Contender2Label.text = contender2
-            return cell
+            return myBattlesCat.keys.count
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MyBattleCellTableViewCell
-            let keysArray = Array(myBattlesLoc.keys)
-            let contender1 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender1
-            cell.Contender1Label.text = contender1
-            let contender2 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender2
-            cell.Contender2Label.text = contender2
-            return cell
+            return myBattlesLoc.keys.count
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        var title = ""
+        var image = "coll"
+        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderView", for: indexPath) as! SectionHeaderView
+        
+        if segmentedControl.selectedSegmentIndex == 0{
+            let keysArray = Array(myBattlesCat.keys)
+            title = keysArray[indexPath.section]
+            image.append(title)
+        }
+        else {
+            let keysArray = Array(myBattlesLoc.keys)
+            title = keysArray[indexPath.section]
+            image.append(title)
+        }
+        
+        
+        //sectionHeaderView.categoryTitle = title
+        sectionHeaderView.imageName = image
+         
+        return sectionHeaderView
+    }
+    
+
 
 }
