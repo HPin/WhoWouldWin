@@ -14,8 +14,10 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     struct battle {
         var Contender1: String
-        var Contender2: String
+        var Image1: String
         var Votes1: Int
+        var Contender2: String
+        var Image2: String
         var Votes2: Int
     }
     
@@ -64,13 +66,15 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
                 if let dic = rest.value as? [String:AnyObject]{
                     if dic["user"] as? String == uid{
                         guard   let contender1 = dic["Contender 1"] as? [String:AnyObject],
-                            let contender2 = dic["Contender 1"] as? [String:AnyObject],
-                            let name1 = contender1["Name"] as? String,
-                            let name2 = contender2["Name"] as? String,
-                            let vote1 = contender1["Votes"] as? Int,
-                            let vote2 = contender2["Votes"] as? Int,
-                            let myCategory = dic["Category"] as? String else {return}
-                        let myBattle = battle(Contender1: name1, Contender2: name2, Votes1: vote1, Votes2: vote2)
+                                let contender2 = dic["Contender 2"] as? [String:AnyObject],
+                                let name1 = contender1["Name"] as? String,
+                                let image1 = contender1["Image"] as? String,
+                                let vote1 = contender1["Votes"] as? Int,
+                                let name2 = contender2["Name"] as? String,
+                                let vote2 = contender2["Votes"] as? Int,
+                                let image2 = contender2["Image"] as? String,
+                                let myCategory = dic["Category"] as? String else {return}
+                        let myBattle = battle(Contender1: name1, Image1: image1, Votes1: vote1, Contender2: name2, Image2: image2, Votes2: vote2)
                         if self.myBattlesLoc[myCategory]?.append(myBattle) == nil{
                             self.myBattlesLoc[myCategory] = [myBattle]
                         }
@@ -108,10 +112,12 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
                             guard   let contender1 = dic["Contender 1"] as? [String:AnyObject],
                                     let contender2 = dic["Contender 2"] as? [String:AnyObject],
                                     let name1 = contender1["Name"] as? String,
-                                    let name2 = contender2["Name"] as? String,
+                                    let image1 = contender1["Image"] as? String,
                                     let vote1 = contender1["Votes"] as? Int,
-                                    let vote2 = contender2["Votes"] as? Int else {return}
-                            let myBattle = battle(Contender1: name1, Contender2: name2, Votes1: vote1, Votes2: vote2)
+                                    let name2 = contender2["Name"] as? String,
+                                    let vote2 = contender2["Votes"] as? Int,
+                                    let image2 = contender2["Image"] as? String else {return}
+                            let myBattle = battle(Contender1: name1, Image1: image1, Votes1: vote1, Contender2: name2, Image2: image2, Votes2: vote2)
                             if self.myBattlesCat[snapshot.key]?.append(myBattle) == nil{
                                 self.myBattlesCat[snapshot.key] = [myBattle]
                             }
@@ -158,27 +164,22 @@ class MyBattlesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cellText = ""
         if segmentedControl.selectedSegmentIndex == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MyBattleCellTableViewCell
             let keysArray = Array(myBattlesCat.keys)
             let contender1 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender1
-            cellText.append(contender1!)
-            cellText.append(" vs. ")
+            cell.Contender1Label.text = contender1
             let contender2 = myBattlesCat[keysArray[indexPath.section]]?[indexPath.row].Contender2
-            cellText.append(contender2!)
-            cell.textLabel?.text = cellText
+            cell.Contender2Label.text = contender2
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MyBattleCellTableViewCell
             let keysArray = Array(myBattlesLoc.keys)
             let contender1 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender1
-            cellText.append(contender1!)
-            cellText.append(" vs. ")
+            cell.Contender1Label.text = contender1
             let contender2 = myBattlesLoc[keysArray[indexPath.section]]?[indexPath.row].Contender2
-            cellText.append(contender2!)
-            cell.textLabel?.text = cellText
+            cell.Contender2Label.text = contender2
             return cell
         }
     }
