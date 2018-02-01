@@ -30,7 +30,10 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     
     var hasVotedFor1: Bool = false
     var hasVotedFor2: Bool = false
+    var areBattlesLeft: Bool = true
     
+    @IBOutlet weak var noBattlesLeftImageView: UIImageView!
+    @IBOutlet weak var noBattlesLeftView: UIView!
     @IBOutlet weak var centerCircleView: UIView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
     
@@ -78,6 +81,8 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         centerCircleView.layer.borderWidth = 4
         let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
         centerCircleView.layer.borderColor = myColor.cgColor
+        let url = URL(string: "https://media.giphy.com/media/nYogYgSmIJaIo/giphy.gif")
+        noBattlesLeftImageView.sd_setImage(with: url)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,21 +91,6 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        ref = Database.database().reference()
-//        
-//        refHandle = ref?.child("Categories").child(categoryName).observe(.childAdded, with: { (snapshot) in
-//            
-//            print(snapshot.key)
-//            if let dict = snapshot.value as? [String : [String : AnyObject]] {
-//                
-//                if self.battlesArr?.append(dict) == nil {
-//                    self.battlesArr = [dict]
-//                }
-//                self.idArr.append(snapshot.key)
-//            }
-//            self.displayBattle()
-//        })
         
         // fetch data from firebase and display it
         getData { (display) in
@@ -148,6 +138,12 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     }
     
     func displayBattle() {
+        if areBattlesLeft {
+            noBattlesLeftView.isHidden = true
+        } else {
+            noBattlesLeftView.isHidden = false
+        }
+        
         if let arr = battlesArr {
             let len = arr.count
             if len != 0 {
@@ -353,8 +349,16 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
             
-            self.battlesArr?.remove(at: self.randomIndex)
-            self.idArr.remove(at: self.randomIndex)
+            if let arr = self.battlesArr {
+                if arr.count > 1 {
+                    self.areBattlesLeft = true
+                    self.battlesArr?.remove(at: self.randomIndex)
+                    self.idArr.remove(at: self.randomIndex)
+                } else {
+                    self.areBattlesLeft = false
+                    print("no battles left")
+                }
+            }
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
