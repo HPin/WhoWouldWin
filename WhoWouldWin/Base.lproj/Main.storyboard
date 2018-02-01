@@ -1059,9 +1059,9 @@
                         <outlet property="settingsTableView" destination="usY-9W-nmV" id="B4F-hm-Eg5"/>
                         <outlet property="userImage" destination="upt-on-BmJ" id="NLx-s2-CiO"/>
                         <segue destination="raa-ik-idu" kind="show" identifier="fromSettingsToProfile" id="Agc-eG-LSZ"/>
-                        <segue destination="KFN-pG-CvP" kind="show" identifier="fromSettingsToBattles" id="rCv-cO-mdO"/>
                         <segue destination="DxV-Jg-8SD" kind="show" identifier="fromSettingsToAbout" id="N10-IN-cDC"/>
                         <segue destination="TMr-eD-nqr" kind="show" identifier="fromSettingsToContact" id="fgP-AK-bO5"/>
+                        <segue destination="Tcb-bF-DKT" kind="show" identifier="fromSettingsToBattles" id="hgC-et-Dwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3Y-7e-yV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2264,24 +2264,6 @@ Local battles can be found in the location tab (the left one)</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZn-7M-Jlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="838"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="adE-th-C9G">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KFN-pG-CvP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UHV-kJ-egA">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Tcb-bF-DKT" kind="relationship" relationship="rootViewController" id="DoK-7w-HNP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZoN-kk-ea8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-383" y="2519"/>
         </scene>
     </scenes>
     <resources>

@@ -44,6 +44,10 @@ class MyBattleShowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let myBattle = battle(categoryname: categoryname, Contender1: contenderName1, Image1: contenderImage1, Votes1: contenderVotes1, Contender2: contenderName2, Image2: contenderImage2, Votes2: contenderVotes2)
         self.title = myBattle.categoryname
         self.title?.append(" |Total Votes: ")
@@ -85,10 +89,13 @@ class MyBattleShowViewController: UIViewController {
             contender2Name.backgroundColor = UIColor.white.withAlphaComponent(0.3)
             contender1Percentage.backgroundColor = UIColor.white.withAlphaComponent(0.3)
             contender2Percentage.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-    
+            if totalVotes == 0{
+                contender1Percentage.text = "-"
+                contender2Percentage.text = "-"
+            }
         }
-    
-            
+        
+        
         let url = URL(string: myBattle.Image1)
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             if error != nil {   // if download not successful, close url session
