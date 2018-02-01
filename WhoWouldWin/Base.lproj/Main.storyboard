@@ -110,7 +110,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H7p-WC-md5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.22745098039215686" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LMX-Jq-FK3">
                                     <size key="itemSize" width="375" height="272"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -125,39 +125,41 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swiftyGuy" translatesAutoresizingMaskIntoConstraints="NO" id="Ygq-Us-7cn">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ygq-Us-7cn" customClass="FLAnimatedImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
                                                 </imageView>
                                                 <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KA-Y5-Hpn" userLabel="BlackOverlay">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="57 %" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5se-sU-IV9">
-                                                    <rect key="frame" x="114" y="20" width="146" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="61"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ronaldinho" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf7-hg-vQf">
+                                                    <rect key="frame" x="28" y="109.5" width="319" height="53"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ronaldinho" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf7-hg-vQf">
-                                                    <rect key="frame" x="12" y="149" width="350" height="92"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="51"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57.0 %" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5se-sU-IV9">
+                                                    <rect key="frame" x="127" y="111.5" width="120" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="6KA-Y5-Hpn" firstAttribute="top" secondItem="NB8-ej-X60" secondAttribute="top" id="11Y-uX-myS"/>
                                             <constraint firstItem="Ygq-Us-7cn" firstAttribute="leading" secondItem="NB8-ej-X60" secondAttribute="leading" id="2bv-Wa-RR6"/>
+                                            <constraint firstItem="5se-sU-IV9" firstAttribute="centerY" secondItem="NB8-ej-X60" secondAttribute="centerY" id="9Ac-69-jey"/>
+                                            <constraint firstItem="Vf7-hg-vQf" firstAttribute="centerY" secondItem="NB8-ej-X60" secondAttribute="centerY" id="Cvf-o2-MFb"/>
+                                            <constraint firstItem="Vf7-hg-vQf" firstAttribute="leading" secondItem="NB8-ej-X60" secondAttribute="leadingMargin" constant="20" id="Dme-2s-YNJ"/>
                                             <constraint firstItem="Ygq-Us-7cn" firstAttribute="top" secondItem="NB8-ej-X60" secondAttribute="top" id="Jwy-Gp-say"/>
                                             <constraint firstAttribute="trailing" secondItem="6KA-Y5-Hpn" secondAttribute="trailing" id="b5v-20-3PX"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Vf7-hg-vQf" secondAttribute="trailing" constant="20" id="hN2-0A-uLg"/>
                                             <constraint firstAttribute="trailing" secondItem="Ygq-Us-7cn" secondAttribute="trailing" id="i2E-Lv-7eh"/>
                                             <constraint firstItem="6KA-Y5-Hpn" firstAttribute="leading" secondItem="NB8-ej-X60" secondAttribute="leading" id="low-Yf-Qmv"/>
                                             <constraint firstAttribute="bottom" secondItem="Ygq-Us-7cn" secondAttribute="bottom" id="quF-e8-6f5"/>
                                             <constraint firstAttribute="bottom" secondItem="6KA-Y5-Hpn" secondAttribute="bottom" id="uEH-pP-NwS"/>
+                                            <constraint firstItem="5se-sU-IV9" firstAttribute="centerX" secondItem="NB8-ej-X60" secondAttribute="centerX" id="ztl-1V-LEa"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="colorOverlay" destination="6KA-Y5-Hpn" id="62q-qC-l5W"/>
@@ -208,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jw-g5-89B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5105" y="-818"/>
+            <point key="canvasLocation" x="5104.8000000000002" y="-818.14092953523243"/>
         </scene>
         <!--Battle View Controller-->
         <scene sceneID="tne-QT-ifu">

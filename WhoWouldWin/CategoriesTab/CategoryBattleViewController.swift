@@ -111,14 +111,14 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         
         //----- collection view stuff:----------------
         let itemWidth = UIScreen.main.bounds.width
-        let itemHeight = (battleCollectionView.frame.height + 49) / 2 // 49: tab bar
+        let itemHeight = (battleCollectionView.frame.height) / 2 // 49: tab bar, 64 nav bar
         
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         customLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumLineSpacing = 20
+        customLayout.minimumLineSpacing = 10
         
         battleCollectionView.collectionViewLayout = customLayout
         
@@ -205,62 +205,39 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         
         var name = "empty"
         cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
-        cell.colorOverlay.alpha = 1
         
         if indexPath.row == 0 {
-            //cell.contenderImageView.transform = CGAffineTransform(translationX: 0, y: -400)
             
             name = nameContender1
             
             if let imgURLString = imageURLContender1 {
-                
                 let url = URL(string: imgURLString)
                 
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    
-                    if error != nil {   // if download not successful, close url session
-                        print(error)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {  // get main UI thread
-                        cell.contenderImageView.image = UIImage(data: data!)
-                        UIView.animate(withDuration: 0.5, animations: {
-                            cell.colorOverlay.alpha = 0.35
-                        })
-                    }
-                    
-                }).resume()
+                cell.contenderImageView.sd_setShowActivityIndicatorView(true)
+                cell.contenderImageView.sd_setIndicatorStyle(.gray)
+                cell.contenderImageView.sd_setImage(with: url)
             }
         }
         if indexPath.row == 1 {
             name = nameContender2
 
-            print(imageURLContender2)
-            
             if let imgURLString = imageURLContender2 {
-
                 let url = URL(string: imgURLString)
                 
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-
-                    if error != nil {   // if download not successful, close url session
-                        print(error)
-                        return
-                    }
-
-                    DispatchQueue.main.async {  // get main UI thread
-                        cell.contenderImageView.image = UIImage(data: data!)
-                        UIView.animate(withDuration: 0.5, animations: {
-                            cell.colorOverlay.alpha = 0.35
-                        })
-                    }
-
-                }).resume()
+                cell.contenderImageView.sd_setShowActivityIndicatorView(true)
+                cell.contenderImageView.sd_setIndicatorStyle(.gray)
+                cell.contenderImageView.sd_setImage(with: url)
             }
         }
-        cell.nameLabel.text = name
         
+        let textAttributes = [
+            NSAttributedStringKey.strokeColor : UIColor.black,
+            NSAttributedStringKey.foregroundColor : UIColor.white,
+            NSAttributedStringKey.strokeWidth : -1,
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 40)
+            ] as [NSAttributedStringKey : Any]
+        
+        cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
         
         
         if hasVotedFor1 {
@@ -280,16 +257,33 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         }
         
         if hasVotedFor1 || hasVotedFor2 {
+            
+            let textAttributes = [
+                NSAttributedStringKey.strokeColor : UIColor.black,
+                NSAttributedStringKey.foregroundColor : UIColor.green,
+                NSAttributedStringKey.strokeWidth : -1,
+                NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 50)
+                ] as [NSAttributedStringKey : Any]
+            
             let percent1 = calcPercent()
             if indexPath.row == 0 {
-                cell.percentLabel.text = String(percent1) + "\n%"
+                let text = String(percent1) + " %"
+                cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             if indexPath.row == 1 {
-                cell.percentLabel.text = String(100 - percent1)  + "\n%"
+                let text = String(100 - percent1)  + " %"
+                cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             cell.percentLabel.isHidden = false
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                cell.nameLabel.transform = CGAffineTransform(translationX: -19, y: -80)
+                cell.percentLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
         } else {
             // reset cell
+            cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            cell.percentLabel.transform = CGAffineTransform(scaleX: 0, y: 0)
             cell.percentLabel.isHidden = true
             cell.colorOverlay.backgroundColor = UIColor.black
         }

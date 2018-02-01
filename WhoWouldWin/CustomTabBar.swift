@@ -34,7 +34,7 @@ class CustomTabBar: ESTabBarController {
         
         self.viewControllers = [v1, v2, v3, v4, v5]
         
-        self.selectedIndex = 2
+        self.selectedIndex = 1
         self.delegate = self
     }
     
