@@ -237,7 +237,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swiftyGuy" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-DV-GHd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-DV-GHd" customClass="FLAnimatedImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
                                                 </imageView>
                                                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46l-f5-2AG" userLabel="BlackOverlay">
@@ -2327,7 +2327,6 @@ Local battles can be found in the location tab (the left one)</string>
     <resources>
         <image name="aurora" width="750" height="1334"/>
         <image name="danceBattle3" width="1280" height="847"/>
-        <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="b8w-bO-MXi"/>
