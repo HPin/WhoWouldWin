@@ -20,24 +20,29 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var centerCircleView: UIView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
     
-    var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
-    var idArr = [String]()
-    var battlesArr:[[String:AnyObject]]?
-    var randomIndexCategory: Int = 0
-    var randomIndexBattle: Int = 0
+   
+    struct battleStruct {
+        var ID: String
+        var Contender1: String
+        var Image1: String?
+        var Votes1: Int
+        var Contender2: String
+        var Image2: String?
+        var Votes2: Int
+    }
+    var randomIndexCat = 0
+    var randomIndexBattle = 0
     
-    var nameContender1: String = ""
-    var nameContender2: String = ""
-    var votesContender1: Double = 0
-    var votesContender2: Double = 0
-    var imageURLContender1: String?
-    var imageURLContender2: String?
+    var catName: String = ""
     
-    var categoryName: String!
+    var myBattlesCat = [String: [battleStruct]]()
+    
+    let categories = ["Fight", "Dance Battle", "Beauty Contest", "Rap Battle"]
     
     var hasVotedFor1: Bool = false
     var hasVotedFor2: Bool = false
     
+    var battle:battleStruct?
     
     override func viewDidLayoutSubviews() {
         topView.layer.cornerRadius = topView.frame.width / 2
@@ -58,6 +63,8 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+    
         reloadCollectionView()
     }
     
@@ -67,95 +74,128 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         // fetch data from firebase and display it
         
-        getData { (display) in
-            if display {
-                self.displayBattle()
-            }
-        }
-        //----- collection view:----------------
-        let itemSize = UIScreen.main.bounds.width / 2 - 4   // - x means x pts spacing
-
+        //----- collection view stuff:----------------
+        let itemWidth = UIScreen.main.bounds.width
+        let itemHeight = (battleCollectionView.frame.height + 49) / 2 // 49: tab bar
+        
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        customLayout.itemSize = CGSize(width: itemSize, height: view.bounds.height)
+        customLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
-
-        customLayout.minimumInteritemSpacing = 4
-        //customLayout.minimumLineSpacing = 20
-
+        
+        customLayout.minimumLineSpacing = 20
+        
         battleCollectionView.collectionViewLayout = customLayout
 
+        myBattlesCat = [:]
+        
+        getCategories { (categories) in
+            self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
+                if successCat{
+                    print("yeeeeeeeeees")
+                    self.displayBattle()
+                }
+            })
+        }
         reloadCollectionView()
     }
     
-    
-
-    func getData(completion: @escaping (Bool) -> Void){
-        
-        var display = true
-        let len = categories.count
-        randomIndexCategory = Int(arc4random_uniform(UInt32(len)))
-        categoryName = categories[randomIndexCategory]
-        categoryLabel.text = categoryName
-        
+    func getCategories(completion: @escaping ([String]) -> Void){
+        var myCategories = [String]()
         ref = Database.database().reference()
-        ref?.child("Categories").child(categoryName).observeSingleEvent(of: .value, with: { snapshot in
+        ref?.child("Categories").observeSingleEvent(of: .value, with: { (snapshot) in
             let enumerator = snapshot.children
-            
-            while let rest = enumerator.nextObject() as? DataSnapshot {
-                if let dict = rest.value as? [String:AnyObject] {
-                    
-                    if self.battlesArr?.append(dict) == nil {   // if array is empty
-                        self.battlesArr = [dict]    // initialize it
-                    }
-                    self.idArr.append(rest.key)
+            while let rest = enumerator.nextObject() as? DataSnapshot{
+                if let categorie = rest.key as? String{
+                    myCategories.append(categorie)
                 }
             }
-            completion(display)
+            completion(myCategories)
         })
+    }
+    
+    
+    func getBattlesFromCategories(categories: [String], completion: @escaping (Bool) -> Void){
+        for index in 0..<categories.count{
+            ref = Database.database().reference()
+            let childName: String = categories[index]
+            ref?.child("Categories").child(childName).observeSingleEvent(of: .value, with: { (snapshot) in
+                let enumerator = snapshot.children
+                while let rest = enumerator.nextObject() as? DataSnapshot{
+                    if let dic = rest.value as? [String:AnyObject]{
+                        
+                        guard
+                            let contender1 = dic["Contender 1"] as? [String:AnyObject],
+                            let contender2 = dic["Contender 2"] as? [String:AnyObject],
+                            let name1 = contender1["Name"] as? String,
+                            let image1 = contender1["Image"] as? String,
+                            let vote1 = contender1["Votes"] as? Int,
+                            let name2 = contender2["Name"] as? String,
+                            let vote2 = contender2["Votes"] as? Int,
+                            let image2 = contender2["Image"] as? String else {return}
+                        let myBattle = battleStruct(ID: rest.key, Contender1: name1, Image1: image1, Votes1: vote1, Contender2: name2, Image2: image2, Votes2: vote2)
+                        if self.myBattlesCat[snapshot.key]?.append(myBattle) == nil{
+                            self.myBattlesCat[snapshot.key] = [myBattle]
+                        }
+                        
+                    }
+                }
+                if index == categories.count-1{
+                    completion(true)
+                }
+            })
+        }
     }
 
     func displayBattle() {
-        if let arr = battlesArr {
-            let len = arr.count
-            if len != 0 {
-                //errorLabel.isHidden = true
-                
-                categoryName = categories[randomIndexCategory]
-                categoryLabel.text = categoryName
-                randomIndexBattle = Int(arc4random_uniform(UInt32(len)))
-                
-                let dict = arr[randomIndexBattle]
-                
-                if let name1 = dict["Contender 1"]?["Name"] as? String {
-                    nameContender1 = name1
-                }
-                if let votes1 = dict["Contender 1"]?["Votes"] as? Double {
-                    votesContender1 = votes1
-                }
-                if let imgURL1 = dict["Contender 1"]?["Image"] as? String {
-                    imageURLContender1 = imgURL1
-                }
-                
-                if let name2 = dict["Contender 2"]?["Name"] as? String {
-                    nameContender2 = name2
-                }
-                if let votes2 = dict["Contender 2"]?["Votes"] as? Double {
-                    votesContender2 = votes2
-                }
-                if let imgURL2 = dict["Contender 2"]?["Image"] as? String {
-                    imageURLContender2 = imgURL2
-                }
-                
-                reloadCollectionView()
-            } else {
-                //                vote1Button.isHidden = true
-                //                vote2Button.isHidden = true
-                //                nextButton.isHidden = true
-                //                errorLabel.isHidden = false
+        let arr = myBattlesCat
+        
+        let len = arr.capacity
+        if len != 0 {
+            //errorLabel.isHidden = true
+            
+            randomIndexCat = Int(arc4random_uniform(UInt32(4)))
+            randomIndexBattle = Int(arc4random_uniform(UInt32(len)))
+            
+            let catArr = Array(arr.keys)
+            let cat = catArr[randomIndexCat]
+            categoryLabel.text = cat
+            let dict = arr[cat]![randomIndexBattle]
+            catName = cat
+            
+            if let name1 = dict.Contender1 as? String {
+                battle!.Contender1 = name1
+            }
+            if let votes1 = dict.Votes1 as? Int {
+                battle!.Votes1 = votes1
+            }
+            if let imgURL1 = dict.Image1 as? String {
+                battle!.Image1 = imgURL1
             }
             
+            if let name2 = dict.Contender2 as? String {
+                battle!.Contender2 = name2
+            }
+            if let votes2 = dict.Votes2 as? Int {
+                battle!.Votes2 = votes2
+            }
+            if let imgURL2 = dict.Votes1 as? String {
+                battle!.Image2 = imgURL2
+            }
+            
+            if let id = dict.ID as? String {
+                battle!.ID = id
+            }
+            
+            reloadCollectionView()
+        } else {
+            //                vote1Button.isHidden = true
+            //                vote2Button.isHidden = true
+            //                nextButton.isHidden = true
+            //                errorLabel.isHidden = false
         }
+            
+        
     }
     
     
@@ -184,54 +224,58 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if indexPath.row == 0 {
             //cell.contenderImageView.transform = CGAffineTransform(translationX: 0, y: -400)
-            
-            name = nameContender1
-            
-            if let imgURLString = imageURLContender1 {
+            if let _battle = battle {
+                name = _battle.Contender1
                 
-                let url = URL(string: imgURLString)
-                
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if let imgURLString = _battle.Image1 {
                     
-                    if error != nil {   // if download not successful, close url session
-                        print(error)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {  // get main UI thread
-                        cell.contenderImageView.image = UIImage(data: data!)
-                        UIView.animate(withDuration: 0.5, animations: {
-                            cell.blackOverlay.alpha = 0.35
-                        })
-                    }
-                    
-                }).resume()
+                    let url = URL(string: imgURLString)
+                    print(imgURLString)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        
+                        if error != nil {   // if download not successful, close url session
+                            print(error)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async {  // get main UI thread
+                            cell.contenderImageView.image = UIImage(data: data!)
+                            UIView.animate(withDuration: 0.5, animations: {
+                                cell.blackOverlay.alpha = 0.35
+                            })
+                        }
+                        
+                    }).resume()
+                }
             }
         }
         if indexPath.row == 1 {
-            name = nameContender2
             
-            print(imageURLContender2)
             
-            if let imgURLString = imageURLContender2 {
+            if let _battle = battle {
+                name = _battle.Contender1
                 
-                let url = URL(string: imgURLString)
-                
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if let imgURLString = _battle.Image1 {
+            
                     
-                    if error != nil {   // if download not successful, close url session
-                        print(error)
-                        return
-                    }
+                    let url = URL(string: imgURLString)
                     
-                    DispatchQueue.main.async {  // get main UI thread
-                        cell.contenderImageView.image = UIImage(data: data!)
-                        UIView.animate(withDuration: 0.5, animations: {
-                            cell.blackOverlay.alpha = 0.35
-                        })
-                    }
-                    
-                }).resume()
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        
+                        if error != nil {   // if download not successful, close url session
+                            print(error)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async {  // get main UI thread
+                            cell.contenderImageView.image = UIImage(data: data!)
+                            UIView.animate(withDuration: 0.5, animations: {
+                                cell.blackOverlay.alpha = 0.35
+                            })
+                        }
+                        
+                    }).resume()
+                }
             }
         }
         cell.nameLabel.text = name
@@ -275,55 +319,55 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func calcPercent() -> Double {
         // catch corner cases (div 0 errors)
-        if votesContender1 == votesContender2 {
+        if battle!.Votes1 == battle!.Votes2 {
             return 50
         }
-        if votesContender1 != 0 && votesContender2 == 0 {
+        if battle!.Votes1 != 0 && battle!.Votes2 == 0 {
             return 100
         }
-        if votesContender1 == 0 && votesContender2 != 0 {
+        if battle!.Votes1 == 0 && battle!.Votes2 != 0 {
             return 0
         }
         
         // regular case: return percent of c1...(votes/totalvotes*100)
-        let percent = votesContender1 / (votesContender1 + votesContender2) * 100
-        let rounded = round(10 * percent) / 10
+        let percent = battle!.Votes1 / (battle!.Votes1 + battle!.Votes2) * 100
+        let rounded = round(Double(10 * percent)) / 10
         return rounded
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let _battle = battle{
         
-        
-        if indexPath.row == 0 {
-            votesContender1 += 1
-            
-            let ID = idArr[randomIndexBattle]
-            let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-            
-            battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
-            
-            hasVotedFor1 = true
-            hasVotedFor2 = false
-            
-            reloadCollectionView()
-            loadNextBattle()
-            
+            if indexPath.row == 0 {
+                battle!.Votes1 += 1
+                
+                
+                let battleRef = ref?.child("Categories").child(catName).child(_battle.ID)
+                
+                battleRef?.child("Contender 1").child("Votes").setValue(battle!.Votes1)
+                
+                hasVotedFor1 = true
+                hasVotedFor2 = false
+                
+                reloadCollectionView()
+                loadNextBattle()
+                
+            }
+            if indexPath.row == 1 {
+                battle!.Votes2 += 1
+                
+                
+                let battleRef = ref?.child("Categories").child(catName).child(_battle.ID)
+                
+                battleRef?.child("Contender 2").child("Votes").setValue(battle!.Votes2)
+                
+                hasVotedFor2 = true
+                hasVotedFor1 = false
+                
+                reloadCollectionView()
+                loadNextBattle()
+            }
         }
-        if indexPath.row == 1 {
-            votesContender2 += 1
-            
-            let ID = idArr[randomIndexBattle]
-            let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-            
-            battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
-            
-            hasVotedFor2 = true
-            hasVotedFor1 = false
-            
-            reloadCollectionView()
-            loadNextBattle()
-        }
-        
     }
     
     func loadNextBattle() {
@@ -334,11 +378,8 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
             
-            self.getData { (display) in
-                if display {
-                    self.displayBattle()
-                }
-            }
+            self.myBattlesCat[self.catName]?.remove(at: self.randomIndexBattle)
+            self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
             UIView.animate(withDuration: 0.25, animations: {
