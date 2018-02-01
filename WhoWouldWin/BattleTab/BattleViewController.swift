@@ -181,7 +181,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             if let votes2 = dict.Votes2 as? Int {
                 battle.Votes2 = votes2
             }
-            if let imgURL2 = dict.Votes1 as? String {
+            if let imgURL2 = dict.Image2 as? String {
                 battle.Image2 = imgURL2
             }
             
@@ -221,67 +221,39 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BattleVCCollectionViewCell
         
         var name = "empty"
-        cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
-        cell.blackOverlay.alpha = 1
+        //cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
         
         if indexPath.row == 0 {
-            //cell.contenderImageView.transform = CGAffineTransform(translationX: 0, y: -400)
+            name = battle.Contender1
             
-                name = battle.Contender1
+            if let imgURLString = battle.Image1 {
+                let url = URL(string: imgURLString)
                 
-                if let imgURLString = battle.Image1 {
-                    
-                    let url = URL(string: imgURLString)
-                    print(imgURLString)
-                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                        
-                        if error != nil {   // if download not successful, close url session
-                            print(error)
-                            return
-                        }
-                        
-                        DispatchQueue.main.async {  // get main UI thread
-                            cell.contenderImageView.image = UIImage(data: data!)
-                            UIView.animate(withDuration: 0.5, animations: {
-                                cell.blackOverlay.alpha = 0.35
-                            })
-                        }
-                        
-                    }).resume()
-                }
-            
-        }
-        if indexPath.row == 1 {
-            
-            
-            
-                name = battle.Contender1
-                
-                if let imgURLString = battle.Image1 {
-            
-                    
-                    let url = URL(string: imgURLString)
-                    
-                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                        
-                        if error != nil {   // if download not successful, close url session
-                            print(error)
-                            return
-                        }
-                        
-                        DispatchQueue.main.async {  // get main UI thread
-                            cell.contenderImageView.image = UIImage(data: data!)
-                            UIView.animate(withDuration: 0.5, animations: {
-                                cell.blackOverlay.alpha = 0.35
-                            })
-                        }
-                        
-                    }).resume()
-                
+                cell.contenderImageView.sd_setShowActivityIndicatorView(true)
+                cell.contenderImageView.sd_setIndicatorStyle(.gray)
+                cell.contenderImageView.sd_setImage(with: url)
             }
         }
-        cell.nameLabel.text = name
+        if indexPath.row == 1 {
+            name = battle.Contender2
+            
+            if let imgURLString = battle.Image2 {
+                let url = URL(string: imgURLString)
+                
+                cell.contenderImageView.sd_setShowActivityIndicatorView(true)
+                cell.contenderImageView.sd_setIndicatorStyle(.gray)
+                cell.contenderImageView.sd_setImage(with: url)
+            }
+        }
         
+        let textAttributes = [
+            NSAttributedStringKey.strokeColor : UIColor.black,
+            NSAttributedStringKey.foregroundColor : UIColor.white,
+            NSAttributedStringKey.strokeWidth : -1,
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 40)
+            ] as [NSAttributedStringKey : Any]
+        
+        cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
         
         
         if hasVotedFor1 {
@@ -301,16 +273,33 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         if hasVotedFor1 || hasVotedFor2 {
+            
+            let textAttributes = [
+                NSAttributedStringKey.strokeColor : UIColor.black,
+                NSAttributedStringKey.foregroundColor : UIColor.green,
+                NSAttributedStringKey.strokeWidth : -1,
+                NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 50)
+                ] as [NSAttributedStringKey : Any]
+            
             let percent1 = calcPercent()
             if indexPath.row == 0 {
-                cell.percentLabel.text = String(percent1) + "\n%"
+                let text = String(percent1) + " %"
+                cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             if indexPath.row == 1 {
-                cell.percentLabel.text = String(100 - percent1)  + "\n%"
+                let text = String(100 - percent1)  + "\n%"
+                cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             cell.percentLabel.isHidden = false
+            UIView.animate(withDuration: 0.25, animations: {
+                cell.nameLabel.transform = CGAffineTransform(translationX: -19, y: -80)
+                cell.percentLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+            
         } else {
             // reset cell
+            cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            cell.percentLabel.transform = CGAffineTransform(scaleX: 0, y: 0)
             cell.percentLabel.isHidden = true
             cell.blackOverlay.backgroundColor = UIColor.black
         }

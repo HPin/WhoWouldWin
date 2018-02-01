@@ -111,7 +111,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         
         //----- collection view stuff:----------------
         let itemWidth = UIScreen.main.bounds.width
-        let itemHeight = (battleCollectionView.frame.height) / 2 // 49: tab bar, 64 nav bar
+        let itemHeight = (battleCollectionView.frame.height - 10) / 2 // 49: tab bar, 64 nav bar
         
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -204,7 +204,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CatBattleCollectionViewCell
         
         var name = "empty"
-        cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
+        //cell.contenderImageView.image = UIImage(named: "fight.jpg")   // provide a default image
         
         if indexPath.row == 0 {
             
