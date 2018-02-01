@@ -14,9 +14,6 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    
-    
     struct battle {
         var Contender1: String
         var Image1: String
@@ -25,6 +22,9 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
         var Image2: String
         var Votes2: Int
     }
+    
+    var selectedCategory: String?
+    var selectedBattle: battle?
     
     var myBattlesCat = [String: [battle]]()
     var myBattlesLoc = [String: [battle]]()
@@ -220,6 +220,40 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
         return sectionHeaderView
     }
     
+    //identifier = "itemSelected"
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if segmentedControl.selectedSegmentIndex == 0{
+            let keysArray = Array(myBattlesCat.keys)
+            selectedCategory = keysArray[indexPath.section]
+            selectedBattle = myBattlesCat[selectedCategory!]![indexPath.row]
+            performSegue(withIdentifier: "itemSelected", sender: self)
+            
+        }
+        else {
+            let keysArray = Array(myBattlesLoc.keys)
+            selectedCategory = keysArray[indexPath.section]
+            selectedBattle = myBattlesLoc[selectedCategory!]![indexPath.row]
+            performSegue(withIdentifier: "itemSelected", sender: self)
+
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "itemSelected") {
+            let vc = segue.destination  as! MyBattleShowViewController
+            vc.categoryname = selectedCategory!
+            vc.contenderName1 = (selectedBattle?.Contender1)!
+            vc.contenderName2 = (selectedBattle?.Contender2)!
+            vc.contenderVotes1 = Double((selectedBattle?.Votes1)!)
+            vc.contenderVotes2 = Double((selectedBattle?.Votes2)!)
+            vc.contenderImage1 = (selectedBattle?.Image1)!
+            vc.contenderImage2 = (selectedBattle?.Image2)!
+            
+        }
+    }
+    
+
   
 
 
