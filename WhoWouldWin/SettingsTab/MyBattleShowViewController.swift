@@ -96,29 +96,15 @@ class MyBattleShowViewController: UIViewController {
         }
         
         
-        let url = URL(string: myBattle.Image1)
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            if error != nil {   // if download not successful, close url session
-                print(error)
-                return
-            }
-            DispatchQueue.main.async {  // get main UI thread
-                self.contender1Image.image = UIImage(data: data!)
-            }
-        }).resume()
-        
-        let url1 = URL(string: myBattle.Image2)
-        URLSession.shared.dataTask(with: url1!, completionHandler: { (data, response, error) in
-            if error != nil {   // if download not successful, close url session
-                print(error)
-                return
-            }
-            DispatchQueue.main.async {  // get main UI thread
-                self.contender2Image.image = UIImage(data: data!)
-            }
-        }).resume()
-        
-        
+        let url1 = URL(string: myBattle.Image1)
+        contender1Image.sd_setShowActivityIndicatorView(true)
+        contender1Image.sd_setIndicatorStyle(.gray)
+        contender1Image.sd_setImage(with: url1)
+       
+        let url2 = URL(string: myBattle.Image2)
+        contender2Image.sd_setShowActivityIndicatorView(true)
+        contender2Image.sd_setIndicatorStyle(.gray)
+        contender2Image.sd_setImage(with: url2)
     }
     
     

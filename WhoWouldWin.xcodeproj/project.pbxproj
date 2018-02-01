@@ -216,13 +216,6 @@
 			path = AddingTab;
 			sourceTree = "<group>";
 		};
-		E64E5C98200A3F0D00FB254B /* SettingsTab */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SettingsTab;
-			sourceTree = "<group>";
-		};
 		E64E5C99200A3F5100FB254B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +261,6 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
-				E4F5020C201CABC20019B8B5 /* SettingsTab */,
 				E4C431482006A6CE007D4CC6 /* LocationTab */,
 				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
@@ -278,7 +270,7 @@
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E64E5C96200A3EF400FB254B /* BattleTab */,
 				E64E5C97200A3EFE00FB254B /* AddingTab */,
-				E64E5C98200A3F0D00FB254B /* SettingsTab */,
+				E4F5020C201CABC20019B8B5 /* SettingsTab */,
 				E6E900571FF418A8008896EB /* Main.storyboard */,
 				E6E9005D1FF418A8008896EB /* Assets.xcassets */,
 				36949B7D2006596B00BAF700 /* GoogleService-Info.plist */,
