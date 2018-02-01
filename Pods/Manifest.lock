@@ -32,6 +32,7 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FLAnimatedImage (1.0.12)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
@@ -49,7 +50,18 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NSTimer-Blocks (0.0.1)
+  - ObjectMapper (3.1.0)
   - pop (1.0.10)
+  - SDWebImage/Core (4.2.3)
+  - SDWebImage/GIF (4.2.3):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - SwiftyGiphy (1.1.1):
+    - FLAnimatedImage (~> 1.0)
+    - NSTimer-Blocks
+    - ObjectMapper (~> 3.0)
+    - SDWebImage/GIF
 
 DEPENDENCIES:
   - ESTabBarController-swift
@@ -58,6 +70,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - pop
+  - SwiftyGiphy
 
 SPEC CHECKSUMS:
   ESTabBarController-swift: 8daa432f2a9be8ebd25101dc46c84472fd760512
@@ -68,12 +81,17 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 2e6e8e110b93b9a6e7aac71774c769a363035cb1
   FirebaseInstanceID: 24958382a1011bba5aaff37e334e7a650b9118f5
   FirebaseStorage: 0cca42d9b889a0227c3a50121f45a4469fc9eb27
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  SwiftyGiphy: 87930387b007b84c463bee2ec2a2d28d88b78b93
 
-PODFILE CHECKSUM: e5d1e804e35d95585bb02664b8a22430df6e3fff
+PODFILE CHECKSUM: d3b4f496a14f515f21fabce50aa6b9c15555ddd1
 
 COCOAPODS: 1.4.0

@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import SwiftyGiphy
 
-class CreateContender1ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
-
+class CreateContender1ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, SwiftyGiphyViewControllerDelegate {
+    
     var categoryClicked: String?
     var isGlobalBattle: Bool?
     var name1: String = ""
     var image1: UIImage?
+    var gifURL1: String?
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -22,6 +24,7 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var camRollButton: UIButton!
+    @IBOutlet weak var gifButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +53,7 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
         
         // second view
         camRollButton.isHidden = true
+        gifButton.isHidden = true
         saveButton.isHidden = true
         imageView.isHidden = true
         
@@ -59,6 +63,7 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
         self.nameTextField.transform = CGAffineTransform(translationX: 0, y: 0)
         self.continueButton.transform = CGAffineTransform(translationX: 0, y: 0)
         self.camRollButton.transform = CGAffineTransform(translationX: 0, y: 0)
+        self.gifButton.transform = CGAffineTransform(translationX: 0, y: 0)
         self.saveButton.transform = CGAffineTransform(translationX: 0, y: 0)
     }
     
@@ -69,6 +74,8 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
     @IBAction func continueButton(_ sender: UIButton) {
         // save text field input
         // error msg if no input
+
+        view.endEditing(true)   //makes sure that the keyboard is closed
         
         UIView.animate(withDuration: 0.25, animations: {
             // remove name input items from screen
@@ -84,8 +91,10 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
     func buttonFlyIn() {
         instructionLabel.text = "Now, select an image."
         camRollButton.isHidden = false
+        gifButton.isHidden = false
         UIView.animate(withDuration: 0.25, animations: {
             self.camRollButton.transform = CGAffineTransform(translationX: 0, y: 30)
+            self.gifButton.transform = CGAffineTransform(translationX: 0, y: 120)
         }) { (finished) in
             
         }
@@ -100,6 +109,7 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
             self.nameTextField.isHidden = true
             self.continueButton.isHidden = true
             self.camRollButton.isHidden = true
+            self.gifButton.isHidden = true
             self.imageView.isHidden = false
             self.saveButton.isHidden = false
             
@@ -121,6 +131,38 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
         self.dismiss(animated: true, completion: nil)   // close picker
     }
     
+    // ------------------- GIF stuff: START -------------------------------------
+    @IBAction func gifButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "gifSelectorSegue", sender: self)
+    }
+    
+    func giphyControllerDidSelectGif(controller: SwiftyGiphyViewController, item: GiphyItem) {
+        if let gifDownSized = item.downsizedImage {
+            imageView.sd_setImage(with: gifDownSized.url)
+        }
+        
+        if let gifOrig = item.originalImage {
+            self.gifURL1 = gifOrig.url?.absoluteString
+        }
+        
+        // close gif selection controller via delegate
+        controller.dismiss(animated: true) {
+            print("closed")
+            self.nameTextField.isHidden = true
+            self.continueButton.isHidden = true
+            self.camRollButton.isHidden = true
+            self.gifButton.isHidden = true
+            self.imageView.isHidden = false
+            self.saveButton.isHidden = false
+        }
+    }
+    
+    func giphyControllerDidCancel(controller: SwiftyGiphyViewController) {
+        print("canceled")
+        
+    }
+    // ------------------- GIF stuff: END -------------------------------------
+    
     @IBAction func saveButton(_ sender: UIButton) {
         if let name = nameTextField.text {
             name1 = name
@@ -130,7 +172,9 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
         
         performSegue(withIdentifier: "createCont2Segue", sender: self)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // pass data to the next vc:
         if segue.identifier == "createCont2Segue" {
             if let destVC = segue.destination as? CreateContender2ViewController {
                 
@@ -138,6 +182,14 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
                 destVC.isGlobalBattle = self.isGlobalBattle
                 destVC.name1 = self.name1
                 destVC.image1 = self.image1
+                destVC.gifURL1 = self.gifURL1
+            }
+        }
+        
+        // bind with the delegate of the gif selector:
+        if segue.identifier == "gifSelectorSegue" {
+            if let sender = segue.destination as? SwiftyGiphyViewController {
+                sender.delegate = self
             }
         }
     }

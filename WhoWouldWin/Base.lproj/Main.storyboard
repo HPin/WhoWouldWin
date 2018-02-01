@@ -1747,20 +1747,38 @@
                                     <action selector="continueButton:" destination="bVk-6u-2hZ" eventType="touchUpInside" id="Fam-hq-67f"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HDa-Yl-3dM">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HDa-Yl-3dM" customClass="FLAnimatedImageView">
                                 <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="GYW-kN-zd6"/>
                                     <constraint firstAttribute="height" constant="150" id="W2b-cx-bZX"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-Mo-8Oi">
+                                <rect key="frame" x="16" y="303" width="343" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.1881539139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kLp-8h-7qa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Use a Gif.">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gifButton:" destination="VQk-CJ-Oib" eventType="touchUpInside" id="YRp-ng-QZ5"/>
+                                    <segue destination="aEe-KJ-N7a" kind="presentation" identifier="gifSelectorSegue" id="wAZ-uL-eX5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Z4-fR-kc5" firstAttribute="trailing" secondItem="8fL-0i-78y" secondAttribute="trailing" constant="16" id="0pX-0Z-rO8"/>
                             <constraint firstItem="yvL-vj-hmV" firstAttribute="leading" secondItem="8Z4-fR-kc5" secondAttribute="leading" constant="16" id="1cE-EH-wyz"/>
+                            <constraint firstItem="8Z4-fR-kc5" firstAttribute="trailing" secondItem="xkx-Mo-8Oi" secondAttribute="trailing" constant="16" id="3K9-iz-OXo"/>
                             <constraint firstItem="8fL-0i-78y" firstAttribute="leading" secondItem="8Z4-fR-kc5" secondAttribute="leading" constant="16" id="5tN-aC-7DG"/>
+                            <constraint firstItem="xkx-Mo-8Oi" firstAttribute="centerY" secondItem="Ktm-6i-ucJ" secondAttribute="centerY" id="AFC-Kb-x6c"/>
                             <constraint firstItem="6bb-bL-1JW" firstAttribute="centerY" secondItem="Ktm-6i-ucJ" secondAttribute="centerY" id="Aiw-Bi-vCC"/>
+                            <constraint firstItem="xkx-Mo-8Oi" firstAttribute="leading" secondItem="8Z4-fR-kc5" secondAttribute="leading" constant="16" id="AqB-qx-iab"/>
                             <constraint firstItem="um7-4a-tFf" firstAttribute="leading" secondItem="8Z4-fR-kc5" secondAttribute="leading" constant="16" id="GPt-2v-YEJ"/>
                             <constraint firstItem="8Z4-fR-kc5" firstAttribute="trailing" secondItem="um7-4a-tFf" secondAttribute="trailing" constant="16" id="IPb-xU-br9"/>
                             <constraint firstItem="yvL-vj-hmV" firstAttribute="centerY" secondItem="Ktm-6i-ucJ" secondAttribute="centerY" id="Lwz-wF-Nop"/>
@@ -1783,6 +1801,7 @@
                     <connections>
                         <outlet property="camRollButton" destination="yvL-vj-hmV" id="1nH-gG-f0n"/>
                         <outlet property="continueButton" destination="eQQ-ni-paj" id="y4c-V8-3yH"/>
+                        <outlet property="gifButton" destination="xkx-Mo-8Oi" id="0Xb-sj-02J"/>
                         <outlet property="imageView" destination="HDa-Yl-3dM" id="05P-XA-ilG"/>
                         <outlet property="instructionLabel" destination="o7N-3P-JG7" id="BCU-x1-i4L"/>
                         <outlet property="nameTextField" destination="6bb-bL-1JW" id="dNO-9O-xW6"/>
@@ -1938,7 +1957,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeL-2S-B8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4308" y="2591.1544227886061"/>
+            <point key="canvasLocation" x="3153" y="2605"/>
         </scene>
         <!--Item-->
         <scene sceneID="t2I-bt-v4C">
@@ -2201,19 +2220,35 @@ Local battles can be found in the location tab (the left one)</string>
                                     <action selector="continueButton:" destination="bVk-6u-2hZ" eventType="touchUpInside" id="1rI-S2-rZ1"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NS9-su-dn0">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NS9-su-dn0" customClass="FLAnimatedImageView">
                                 <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Zip-kx-Xcz"/>
                                     <constraint firstAttribute="height" constant="150" id="fL5-Te-YF8"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWo-aN-gCn">
+                                <rect key="frame" x="16" y="304" width="343" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.1881539139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mNP-tH-QmR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Use a Gif.">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gifButton:" destination="msI-bp-VpB" eventType="touchUpInside" id="aOf-Z2-Nx5"/>
+                                    <segue destination="aEe-KJ-N7a" kind="presentation" identifier="gifSelector2Segue" id="b8w-bO-MXi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o0h-mF-82m" firstAttribute="centerY" secondItem="ew5-vQ-Poc" secondAttribute="centerY" id="0HH-vh-wJC"/>
                             <constraint firstItem="73O-6T-C9J" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="1Hc-Xv-7ou"/>
                             <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="IVA-vG-NM2" secondAttribute="trailing" constant="16" id="3Km-sl-U00"/>
+                            <constraint firstItem="JWo-aN-gCn" firstAttribute="centerY" secondItem="ew5-vQ-Poc" secondAttribute="centerY" id="4hg-JL-tgk"/>
                             <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="MAx-3W-mKA" secondAttribute="trailing" constant="16" id="7kP-W3-Sl9"/>
                             <constraint firstItem="loY-Vh-eyH" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="Ddt-d3-5Cv"/>
                             <constraint firstItem="MAx-3W-mKA" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="DqX-mb-427"/>
@@ -2222,7 +2257,9 @@ Local battles can be found in the location tab (the left one)</string>
                             <constraint firstItem="73O-6T-C9J" firstAttribute="centerY" secondItem="ew5-vQ-Poc" secondAttribute="centerY" id="PxC-qg-8RF"/>
                             <constraint firstItem="C40-Fl-XHq" firstAttribute="centerY" secondItem="ew5-vQ-Poc" secondAttribute="centerY" id="Rwy-b2-FlG"/>
                             <constraint firstItem="C40-Fl-XHq" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="Sle-wP-JPq"/>
+                            <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="JWo-aN-gCn" secondAttribute="trailing" constant="16" id="YEx-L4-HU4"/>
                             <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="loY-Vh-eyH" secondAttribute="trailing" constant="16" id="ahs-Es-Jhm"/>
+                            <constraint firstItem="JWo-aN-gCn" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="cCF-Eo-0zP"/>
                             <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="73O-6T-C9J" secondAttribute="trailing" constant="16" id="dg6-K1-fGD"/>
                             <constraint firstItem="oNh-TZ-zzX" firstAttribute="trailing" secondItem="o0h-mF-82m" secondAttribute="trailing" constant="16" id="ejv-fk-6ee"/>
                             <constraint firstItem="o0h-mF-82m" firstAttribute="leading" secondItem="oNh-TZ-zzX" secondAttribute="leading" constant="16" id="jDN-Dl-stj"/>
@@ -2237,6 +2274,7 @@ Local battles can be found in the location tab (the left one)</string>
                     <connections>
                         <outlet property="camRollButton" destination="C40-Fl-XHq" id="Qar-pG-TFt"/>
                         <outlet property="continueButton" destination="o0h-mF-82m" id="FRX-n0-ZmH"/>
+                        <outlet property="gifButton" destination="JWo-aN-gCn" id="4B5-48-R4F"/>
                         <outlet property="imageView" destination="NS9-su-dn0" id="ItZ-WH-Dga"/>
                         <outlet property="instructionLabel" destination="loY-Vh-eyH" id="i64-ik-3Y6"/>
                         <outlet property="nameTextField" destination="IVA-vG-NM2" id="LXy-of-5NT"/>
@@ -2248,6 +2286,21 @@ Local battles can be found in the location tab (the left one)</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zA-j3-T6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5441" y="1730"/>
+        </scene>
+        <!--Swifty Giphy View Controller-->
+        <scene sceneID="gJW-QC-24M">
+            <objects>
+                <viewController id="aEe-KJ-N7a" customClass="SwiftyGiphyViewController" customModule="SwiftyGiphy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v0H-8j-JLN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8Ic-Oo-YS6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FV7-bS-Lk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4929" y="2553"/>
         </scene>
         <!--Item-->
         <scene sceneID="e6y-1r-G69">
@@ -2275,6 +2328,7 @@ Local battles can be found in the location tab (the left one)</string>
         <image name="swiftyGuy" width="416" height="471"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="b8w-bO-MXi"/>
         <segue reference="ZFo-vw-s75"/>
     </inferredMetricsTieBreakers>
 </document>

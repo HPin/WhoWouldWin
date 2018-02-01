@@ -10,8 +10,8 @@ import UIKit
 
 class GlobalOrLocationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var categories = ["Fight", "Rap Battle", "Beauty Contest"]
-    var categoryClicked: String = "Fight"   // default: First picker entry
+    var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
+    var categoryClicked: String = "Beauty Contest"   // default: First picker entry
     var isGlobalBattle: Bool = true
     
     @IBOutlet weak var continueButton: UIButton!

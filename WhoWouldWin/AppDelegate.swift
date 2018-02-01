@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreData
+import SwiftyGiphy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "CustomTabBar")
             self.window!.rootViewController = initialViewController
         }
+        
+        SwiftyGiphyAPI.shared.apiKey = "j9AW0MzeaF8SuyshCbiiC0MPZp2jxCGo"
+        
         return true
     }
 
