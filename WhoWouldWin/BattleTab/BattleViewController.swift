@@ -87,7 +87,6 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         battleCollectionView.collectionViewLayout = customLayout
 
-        battleCollectionView.collectionViewLayout = customLayout
         myBattlesCat = [:]
         
         getCategories { (categories) in
