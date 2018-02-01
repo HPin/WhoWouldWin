@@ -70,13 +70,22 @@ class MyBattleShowViewController: UIViewController {
             contender1Percentage.backgroundColor = UIColor.green.withAlphaComponent(0.3)
             contender2Percentage.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         }
-        else{
+        else if contender2Perc > contender1Perc{
             contender1WinOrLoseImage.image = UIImage(named: "loserup")
             contender2WinOrLoseImage.image = UIImage(named: "winnerdown")
             contender1Name.backgroundColor = UIColor.red.withAlphaComponent(0.3)
             contender2Name.backgroundColor = UIColor.green.withAlphaComponent(0.3)
             contender1Percentage.backgroundColor = UIColor.red.withAlphaComponent(0.3)
             contender2Percentage.backgroundColor = UIColor.green.withAlphaComponent(0.3)
+        }
+        else{
+            contender1WinOrLoseImage.image = UIImage(named: "equal")
+            contender2WinOrLoseImage.image = UIImage(named: "equal")
+            contender1Name.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+            contender2Name.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+            contender1Percentage.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+            contender2Percentage.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+    
         }
     
             
