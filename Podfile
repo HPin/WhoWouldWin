@@ -9,6 +9,7 @@ target 'WhoWouldWin' do
   pod 'Firebase/Auth'
   pod 'ESTabBarController-swift'
   pod 'pop'
+  pod 'SwiftyGiphy'
 
 
 end

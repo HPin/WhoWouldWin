@@ -15,8 +15,8 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     let manager = CLLocationManager()
-    var categories = ["Fight", "Rap Battle", "Beauty Contest"]
-    var categoryClicked: String = "Fight"   // default: First picker entry
+    var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
+    var categoryClicked: String = "Beauty Contest"   // default: First picker entry
     var battleCount: UInt = 0
     var globalOrLocation: Int = 0
     

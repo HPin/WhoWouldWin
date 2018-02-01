@@ -24,6 +24,14 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
     var name2: String?
     var image1: UIImage?
     var image2: UIImage?
+    var gifURL1: String?
+    var gifURL2: String?
+    
+    // urls (either for gif or png)
+    var isAGif1: Bool = false
+    var isAGif2: Bool = false
+    var dbImageURL1: URL?
+    var dbImageURL2: URL?
     
     // data for database storage:
     var ref: DatabaseReference?
@@ -72,58 +80,72 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             print("n2 nil")
             return
         }
-        guard let img1 = image1 else {
-            print("i1 nil")
-            return
+        
+        if image1 != nil {
+            isAGif1 = false
+        } else {
+            isAGif1 = true
         }
-        guard let img2 = image2 else {
-            print("i2 nil")
-            return
+        if image2 != nil {
+            isAGif2 = false
+        } else {
+            isAGif2 = true
         }
+        
 
-        print(isGlobal)
-        print(category)
-        print("c1" + nameC1)
-        print("c2" + nameC2)
         
         if isGlobal {
-            print("getting in isglobal ------------------")
 
             let battleRef = ref?.child("Categories").child(category).childByAutoId()
-
-            if let img1Data = UIImagePNGRepresentation(img1) {
-
-                let randomID = NSUUID().uuidString
-                let storageRef = Storage.storage().reference().child(randomID + ".png")
-                let uploadTask = storageRef.putData(img1Data, metadata: nil, completion: { (metadata, error) in
-
-                    guard let metadata = metadata else {
-                        print("----An error occurred!")
-                        return
-                    }
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    let imgURL = metadata.downloadURL()?.absoluteString
-
-                    battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": imgURL])
-                })
+            
+            if isAGif1 {
+                battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": gifURL1!])
+            } else {   // PNG:
+                if let imgData = UIImagePNGRepresentation(image1!) {
+                    
+                    let randomID = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference().child(randomID + ".png")
+                    let uploadTask = storageRef.putData(imgData, metadata: nil, completion: { (metadata, error) in
+                        
+                        guard let metadata = metadata else {
+                            print("----An error occurred!")
+                            return
+                        }
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        guard let imgURL = metadata.downloadURL()?.absoluteString else {
+                            print("error when fetching download url")
+                            return
+                        }
+                        
+                        battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": imgURL])
+                    })
+                }
             }
-
-            if let img2Data = UIImagePNGRepresentation(img2) {
-
-                let randomID = NSUUID().uuidString
-                let storageRef = Storage.storage().reference().child(randomID + ".png")
-                let uploadTask = storageRef.putData(img2Data, metadata: nil, completion: { (metadata, error) in
-
-                    guard let metadata = metadata else {
-                        print("----An error occurred!")
-                        return
-                    }
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    let imgURL = metadata.downloadURL()?.absoluteString
-
-                    battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
-                })
+                
+            if isAGif2 {
+                battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": gifURL2!])
+            } else {   // PNG:
+                if let imgData = UIImagePNGRepresentation(image2!) {
+                    
+                    let randomID = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference().child(randomID + ".png")
+                    let uploadTask = storageRef.putData(imgData, metadata: nil, completion: { (metadata, error) in
+                        
+                        guard let metadata = metadata else {
+                            print("----An error occurred!")
+                            return
+                        }
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        guard let imgURL = metadata.downloadURL()?.absoluteString else {
+                            print("error when fetching download url")
+                            return
+                        }
+                        
+                        battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
+                    })
+                }
             }
+       
             guard let myUID = Auth.auth().currentUser?.uid else {return}
             guard let myKeyString = battleRef?.key else {return}
             storeBattlesInUser(uid: myUID, keyString: myKeyString)
@@ -132,8 +154,6 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             
 
         } else {
-            print("getting in not global------------------")
-
             manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             manager.requestWhenInUseAuthorization()
@@ -154,40 +174,52 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             battleRef?.child("user").setValue(myUID)
             
             // add images ---------
-            if let img1Data = UIImagePNGRepresentation(img1) {
-                print("img1 in ------------------")
-
-                let randomID = NSUUID().uuidString
-                let storageRef = Storage.storage().reference().child(randomID + ".png")
-                let uploadTask = storageRef.putData(img1Data, metadata: nil, completion: { (metadata, error) in
-                    print("uploading in ------------------")
-
-                    guard let metadata = metadata else {
-                        print("----An error occurred!")
-                        return
-                    }
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    let imgURL = metadata.downloadURL()?.absoluteString
+            if isAGif1 {
+                battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": gifURL1!])
+            } else {   // PNG:
+                if let imgData = UIImagePNGRepresentation(image1!) {
                     
-                    battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": imgURL])
-                })
+                    let randomID = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference().child(randomID + ".png")
+                    let uploadTask = storageRef.putData(imgData, metadata: nil, completion: { (metadata, error) in
+                        
+                        guard let metadata = metadata else {
+                            print("----An error occurred!")
+                            return
+                        }
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        guard let imgURL = metadata.downloadURL()?.absoluteString else {
+                            print("error when fetching download url")
+                            return
+                        }
+                        
+                        battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": imgURL])
+                    })
+                }
             }
             
-            if let img2Data = UIImagePNGRepresentation(img2) {
-                
-                let randomID = NSUUID().uuidString
-                let storageRef = Storage.storage().reference().child(randomID + ".png")
-                let uploadTask = storageRef.putData(img2Data, metadata: nil, completion: { (metadata, error) in
+            if isAGif2 {
+                battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": gifURL2!])
+            } else {   // PNG:
+                if let imgData = UIImagePNGRepresentation(image2!) {
                     
-                    guard let metadata = metadata else {
-                        print("----An error occurred!")
-                        return
-                    }
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    let imgURL = metadata.downloadURL()?.absoluteString
-                    
-                    battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
-                })
+                    let randomID = NSUUID().uuidString
+                    let storageRef = Storage.storage().reference().child(randomID + ".png")
+                    let uploadTask = storageRef.putData(imgData, metadata: nil, completion: { (metadata, error) in
+                        
+                        guard let metadata = metadata else {
+                            print("----An error occurred!")
+                            return
+                        }
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        guard let imgURL = metadata.downloadURL()?.absoluteString else {
+                            print("error when fetching download url")
+                            return
+                        }
+                        
+                        battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": imgURL])
+                    })
+                }
             }
         }
     }
