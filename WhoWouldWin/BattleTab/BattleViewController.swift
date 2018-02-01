@@ -37,12 +37,11 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     var myBattlesCat = [String: [battleStruct]]()
     
-    let categories = ["Fight", "Dance Battle", "Beauty Contest", "Rap Battle"]
     
     var hasVotedFor1: Bool = false
     var hasVotedFor2: Bool = false
     
-    var battle:battleStruct?
+    var battle:battleStruct = battleStruct(ID: "", Contender1: "", Image1: nil, Votes1: -1, Contender2: "", Image2: nil, Votes2: -1)
     
     override func viewDidLayoutSubviews() {
         topView.layer.cornerRadius = topView.frame.width / 2
@@ -64,6 +63,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         
+        displayBattle()
     
         reloadCollectionView()
     }
@@ -90,6 +90,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         myBattlesCat = [:]
         
         getCategories { (categories) in
+            print("yeeeeeeeeees1 \(categories.count)")
             self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
                 if successCat{
                     print("yeeeeeeeeees")
@@ -140,6 +141,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                         
                     }
                 }
+                print(index)
                 if index == categories.count-1{
                     completion(true)
                 }
@@ -154,37 +156,37 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         if len != 0 {
             //errorLabel.isHidden = true
             
-            randomIndexCat = Int(arc4random_uniform(UInt32(4)))
-            randomIndexBattle = Int(arc4random_uniform(UInt32(len)))
-            
             let catArr = Array(arr.keys)
+            randomIndexCat = Int(arc4random_uniform(UInt32(catArr.count)))
+            
             let cat = catArr[randomIndexCat]
             categoryLabel.text = cat
+            randomIndexBattle = Int(arc4random_uniform(UInt32(arr[cat]!.count)))
             let dict = arr[cat]![randomIndexBattle]
             catName = cat
             
             if let name1 = dict.Contender1 as? String {
-                battle!.Contender1 = name1
+                battle.Contender1 = name1
             }
             if let votes1 = dict.Votes1 as? Int {
-                battle!.Votes1 = votes1
+                battle.Votes1 = votes1
             }
             if let imgURL1 = dict.Image1 as? String {
-                battle!.Image1 = imgURL1
+                battle.Image1 = imgURL1
             }
             
             if let name2 = dict.Contender2 as? String {
-                battle!.Contender2 = name2
+                battle.Contender2 = name2
             }
             if let votes2 = dict.Votes2 as? Int {
-                battle!.Votes2 = votes2
+                battle.Votes2 = votes2
             }
             if let imgURL2 = dict.Votes1 as? String {
-                battle!.Image2 = imgURL2
+                battle.Image2 = imgURL2
             }
             
             if let id = dict.ID as? String {
-                battle!.ID = id
+                battle.ID = id
             }
             
             reloadCollectionView()
@@ -224,10 +226,10 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if indexPath.row == 0 {
             //cell.contenderImageView.transform = CGAffineTransform(translationX: 0, y: -400)
-            if let _battle = battle {
-                name = _battle.Contender1
+            
+                name = battle.Contender1
                 
-                if let imgURLString = _battle.Image1 {
+                if let imgURLString = battle.Image1 {
                     
                     let url = URL(string: imgURLString)
                     print(imgURLString)
@@ -247,15 +249,15 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                         
                     }).resume()
                 }
-            }
+            
         }
         if indexPath.row == 1 {
             
             
-            if let _battle = battle {
-                name = _battle.Contender1
+            
+                name = battle.Contender1
                 
-                if let imgURLString = _battle.Image1 {
+                if let imgURLString = battle.Image1 {
             
                     
                     let url = URL(string: imgURLString)
@@ -275,7 +277,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                         }
                         
                     }).resume()
-                }
+                
             }
         }
         cell.nameLabel.text = name
@@ -319,32 +321,32 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func calcPercent() -> Double {
         // catch corner cases (div 0 errors)
-        if battle!.Votes1 == battle!.Votes2 {
+        if battle.Votes1 == battle.Votes2 {
             return 50
         }
-        if battle!.Votes1 != 0 && battle!.Votes2 == 0 {
+        if battle.Votes1 != 0 && battle.Votes2 == 0 {
             return 100
         }
-        if battle!.Votes1 == 0 && battle!.Votes2 != 0 {
+        if battle.Votes1 == 0 && battle.Votes2 != 0 {
             return 0
         }
         
         // regular case: return percent of c1...(votes/totalvotes*100)
-        let percent = battle!.Votes1 / (battle!.Votes1 + battle!.Votes2) * 100
+        let percent = battle.Votes1 / (battle.Votes1 + battle.Votes2) * 100
         let rounded = round(Double(10 * percent)) / 10
         return rounded
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _battle = battle{
+        
         
             if indexPath.row == 0 {
-                battle!.Votes1 += 1
+                battle.Votes1 += 1
                 
                 
-                let battleRef = ref?.child("Categories").child(catName).child(_battle.ID)
+                let battleRef = ref?.child("Categories").child(catName).child(battle.ID)
                 
-                battleRef?.child("Contender 1").child("Votes").setValue(battle!.Votes1)
+                battleRef?.child("Contender 1").child("Votes").setValue(battle.Votes1)
                 
                 hasVotedFor1 = true
                 hasVotedFor2 = false
@@ -354,12 +356,12 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 
             }
             if indexPath.row == 1 {
-                battle!.Votes2 += 1
+                battle.Votes2 += 1
                 
                 
-                let battleRef = ref?.child("Categories").child(catName).child(_battle.ID)
+                let battleRef = ref?.child("Categories").child(catName).child(battle.ID)
                 
-                battleRef?.child("Contender 2").child("Votes").setValue(battle!.Votes2)
+                battleRef?.child("Contender 2").child("Votes").setValue(battle.Votes2)
                 
                 hasVotedFor2 = true
                 hasVotedFor1 = false
@@ -367,7 +369,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 reloadCollectionView()
                 loadNextBattle()
             }
-        }
+        
     }
     
     func loadNextBattle() {
