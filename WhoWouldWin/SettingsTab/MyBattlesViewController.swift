@@ -58,6 +58,16 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let itemSize = UIScreen.main.bounds.width
+        
+        let customLayout = UICollectionViewFlowLayout()
+        customLayout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0)  // not really necessary
+        customLayout.itemSize = CGSize(width: itemSize, height: 60)
+        customLayout.headerReferenceSize = CGSize(width: 0, height: 120)
+        
+        customLayout.minimumLineSpacing = 5
+        
+        collectionView.collectionViewLayout = customLayout
         
     }
     
@@ -204,7 +214,7 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         
-        //sectionHeaderView.categoryTitle = title
+        sectionHeaderView.LabelText = title
         sectionHeaderView.imageName = image
          
         return sectionHeaderView

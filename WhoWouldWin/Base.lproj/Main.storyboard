@@ -1210,14 +1210,15 @@
                                     <segment title="Global"/>
                                     <segment title="Local"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="segmentedControlSwitch:" destination="Tcb-bF-DKT" eventType="valueChanged" id="3Sp-YC-0hv"/>
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0d9-cA-HyW">
                                 <rect key="frame" x="0.0" y="122" width="375" height="496"/>
-                                <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.64000963184931503" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h7K-Tc-eHi">
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="10" id="h7K-Tc-eHi">
                                     <size key="itemSize" width="374" height="65"/>
                                     <size key="headerReferenceSize" width="50" height="120"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1232,13 +1233,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-3n-e8B">
-                                                    <rect key="frame" x="13" y="22" width="42" height="21"/>
+                                                    <rect key="frame" x="8" y="22" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro7-8y-awS">
-                                                    <rect key="frame" x="319" y="22" width="42" height="21"/>
+                                                    <rect key="frame" x="324" y="22" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1256,8 +1257,8 @@
                                         <constraints>
                                             <constraint firstItem="l0q-3n-e8B" firstAttribute="centerY" secondItem="kmb-Ah-bor" secondAttribute="centerY" id="Cxn-HR-kA2"/>
                                             <constraint firstItem="Ro7-8y-awS" firstAttribute="centerY" secondItem="kmb-Ah-bor" secondAttribute="centerY" id="RX7-lA-efh"/>
-                                            <constraint firstItem="l0q-3n-e8B" firstAttribute="leading" secondItem="kmb-Ah-bor" secondAttribute="leadingMargin" constant="5" id="ddf-xE-PrE"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Ro7-8y-awS" secondAttribute="trailing" constant="5" id="gb8-Zn-ruo"/>
+                                            <constraint firstItem="l0q-3n-e8B" firstAttribute="leading" secondItem="kmb-Ah-bor" secondAttribute="leadingMargin" id="ddf-xE-PrE"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ro7-8y-awS" secondAttribute="trailing" id="gb8-Zn-ruo"/>
                                             <constraint firstItem="FJQ-Zz-Vgw" firstAttribute="centerX" secondItem="kmb-Ah-bor" secondAttribute="centerX" id="jmN-6e-Lzv"/>
                                             <constraint firstItem="FJQ-Zz-Vgw" firstAttribute="centerY" secondItem="kmb-Ah-bor" secondAttribute="centerY" id="tsY-41-KNm"/>
                                         </constraints>
@@ -1273,17 +1274,26 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FCr-KF-krK">
-                                            <rect key="frame" x="0.0" y="15" width="375" height="77"/>
+                                            <rect key="frame" x="0.0" y="15" width="375" height="97"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL4-mC-gnd">
+                                            <rect key="frame" x="98" y="41" width="178.5" height="38.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FCr-KF-krK" firstAttribute="top" secondItem="nR0-QH-NuB" secondAttribute="top" constant="15" id="AYo-7e-EdT"/>
                                         <constraint firstAttribute="bottom" secondItem="FCr-KF-krK" secondAttribute="bottom" constant="8" id="N6B-3X-vuG"/>
+                                        <constraint firstItem="fL4-mC-gnd" firstAttribute="centerY" secondItem="nR0-QH-NuB" secondAttribute="centerY" id="Ocg-7V-2ZX"/>
                                         <constraint firstItem="FCr-KF-krK" firstAttribute="leading" secondItem="nR0-QH-NuB" secondAttribute="leading" id="PU8-wQ-qvo"/>
+                                        <constraint firstItem="fL4-mC-gnd" firstAttribute="centerX" secondItem="nR0-QH-NuB" secondAttribute="centerX" id="drr-yC-SOz"/>
                                         <constraint firstAttribute="trailing" secondItem="FCr-KF-krK" secondAttribute="trailing" id="iEm-KH-vE4"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="categoryImageView" destination="FCr-KF-krK" id="VEm-AD-cZg"/>
+                                        <outlet property="categoryName" destination="fL4-mC-gnd" id="8OB-GM-y7y"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -1292,7 +1302,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0d9-cA-HyW" firstAttribute="leading" secondItem="t7K-wW-blI" secondAttribute="leading" id="37q-G1-tPx"/>
                             <constraint firstItem="nSW-Rj-eI8" firstAttribute="top" secondItem="t7K-wW-blI" secondAttribute="top" constant="20" id="4Gb-lW-Ouk"/>
