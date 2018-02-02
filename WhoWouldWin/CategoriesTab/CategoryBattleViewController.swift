@@ -81,8 +81,6 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         centerCircleView.layer.borderWidth = 4
         let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
         centerCircleView.layer.borderColor = myColor.cgColor
-        let url = URL(string: "https://media.giphy.com/media/nYogYgSmIJaIo/giphy.gif")
-        noBattlesLeftImageView.sd_setImage(with: url)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +90,9 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let randNothingLeftIndex = Int(arc4random_uniform(UInt32(10))) + 1
+        noBattlesLeftImageView.loadGif(name: "nothingLeft\(randNothingLeftIndex)")
+        
         // fetch data from firebase and display it
         getData { (display) in
             if display {
@@ -100,15 +101,22 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         }
         
         //----- collection view stuff:----------------
+        let screenHeight = UIScreen.main.bounds.height
+        let tabBarHeight: CGFloat = 49
+        let navBarHeight: CGFloat = 64
+        let cvHeight = screenHeight - tabBarHeight - navBarHeight
+        let fullSpacing: CGFloat = 6
+        let halfSpacing: CGFloat = fullSpacing / 2
+
+        let itemHeight = cvHeight / 2 - halfSpacing
         let itemWidth = UIScreen.main.bounds.width
-        let itemHeight = (battleCollectionView.frame.height - 10) / 2 // 49: tab bar, 64 nav bar
         
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         customLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumLineSpacing = 10
+        customLayout.minimumLineSpacing = fullSpacing
         
         battleCollectionView.collectionViewLayout = customLayout
         

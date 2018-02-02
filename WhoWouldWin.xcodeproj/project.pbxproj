@@ -30,6 +30,17 @@
 		E4F50214201E85710019B8B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50213201E85710019B8B5 /* AboutViewController.swift */; };
 		E4F50216201E858E0019B8B5 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50215201E858E0019B8B5 /* ContactViewController.swift */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
+		E63E32F42024BB3900A5F06C /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E32F32024BB3900A5F06C /* Swift+Gif.swift */; };
+		E63E32F82024BEC600A5F06C /* nothingLeft1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32F72024BEC600A5F06C /* nothingLeft1.gif */; };
+		E63E33032024C22600A5F06C /* nothingLeft8.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FA2024C22400A5F06C /* nothingLeft8.gif */; };
+		E63E33042024C22600A5F06C /* nothingLeft9.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FB2024C22400A5F06C /* nothingLeft9.gif */; };
+		E63E33052024C22600A5F06C /* nothingLeft6.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FC2024C22500A5F06C /* nothingLeft6.gif */; };
+		E63E33062024C22600A5F06C /* nothingLeft7.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FD2024C22500A5F06C /* nothingLeft7.gif */; };
+		E63E33072024C22600A5F06C /* nothingLeft3.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FE2024C22500A5F06C /* nothingLeft3.gif */; };
+		E63E33082024C22600A5F06C /* nothingLeft5.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FF2024C22600A5F06C /* nothingLeft5.gif */; };
+		E63E33092024C22600A5F06C /* nothingLeft2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E33002024C22600A5F06C /* nothingLeft2.gif */; };
+		E63E330A2024C22600A5F06C /* nothingLeft4.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E33012024C22600A5F06C /* nothingLeft4.gif */; };
+		E63E330B2024C22600A5F06C /* nothingLeft10.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E33022024C22600A5F06C /* nothingLeft10.gif */; };
 		E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */; };
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
@@ -94,6 +105,17 @@
 		E4F50213201E85710019B8B5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E4F50215201E858E0019B8B5 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		E63E32F32024BB3900A5F06C /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Swift+Gif.swift"; path = "../../TestProject/TestProject/Swift+Gif.swift"; sourceTree = "<group>"; };
+		E63E32F72024BEC600A5F06C /* nothingLeft1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft1.gif; sourceTree = "<group>"; };
+		E63E32FA2024C22400A5F06C /* nothingLeft8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft8.gif; sourceTree = "<group>"; };
+		E63E32FB2024C22400A5F06C /* nothingLeft9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft9.gif; sourceTree = "<group>"; };
+		E63E32FC2024C22500A5F06C /* nothingLeft6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft6.gif; sourceTree = "<group>"; };
+		E63E32FD2024C22500A5F06C /* nothingLeft7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft7.gif; sourceTree = "<group>"; };
+		E63E32FE2024C22500A5F06C /* nothingLeft3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft3.gif; sourceTree = "<group>"; };
+		E63E32FF2024C22600A5F06C /* nothingLeft5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft5.gif; sourceTree = "<group>"; };
+		E63E33002024C22600A5F06C /* nothingLeft2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft2.gif; sourceTree = "<group>"; };
+		E63E33012024C22600A5F06C /* nothingLeft4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft4.gif; sourceTree = "<group>"; };
+		E63E33022024C22600A5F06C /* nothingLeft10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft10.gif; sourceTree = "<group>"; };
 		E6500D77201A827200ECFF6B /* GlobalOrLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOrLocationViewController.swift; sourceTree = "<group>"; };
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +217,23 @@
 			path = SettingsTab;
 			sourceTree = "<group>";
 		};
+		E63E32F92024BEDD00A5F06C /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				E63E32F72024BEC600A5F06C /* nothingLeft1.gif */,
+				E63E33002024C22600A5F06C /* nothingLeft2.gif */,
+				E63E32FE2024C22500A5F06C /* nothingLeft3.gif */,
+				E63E33012024C22600A5F06C /* nothingLeft4.gif */,
+				E63E32FF2024C22600A5F06C /* nothingLeft5.gif */,
+				E63E32FC2024C22500A5F06C /* nothingLeft6.gif */,
+				E63E32FD2024C22500A5F06C /* nothingLeft7.gif */,
+				E63E32FA2024C22400A5F06C /* nothingLeft8.gif */,
+				E63E32FB2024C22400A5F06C /* nothingLeft9.gif */,
+				E63E33022024C22600A5F06C /* nothingLeft10.gif */,
+			);
+			path = Gifs;
+			sourceTree = "<group>";
+		};
 		E64E5C96200A3EF400FB254B /* BattleTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,11 +300,13 @@
 		E6E900521FF418A7008896EB /* WhoWouldWin */ = {
 			isa = PBXGroup;
 			children = (
+				E63E32F92024BEDD00A5F06C /* Gifs */,
 				E4C431482006A6CE007D4CC6 /* LocationTab */,
 				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
 				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
+				E63E32F32024BB3900A5F06C /* Swift+Gif.swift */,
 				36949BBB2007BDAA00BAF700 /* CustomTabBar.swift */,
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E64E5C96200A3EF400FB254B /* BattleTab */,
@@ -420,8 +461,18 @@
 			files = (
 				E6E900611FF418A8008896EB /* LaunchScreen.storyboard in Resources */,
 				36949B7E2006596B00BAF700 /* GoogleService-Info.plist in Resources */,
+				E63E33062024C22600A5F06C /* nothingLeft7.gif in Resources */,
+				E63E33032024C22600A5F06C /* nothingLeft8.gif in Resources */,
+				E63E330B2024C22600A5F06C /* nothingLeft10.gif in Resources */,
 				E6E9005E1FF418A8008896EB /* Assets.xcassets in Resources */,
+				E63E33052024C22600A5F06C /* nothingLeft6.gif in Resources */,
+				E63E33042024C22600A5F06C /* nothingLeft9.gif in Resources */,
+				E63E33072024C22600A5F06C /* nothingLeft3.gif in Resources */,
+				E63E33092024C22600A5F06C /* nothingLeft2.gif in Resources */,
+				E63E33082024C22600A5F06C /* nothingLeft5.gif in Resources */,
 				E6E900591FF418A8008896EB /* Main.storyboard in Resources */,
+				E63E330A2024C22600A5F06C /* nothingLeft4.gif in Resources */,
+				E63E32F82024BEC600A5F06C /* nothingLeft1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +575,7 @@
 				E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */,
 				E409AB77202370470086C8C2 /* MyBattleShowViewController.swift in Sources */,
 				E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */,
+				E63E32F42024BB3900A5F06C /* Swift+Gif.swift in Sources */,
 				E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */,
 				36949BC62007BDD400BAF700 /* ExampleBouncesContentView.swift in Sources */,
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,

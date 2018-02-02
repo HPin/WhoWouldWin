@@ -19,6 +19,8 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var centerCircleView: UIView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
+    @IBOutlet weak var noBattlesLeftView: UIView!
+    @IBOutlet weak var noBattlesLeftImageView: UIImageView!
     
    
     struct battleStruct {
@@ -51,8 +53,10 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
         centerCircleView.layer.borderWidth = 4
-        let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
-        centerCircleView.layer.borderColor = myColor.cgColor
+        //let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        //centerCircleView.layer.borderColor = myColor.cgColor
+        centerCircleView.layer.borderColor = UIColor.white.cgColor
+        //centerCircleView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
         
         let size = centerCircleView.sizeThatFits(self.view.bounds.size)
         centerCircleView.frame = CGRect.init(x: (self.view.bounds.size.width - size.width) / 2.0, y: (self.view.bounds.size.height - size.height) / 1.9 , width: size.width, height: size.height)
@@ -64,6 +68,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewWillAppear(_ animated: Bool) {
         
         displayBattle()
+        noBattlesLeftView.isHidden = true
     
         reloadCollectionView()
     }
@@ -72,18 +77,26 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // fetch data from firebase and display it
+        let randNothingLeftIndex = Int(arc4random_uniform(UInt32(10))) + 1
+        noBattlesLeftImageView.loadGif(name: "nothingLeft\(randNothingLeftIndex)")
         
         //----- collection view stuff:----------------
+        let screenHeight = UIScreen.main.bounds.height
+        let tabBarHeight: CGFloat = 49
+        let statusBarHeight: CGFloat = 20
+        let cvHeight = screenHeight - tabBarHeight - statusBarHeight
+        let fullSpacing: CGFloat = 6
+        let halfSpacing: CGFloat = fullSpacing / 2
+        
+        let itemHeight = cvHeight / 2 - halfSpacing
         let itemWidth = UIScreen.main.bounds.width
-        let itemHeight = (battleCollectionView.frame.height + 49) / 2 // 49: tab bar
         
         let customLayout = UICollectionViewFlowLayout()
         customLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         customLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         //customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumLineSpacing = 20
+        customLayout.minimumLineSpacing = fullSpacing
         
         battleCollectionView.collectionViewLayout = customLayout
 
@@ -151,9 +164,14 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func displayBattle() {
         let arr = myBattlesCat
         
-        let len = arr.count // if battles are empty --- For my harri baby ---
-        if len != 0 {
-            //errorLabel.isHidden = true
+        let len = arr.count // if battles are empty --- For my harri baby --- oh yeah jacko :3
+        if len != 0 {   // fuck valentin
+            noBattlesLeftView.isHidden = true
+            topView.isHidden = false
+            print("Fuck you valentin witzeneder")
+            print("#diescheibeisthässlich")
+            print("#diescheibemussplatzen")
+            print("glg :*")
             
             let catArr = Array(arr.keys)
             randomIndexCat = Int(arc4random_uniform(UInt32(catArr.count)))
@@ -189,11 +207,9 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
             
             reloadCollectionView()
-        } else {
-            //                vote1Button.isHidden = true
-            //                vote2Button.isHidden = true
-            //                nextButton.isHidden = true
-            //                errorLabel.isHidden = false
+        } else {    // case: no battles left
+            topView.isHidden = true
+            noBattlesLeftView.isHidden = false
         }
             
         
@@ -286,7 +302,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             if indexPath.row == 1 {
-                let text = String(100 - percent1) + "\n%"
+                let text = String(100 - percent1) + " %"
                 cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             cell.percentLabel.isHidden = false
