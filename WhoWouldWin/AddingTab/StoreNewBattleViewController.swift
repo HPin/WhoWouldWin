@@ -44,6 +44,9 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
         super.viewDidLoad()
         ref = Database.database().reference()
         storeInDatabase()
+        
+        image1 = UIImage(named: "placeholder.png")
+        image2 = UIImage(named: "placeholder.png")
     }
     
     func storeBattlesInUser(uid: String, keyString: String) {
@@ -101,10 +104,10 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             if isAGif1 {
                 battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": gifURL1!])
             } else {   // PNG:
-                if let imgData = UIImagePNGRepresentation(image1!) {
-                    
+                
+                if let imgData = UIImageJPEGRepresentation(image1!, 0) { // 0 means lowest compression
                     let randomID = NSUUID().uuidString
-                    let storageRef = Storage.storage().reference().child(randomID + ".png")
+                    let storageRef = Storage.storage().reference().child(randomID + ".jpg")
                     let uploadTask = storageRef.putData(imgData, metadata: nil, completion: { (metadata, error) in
                         
                         guard let metadata = metadata else {
@@ -125,7 +128,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             if isAGif2 {
                 battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": gifURL2!])
             } else {   // PNG:
-                if let imgData = UIImagePNGRepresentation(image2!) {
+                if let imgData = UIImageJPEGRepresentation(image2!, 0) { // 0 means lowest compression
                     
                     let randomID = NSUUID().uuidString
                     let storageRef = Storage.storage().reference().child(randomID + ".png")
@@ -177,7 +180,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             if isAGif1 {
                 battleRef?.child("Contender 1").setValue(["Name": nameC1, "Votes" : 0, "Image": gifURL1!])
             } else {   // PNG:
-                if let imgData = UIImagePNGRepresentation(image1!) {
+                if let imgData = UIImageJPEGRepresentation(image1!, 0) { // 0 means lowest compression
                     
                     let randomID = NSUUID().uuidString
                     let storageRef = Storage.storage().reference().child(randomID + ".png")
@@ -201,7 +204,7 @@ class StoreNewBattleViewController: UIViewController, CLLocationManagerDelegate 
             if isAGif2 {
                 battleRef?.child("Contender 2").setValue(["Name": nameC2, "Votes" : 0, "Image": gifURL2!])
             } else {   // PNG:
-                if let imgData = UIImagePNGRepresentation(image2!) {
+                if let imgData = UIImageJPEGRepresentation(image2!, 0) { // 0 means lowest compression
                     
                     let randomID = NSUUID().uuidString
                     let storageRef = Storage.storage().reference().child(randomID + ".png")

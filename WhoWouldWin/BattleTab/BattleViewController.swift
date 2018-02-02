@@ -18,6 +18,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var centerCircleView: UIView!
+    @IBOutlet weak var centerCircleImageView: UIImageView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
     @IBOutlet weak var noBattlesLeftView: UIView!
     @IBOutlet weak var noBattlesLeftImageView: UIImageView!
@@ -178,6 +179,20 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             let cat = catArr[randomIndexCat]
             categoryLabel.text = cat
+            
+            switch cat {
+            case "Beauty Contest":
+                centerCircleImageView.image = UIImage(named: "cellBeauty2 Contest")
+            case "Fight":
+                centerCircleImageView.image = UIImage(named: "cellFight2")
+            case "Rap Battle":
+                centerCircleImageView.image = UIImage(named: "cellRap5 Battle")
+            case "Dance Battle":
+                centerCircleImageView.image = UIImage(named: "cellDance Battle")
+            default:
+                centerCircleImageView.image = UIImage(named: "cellFight")
+            }
+            
             randomIndexBattle = Int(arc4random_uniform(UInt32(arr[cat]!.count)))
             let dict = arr[cat]![randomIndexBattle]
             catName = cat
@@ -307,8 +322,15 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
             cell.percentLabel.isHidden = false
             UIView.animate(withDuration: 0.25, animations: {
-                cell.nameLabel.transform = CGAffineTransform(translationX: -19, y: -80)
                 cell.percentLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+
+                if indexPath.row == 0 {
+                    cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: -40)
+                    cell.percentLabel.transform = CGAffineTransform(translationX: 0, y: 40)
+                } else {
+                    cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: 40)
+                    cell.percentLabel.transform = CGAffineTransform(translationX: 0, y: -40)
+                }
             })
             
         } else {

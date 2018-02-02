@@ -35,6 +35,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var noBattlesLeftImageView: UIImageView!
     @IBOutlet weak var noBattlesLeftView: UIView!
     @IBOutlet weak var centerCircleView: UIView!
+    @IBOutlet weak var centerCircleImageView: UIImageView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
     
 //    @IBAction func nextButton(_ sender: CustomButton) {
@@ -79,12 +80,26 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     override func viewDidLayoutSubviews() {
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
         centerCircleView.layer.borderWidth = 4
-        let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
-        centerCircleView.layer.borderColor = myColor.cgColor
+        //let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        //centerCircleView.layer.borderColor = myColor.cgColor
+        centerCircleView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
         reloadCollectionView()
+        
+        switch categoryName {
+        case "Beauty Contest":
+            centerCircleImageView.image = UIImage(named: "cellBeauty2 Contest")
+        case "Fight":
+            centerCircleImageView.image = UIImage(named: "cellFight2")
+        case "Rap Battle":
+            centerCircleImageView.image = UIImage(named: "cellRap5 Battle")
+        case "Dance Battle":
+            centerCircleImageView.image = UIImage(named: "cellDance Battle")
+        default:
+            centerCircleImageView.image = UIImage(named: "cellFight")
+        }
     }
     
     override func viewDidLoad() {
