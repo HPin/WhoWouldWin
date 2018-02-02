@@ -16,10 +16,10 @@ class ExampleIrregularityBasicContentView: ExampleBouncesContentView {
         
         textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        highlightIconColor = UIColor.init(red: 128/255.0, green: 21/255.0, blue: 21/255.0, alpha: 1.0)
-        backdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
-        highlightBackdropColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
+        iconColor = UIColor.gray
+        highlightIconColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
+        backdropColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        highlightBackdropColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -32,9 +32,9 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor.init(red: 235/255.0, green: 80/255.0, blue: 71/255.0, alpha: 1.0)
+        self.imageView.backgroundColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
         self.imageView.layer.borderWidth = 1.0
-        self.imageView.layer.borderColor = UIColor.init(white: 235 / 255.0, alpha: 1.0).cgColor
+        self.imageView.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.cornerRadius = 35
         self.insets = UIEdgeInsetsMake(0, 0, 0, 0)
         let transform = CGAffineTransform.identity
@@ -47,8 +47,8 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         
         //textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        highlightIconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor.white
+        highlightIconColor = UIColor.white
         backdropColor = .clear
         highlightBackdropColor = .clear
         

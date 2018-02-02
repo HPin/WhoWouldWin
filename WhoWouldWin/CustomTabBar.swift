@@ -16,8 +16,8 @@ class CustomTabBar: ESTabBarController {
         super.viewDidLoad()
         
         
-        tabBar.shadowImage = UIImage(named: "transparent")
-        tabBar.backgroundImage = UIImage(named: "background_red")
+        //tabBar.shadowImage = UIImage(named: "transparent")
+        tabBar.backgroundImage = UIImage(named: "background_tb")
         
         let v1 = self.storyboard?.instantiateViewController(withIdentifier: "locTab") as! UINavigationController
         let v2 = self.storyboard?.instantiateViewController(withIdentifier: "catTab") as! UINavigationController
@@ -30,7 +30,7 @@ class CustomTabBar: ESTabBarController {
         
         v3.tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: UIImage(named: "boxingglove"), selectedImage: UIImage(named: "boxingfull"), tag: 2)
         v4.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "tabbar_add"), selectedImage: UIImage(named: "tabbar_add"), tag: 3)
-        v5.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "tabbar_settings"), selectedImage: UIImage(named: "tabbar_settings"), tag: 4)
+        v5.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "User"), selectedImage: UIImage(named: "User"), tag: 4)
         
         self.viewControllers = [v1, v2, v3, v4, v5]
         

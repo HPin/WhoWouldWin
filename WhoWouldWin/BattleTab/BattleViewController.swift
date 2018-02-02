@@ -151,7 +151,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func displayBattle() {
         let arr = myBattlesCat
         
-        let len = arr.count
+        let len = arr.count // if battles are empty --- For my harri baby ---
         if len != 0 {
             //errorLabel.isHidden = true
             
