@@ -296,8 +296,15 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             cell.percentLabel.isHidden = false
             
             UIView.animate(withDuration: 0.25, animations: {
-                cell.nameLabel.transform = CGAffineTransform(translationX: -19, y: -80)
                 cell.percentLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+                
+                if indexPath.row == 0 {
+                    cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: -40)
+                    cell.percentLabel.transform = CGAffineTransform(translationX: 0, y: 40)
+                } else {
+                    cell.nameLabel.transform = CGAffineTransform(translationX: 0, y: 40)
+                    cell.percentLabel.transform = CGAffineTransform(translationX: 0, y: -40)
+                }
             })
         } else {
             // reset cell
