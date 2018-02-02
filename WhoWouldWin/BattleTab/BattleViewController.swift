@@ -151,7 +151,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func displayBattle() {
         let arr = myBattlesCat
         
-        let len = arr.capacity
+        let len = arr.count
         if len != 0 {
             //errorLabel.isHidden = true
             
@@ -286,7 +286,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
                 cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             if indexPath.row == 1 {
-                let text = String(100 - percent1)  + "\n%"
+                let text = String(100 - percent1) + "\n%"
                 cell.percentLabel.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             }
             cell.percentLabel.isHidden = false
@@ -320,8 +320,8 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         // regular case: return percent of c1...(votes/totalvotes*100)
-        let percent = battle.Votes1 / (battle.Votes1 + battle.Votes2) * 100
-        let rounded = round(Double(10 * percent)) / 10
+        let percent = Double(battle.Votes1) / (Double(battle.Votes1) + Double(battle.Votes2)) * 100
+        let rounded = round(10 * percent) / 10
         return rounded
     }
     
@@ -369,6 +369,9 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.hasVotedFor2 = false
             
             self.myBattlesCat[self.catName]?.remove(at: self.randomIndexBattle)
+            if(self.myBattlesCat[self.catName]?.count == 0){
+                self.myBattlesCat.removeValue(forKey: self.catName)
+            }
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
