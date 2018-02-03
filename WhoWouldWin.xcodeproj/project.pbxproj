@@ -17,7 +17,6 @@
 		36949BCA2007BDD400BAF700 /* ExampleTipsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36949BC32007BDD400BAF700 /* ExampleTipsContentView.swift */; };
 		36949BCB2007BDD400BAF700 /* ExampleIrregularityContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36949BC42007BDD400BAF700 /* ExampleIrregularityContentView.swift */; };
 		7F382F14D40B70A988C16FF2 /* Pods_WhoWouldWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405183BFC8462056773F56A /* Pods_WhoWouldWin.framework */; };
-		E409AB77202370470086C8C2 /* MyBattleShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409AB76202370470086C8C2 /* MyBattleShowViewController.swift */; };
 		E41E82A520264024004F4E2C /* MyBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E82A420264024004F4E2C /* MyBattleViewController.swift */; };
 		E41E82A720264C8D004F4E2C /* SingleBattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E82A620264C8D004F4E2C /* SingleBattleCollectionViewCell.swift */; };
 		E49869922007E8DE00F3CAF7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49869912007E8DE00F3CAF7 /* AddViewController.swift */; };
@@ -95,7 +94,6 @@
 		36949BC42007BDD400BAF700 /* ExampleIrregularityContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityContentView.swift; sourceTree = "<group>"; };
 		758DF26AD9DD2469AA621A91 /* Pods-WhoWouldWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.debug.xcconfig"; sourceTree = "<group>"; };
 		AC5517C35421360DC5C7A694 /* Pods-WhoWouldWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWouldWin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoWouldWin/Pods-WhoWouldWin.release.xcconfig"; sourceTree = "<group>"; };
-		E409AB76202370470086C8C2 /* MyBattleShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattleShowViewController.swift; sourceTree = "<group>"; };
 		E41E82A420264024004F4E2C /* MyBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattleViewController.swift; sourceTree = "<group>"; };
 		E41E82A620264C8D004F4E2C /* SingleBattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBattleCollectionViewCell.swift; sourceTree = "<group>"; };
 		E49869912007E8DE00F3CAF7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				E4F50213201E85710019B8B5 /* AboutViewController.swift */,
 				E4F50215201E858E0019B8B5 /* ContactViewController.swift */,
 				E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */,
-				E409AB76202370470086C8C2 /* MyBattleShowViewController.swift */,
 				E41E82A420264024004F4E2C /* MyBattleViewController.swift */,
 				E41E82A620264C8D004F4E2C /* SingleBattleCollectionViewCell.swift */,
 			);
@@ -592,7 +589,6 @@
 			files = (
 				E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */,
 				E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */,
-				E409AB77202370470086C8C2 /* MyBattleShowViewController.swift in Sources */,
 				E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */,
 				E4EF5506202616AE00F1A968 /* Swift+Gif.swift in Sources */,
 				E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */,
