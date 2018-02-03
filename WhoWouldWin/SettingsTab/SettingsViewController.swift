@@ -31,7 +31,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let imageName = UIImage(named: "Wait")
             self.userImage?.image = imageName
         }
-        self.title = "Settings"
         print("ViewwillApear")
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         getNumberOfBattles(uid: userUID) { (numberOfBattles) in
