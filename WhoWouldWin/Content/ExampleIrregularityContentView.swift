@@ -32,9 +32,9 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
+        self.imageView.backgroundColor = UIColor.white
         self.imageView.layer.borderWidth = 1.0
-        self.imageView.layer.borderColor = UIColor.gray.cgColor
+        self.imageView.layer.borderColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0).cgColor
         self.imageView.layer.cornerRadius = 35
         self.insets = UIEdgeInsetsMake(0, 0, 0, 0)
         let transform = CGAffineTransform.identity
@@ -46,9 +46,9 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         self.imageView.layer.shadowColor = UIColor.gray.cgColor
         
         //textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        iconColor = UIColor.white
-        highlightIconColor = UIColor.white
+        //highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor.gray
+        highlightIconColor = UIColor.init(red: 255/255.0, green: 59/255.0, blue: 49/255.0, alpha: 1.0)
         backdropColor = .clear
         highlightBackdropColor = .clear
         
