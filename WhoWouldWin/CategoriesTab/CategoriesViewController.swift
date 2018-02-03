@@ -110,7 +110,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
             switch indexPath.row {
             case 0:
                 cell.titleLabel.text = "Hottest 🔥"
-                cell.subtitleLabel.text = "Have a look at the most popular battles."
+                cell.subtitleLabel.text = "Look at the most popular battles."
                 cell.imageView.image = UIImage(named: "collHottest")
             case 1:
                 cell.titleLabel.text = "Most Recent 🕑"
