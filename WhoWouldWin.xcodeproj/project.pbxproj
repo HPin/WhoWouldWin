@@ -45,6 +45,7 @@
 		E66A0CD21FFE7BB400780804 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66A0CD11FFE7BB400780804 /* LoginViewController.swift */; };
 		E691B00720054FFA00AC4010 /* CategoryBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */; };
 		E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */; };
+		E6A3F0F920261E4E00ED8168 /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3F0F820261E4D00ED8168 /* Swift+Gif.swift */; };
 		E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */; };
 		E6AB49C3201B375D0050FFBD /* CreateContender1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB49C2201B375D0050FFBD /* CreateContender1ViewController.swift */; };
 		E6AB49C5201BD8000050FFBD /* CreateContender2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB49C4201BD8000050FFBD /* CreateContender2ViewController.swift */; };
@@ -121,6 +122,7 @@
 		E66A0CD11FFE7BB400780804 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBattleViewController.swift; sourceTree = "<group>"; };
 		E6A25C9E1FFE4DBD00880E85 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		E6A3F0F820261E4D00ED8168 /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Swift+Gif.swift"; path = "../../../../Desktop/Swift+Gif.swift"; sourceTree = "<group>"; };
 		E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBattleCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6AB49C2201B375D0050FFBD /* CreateContender1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContender1ViewController.swift; sourceTree = "<group>"; };
 		E6AB49C4201BD8000050FFBD /* CreateContender2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContender2ViewController.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 				E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */,
 				E6E900541FF418A7008896EB /* AppDelegate.swift in Sources */,
 				E6A7B72B20121982003EF777 /* CatBattleCollectionViewCell.swift in Sources */,
+				E6A3F0F920261E4E00ED8168 /* Swift+Gif.swift in Sources */,
 				E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
