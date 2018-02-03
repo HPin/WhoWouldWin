@@ -130,9 +130,14 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        categoryClicked = categories[indexPath.row]
+        if collectionView == self.categoriesCollectionView {
+            categoryClicked = categories[indexPath.row]
+            
+            performSegue(withIdentifier: "categorySegue", sender: self)
+        } else {    // else: top collection view
+            // segue for hottest and most recent...
+        }
         
-        performSegue(withIdentifier: "categorySegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

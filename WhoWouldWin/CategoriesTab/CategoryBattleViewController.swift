@@ -228,8 +228,6 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             if let imgURLString = imageURLContender1 {
                 let url = URL(string: imgURLString)
                 
-                cell.contenderImageView.sd_setShowActivityIndicatorView(true)
-                cell.contenderImageView.sd_setIndicatorStyle(.gray)
                 cell.contenderImageView.sd_setImage(with: url)
             }
         }
