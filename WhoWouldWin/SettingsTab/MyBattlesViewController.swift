@@ -241,7 +241,7 @@ class MyBattlesViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "itemSelected") {
-            let vc = segue.destination  as! MyBattleShowViewController
+            let vc = segue.destination  as! MyBattleViewController
             vc.categoryname = selectedCategory!
             vc.contenderName1 = (selectedBattle?.Contender1)!
             vc.contenderName2 = (selectedBattle?.Contender2)!
