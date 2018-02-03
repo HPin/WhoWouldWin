@@ -24,13 +24,13 @@
 		E4C2C85D20227B0600F26782 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */; };
 		E4C431472006A6C8007D4CC6 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431462006A6C8007D4CC6 /* LocationViewController.swift */; };
 		E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */; };
+		E4EF5506202616AE00F1A968 /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EF5505202616AE00F1A968 /* Swift+Gif.swift */; };
 		E4F5020E201CABEB0019B8B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */; };
 		E4F50210201D1E780019B8B5 /* MyBattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */; };
 		E4F50212201E7A710019B8B5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50211201E7A710019B8B5 /* ProfileViewController.swift */; };
 		E4F50214201E85710019B8B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50213201E85710019B8B5 /* AboutViewController.swift */; };
 		E4F50216201E858E0019B8B5 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F50215201E858E0019B8B5 /* ContactViewController.swift */; };
 		E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630AE5C1FF41BBC00944706 /* CustomButton.swift */; };
-		E63E32F42024BB3900A5F06C /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E32F32024BB3900A5F06C /* Swift+Gif.swift */; };
 		E63E32F82024BEC600A5F06C /* nothingLeft1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32F72024BEC600A5F06C /* nothingLeft1.gif */; };
 		E63E33032024C22600A5F06C /* nothingLeft8.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FA2024C22400A5F06C /* nothingLeft8.gif */; };
 		E63E33042024C22600A5F06C /* nothingLeft9.gif in Resources */ = {isa = PBXBuildFile; fileRef = E63E32FB2024C22400A5F06C /* nothingLeft9.gif */; };
@@ -100,13 +100,13 @@
 		E4C2C85C20227B0600F26782 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E4C431462006A6C8007D4CC6 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		E4C431492006A7E5007D4CC6 /* LocationBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBattleViewController.swift; sourceTree = "<group>"; };
+		E4EF5505202616AE00F1A968 /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Swift+Gif.swift"; path = "../../../../../Downloads/Swift+Gif.swift"; sourceTree = "<group>"; };
 		E4F5020D201CABEB0019B8B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E4F5020F201D1E780019B8B5 /* MyBattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBattlesViewController.swift; sourceTree = "<group>"; };
 		E4F50211201E7A710019B8B5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E4F50213201E85710019B8B5 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E4F50215201E858E0019B8B5 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		E630AE5C1FF41BBC00944706 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		E63E32F32024BB3900A5F06C /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Swift+Gif.swift"; path = "../../TestProject/TestProject/Swift+Gif.swift"; sourceTree = "<group>"; };
 		E63E32F72024BEC600A5F06C /* nothingLeft1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft1.gif; sourceTree = "<group>"; };
 		E63E32FA2024C22400A5F06C /* nothingLeft8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft8.gif; sourceTree = "<group>"; };
 		E63E32FB2024C22400A5F06C /* nothingLeft9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nothingLeft9.gif; sourceTree = "<group>"; };
@@ -308,8 +308,8 @@
 				E64E5C99200A3F5100FB254B /* Login */,
 				36949BBD2007BDD400BAF700 /* Content */,
 				E6E900531FF418A7008896EB /* AppDelegate.swift */,
+				E4EF5505202616AE00F1A968 /* Swift+Gif.swift */,
 				E630AE5C1FF41BBC00944706 /* CustomButton.swift */,
-				E63E32F32024BB3900A5F06C /* Swift+Gif.swift */,
 				36949BBB2007BDAA00BAF700 /* CustomTabBar.swift */,
 				E6D572112001816D004CE0FB /* CategoriesTab */,
 				E64E5C96200A3EF400FB254B /* BattleTab */,
@@ -578,7 +578,7 @@
 				E4C4314A2006A7E5007D4CC6 /* LocationBattleViewController.swift in Sources */,
 				E409AB77202370470086C8C2 /* MyBattleShowViewController.swift in Sources */,
 				E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */,
-				E63E32F42024BB3900A5F06C /* Swift+Gif.swift in Sources */,
+				E4EF5506202616AE00F1A968 /* Swift+Gif.swift in Sources */,
 				E6500D78201A827200ECFF6B /* GlobalOrLocationViewController.swift in Sources */,
 				36949BC62007BDD400BAF700 /* ExampleBouncesContentView.swift in Sources */,
 				E630AE5D1FF41BBC00944706 /* CustomButton.swift in Sources */,
