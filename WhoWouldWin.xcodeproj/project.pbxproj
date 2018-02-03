@@ -49,6 +49,7 @@
 		E6AB49C3201B375D0050FFBD /* CreateContender1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB49C2201B375D0050FFBD /* CreateContender1ViewController.swift */; };
 		E6AB49C5201BD8000050FFBD /* CreateContender2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB49C4201BD8000050FFBD /* CreateContender2ViewController.swift */; };
 		E6AB49C7201BDBD20050FFBD /* StoreNewBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB49C6201BDBD20050FFBD /* StoreNewBattleViewController.swift */; };
+		E6C32ED62025E39100E71C00 /* CatTopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C32ED52025E39100E71C00 /* CatTopCollectionViewCell.swift */; };
 		E6D5720E20018153004CE0FB /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */; };
 		E6D5721020018168004CE0FB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D5720F20018168004CE0FB /* CategoriesViewController.swift */; };
 		E6D7D8E620114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */; };
@@ -124,6 +125,7 @@
 		E6AB49C2201B375D0050FFBD /* CreateContender1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContender1ViewController.swift; sourceTree = "<group>"; };
 		E6AB49C4201BD8000050FFBD /* CreateContender2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContender2ViewController.swift; sourceTree = "<group>"; };
 		E6AB49C6201BDBD20050FFBD /* StoreNewBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNewBattleViewController.swift; sourceTree = "<group>"; };
+		E6C32ED52025E39100E71C00 /* CatTopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTopCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6D5720F20018168004CE0FB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		E6D7D8E520114BDD00DAE2F0 /* BattleVCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleVCCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				E6D5720F20018168004CE0FB /* CategoriesViewController.swift */,
 				E6D5720D20018153004CE0FB /* CategoriesCollectionViewCell.swift */,
+				E6C32ED52025E39100E71C00 /* CatTopCollectionViewCell.swift */,
 				E691B00620054FFA00AC4010 /* CategoryBattleViewController.swift */,
 				E6A7B72A20121982003EF777 /* CatBattleCollectionViewCell.swift */,
 			);
@@ -586,6 +589,7 @@
 				36949BC72007BDD400BAF700 /* ExampleAnimateTipsContentView.swift in Sources */,
 				E6AB49C3201B375D0050FFBD /* CreateContender1ViewController.swift in Sources */,
 				E6A25C9F1FFE4DBD00880E85 /* NewUserViewController.swift in Sources */,
+				E6C32ED62025E39100E71C00 /* CatTopCollectionViewCell.swift in Sources */,
 				E6AB49C5201BD8000050FFBD /* CreateContender2ViewController.swift in Sources */,
 				E4F50212201E7A710019B8B5 /* ProfileViewController.swift in Sources */,
 				E49869922007E8DE00F3CAF7 /* AddViewController.swift in Sources */,

@@ -86,7 +86,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reloadCollectionView()
+        battleCollectionView?.reloadData()
         
         switch categoryName {
         case "Beauty Contest":
@@ -135,8 +135,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         
         battleCollectionView.collectionViewLayout = customLayout
         
-        reloadCollectionView()
-        
+        battleCollectionView?.reloadData()
     }
     
     func getData(completion: @escaping (Bool) -> Void){
@@ -195,7 +194,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
                     imageURLContender2 = imgURL2
                 }
                 
-                reloadCollectionView()
+                battleCollectionView?.reloadData()
             } else {
 //                vote1Button.isHidden = true
 //                vote2Button.isHidden = true
@@ -206,10 +205,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         }
     }
     
-    func reloadCollectionView() {
-        battleCollectionView?.reloadData()
-    }
-    
+   
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -348,7 +344,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             hasVotedFor1 = true
             hasVotedFor2 = false
             
-            reloadCollectionView()
+            battleCollectionView?.reloadData()
             loadNextBattle()
             
         }
@@ -363,7 +359,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             hasVotedFor2 = true
             hasVotedFor1 = false
             
-            reloadCollectionView()
+            battleCollectionView?.reloadData()
             loadNextBattle()
         }
     }

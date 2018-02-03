@@ -16,47 +16,40 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
     var categoryClicked: String?
     
+    @IBOutlet weak var topCollectionView: UICollectionView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
-        reloadCollectionView()
+        categoriesCollectionView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        ref = Database.database().reference()
-//
-//        refHandle = ref?.child("Categories").observe(.childAdded, with: { (snapshot) in
-//
-//            let post = snapshot.key
-//
-//            self.categories.append(post)
-//            self.reloadCollectionView()
-//
-//        })
-        
-        
-        
-        
+
         let itemSize = UIScreen.main.bounds.width - 20   // - 3 because we use 3 pts spacing
         
-        let customLayout = UICollectionViewFlowLayout()
-        customLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)  // not really necessary
-        customLayout.itemSize = CGSize(width: itemSize, height: 120)
-        customLayout.headerReferenceSize = CGSize(width: 0, height: 50)
+        let categoriesCVLayout = UICollectionViewFlowLayout()
+        categoriesCVLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)  // not really necessary
+        categoriesCVLayout.itemSize = CGSize(width: itemSize, height: 120)
+        //categoriesCVLayout.headerReferenceSize = CGSize(width: 0, height: 50)
         
-        customLayout.minimumInteritemSpacing = 10
-        customLayout.minimumLineSpacing = 10
+        categoriesCVLayout.minimumInteritemSpacing = 10
+        categoriesCVLayout.minimumLineSpacing = 10
         
-        categoriesCollectionView.collectionViewLayout = customLayout
+        categoriesCollectionView.collectionViewLayout = categoriesCVLayout
         
-        reloadCollectionView()
+        let topCVLayout = UICollectionViewFlowLayout()
+        topCVLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)  // not really necessary
+        topCVLayout.itemSize = CGSize(width: itemSize - 20, height: 160)
+        topCVLayout.scrollDirection = .horizontal
+        topCVLayout.minimumInteritemSpacing = 10
+        
+        topCollectionView.collectionViewLayout = topCVLayout
+        
+        categoriesCollectionView?.reloadData()
+        topCollectionView?.reloadData()
     }
     
-    func reloadCollectionView() {
-        categoriesCollectionView?.reloadData()
-    }
     
     override func viewDidLayoutSubviews() {
         //CoursesCollectionView.layer.cornerRadius = CoursesCollectionView.frame.size.height / 2
@@ -64,41 +57,74 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        if collectionView == self.categoriesCollectionView {
+            return 1
+        } else {    // else: top collection view
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if collectionView == self.categoriesCollectionView {
+            return categories.count
+        } else {    // else: top collection view
+            return 2
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
-        
-        switch indexPath.row {
-        case 0:
-            cell.picImageView.image = UIImage(named: "beautyContest.jpg")
-        case 1:
-            cell.picImageView.image = UIImage(named: "danceBattle3.jpg")
-        case 2:
-            cell.picImageView.image = UIImage(named: "fight2.jpg")
-        case 3:
-            cell.picImageView.image = UIImage(named: "rapBattle1.jpg")
-        default:
-            print("invalid indexpath")
+        if collectionView == self.categoriesCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
+            
+            switch indexPath.row {
+            case 0:
+                cell.picImageView.image = UIImage(named: "beautyContest.jpg")
+            case 1:
+                cell.picImageView.image = UIImage(named: "danceBattle3.jpg")
+            case 2:
+                cell.picImageView.image = UIImage(named: "fight2.jpg")
+            case 3:
+                cell.picImageView.image = UIImage(named: "rapBattle1.jpg")
+            default:
+                print("invalid indexpath")
+            }
+            
+            let textAttributes = [
+                NSAttributedStringKey.strokeColor : UIColor.black,
+                NSAttributedStringKey.foregroundColor : UIColor.white,
+                NSAttributedStringKey.strokeWidth : -1,
+                NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 40)
+                ] as [NSAttributedStringKey : Any]
+            
+            let name = categories[indexPath.row]
+            cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
+            
+            return cell
+        } else {    // else: top collection view
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topCell", for: indexPath) as! CatTopCollectionViewCell
+            
+//            cell.layoutIfNeeded()
+//            cell.imageView.layer.cornerRadius = 20
+            
+            switch indexPath.row {
+            case 0:
+                cell.titleLabel.text = "Hottest 🔥"
+                cell.subtitleLabel.text = "Have a look at the most popular battles."
+                cell.imageView.image = UIImage(named: "collHottest")
+            case 1:
+                cell.titleLabel.text = "Most Recent 🕑"
+                cell.subtitleLabel.text = "See brand new content."
+                cell.imageView.image = UIImage(named: "collRecent")
+            default:
+                print("invalid indexpath")
+            }
+            //cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
+            
+            return cell
         }
         
-        let textAttributes = [
-            NSAttributedStringKey.strokeColor : UIColor.black,
-            NSAttributedStringKey.foregroundColor : UIColor.white,
-            NSAttributedStringKey.strokeWidth : -1,
-            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 40)
-        ] as [NSAttributedStringKey : Any]
         
-        let name = categories[indexPath.row]
-        cell.nameLabel.attributedText = NSAttributedString(string: name, attributes: textAttributes)
-        
-        return cell
     }
     
     
