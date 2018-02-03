@@ -1162,7 +1162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="usY-9W-nmV">
-                                <rect key="frame" x="0.0" y="238" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" textLabel="7Ow-FH-xJQ" style="IBUITableViewCellStyleDefault" id="Rzy-g2-fOK">
@@ -1194,36 +1194,26 @@
                                     <constraint firstAttribute="height" constant="164" id="HtG-cJ-pEW"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-o6-aVs">
-                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="pqu-jQ-E4l"/>
-                                </constraints>
-                                <state key="normal" title="Log out">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signOutButton:" destination="GeB-eB-4V4" eventType="touchUpInside" id="12c-Wq-lJO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="upt-on-BmJ" firstAttribute="top" secondItem="g1E-iQ-zr5" secondAttribute="top" constant="5" id="JOX-L7-UKi"/>
-                            <constraint firstItem="cwA-o6-aVs" firstAttribute="leading" secondItem="g1E-iQ-zr5" secondAttribute="leading" id="L1B-aT-cne"/>
+                            <constraint firstItem="g1E-iQ-zr5" firstAttribute="bottom" secondItem="usY-9W-nmV" secondAttribute="bottom" id="L5g-j5-NkE"/>
                             <constraint firstItem="upt-on-BmJ" firstAttribute="leading" secondItem="g1E-iQ-zr5" secondAttribute="leading" constant="20" id="OcG-NE-0fY"/>
                             <constraint firstItem="usY-9W-nmV" firstAttribute="leading" secondItem="g1E-iQ-zr5" secondAttribute="leading" id="QXx-Ff-Uhh"/>
-                            <constraint firstItem="cwA-o6-aVs" firstAttribute="top" secondItem="usY-9W-nmV" secondAttribute="bottom" id="Tel-Pl-qca"/>
                             <constraint firstItem="g1E-iQ-zr5" firstAttribute="trailing" secondItem="upt-on-BmJ" secondAttribute="trailing" constant="20" id="VAI-cn-jcf"/>
-                            <constraint firstItem="cwA-o6-aVs" firstAttribute="bottom" secondItem="g1E-iQ-zr5" secondAttribute="bottom" id="WW4-iw-1pY"/>
                             <constraint firstItem="usY-9W-nmV" firstAttribute="trailing" secondItem="g1E-iQ-zr5" secondAttribute="trailing" id="XYr-S2-fkZ"/>
                             <constraint firstItem="usY-9W-nmV" firstAttribute="top" secondItem="upt-on-BmJ" secondAttribute="bottom" constant="5" id="waI-d9-rVP"/>
-                            <constraint firstItem="cwA-o6-aVs" firstAttribute="trailing" secondItem="g1E-iQ-zr5" secondAttribute="trailing" id="whE-e7-LzR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g1E-iQ-zr5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SGQ-mE-d1V"/>
+                    <navigationItem key="navigationItem" id="SGQ-mE-d1V">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="eRr-CM-WgH">
+                            <connections>
+                                <action selector="signOutButton:" destination="GeB-eB-4V4" id="Ucj-iq-ecY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="settingsTableView" destination="usY-9W-nmV" id="B4F-hm-Eg5"/>
                         <outlet property="userImage" destination="upt-on-BmJ" id="NLx-s2-CiO"/>

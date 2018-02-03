@@ -98,7 +98,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @IBAction func signOutButton(_ sender: UIButton) {
+    @IBAction func signOutButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Sign out", message: "Do you really want to sign out?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
@@ -113,8 +113,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
-
     }
+   
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
