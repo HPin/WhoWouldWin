@@ -15,6 +15,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
+    @IBOutlet weak var numberOfPostsLabel: UILabel!
+    @IBOutlet weak var nextLevelLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var settingsTableView: UITableView!
@@ -29,24 +31,38 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let imageName = UIImage(named: "Wait")
             self.userImage?.image = imageName
         }
+        self.title = "Settings"
         print("ViewwillApear")
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         getNumberOfBattles(uid: userUID) { (numberOfBattles) in
-            
             if numberOfBattles < 10 {
+                self.nextLevelLabel.text = "Create "
+                self.nextLevelLabel.text?.append(String(10-numberOfBattles))
+                self.nextLevelLabel.text?.append(" Battles to unlock the next level")
                 let imageName = UIImage(named: "Beginner")
+                self.numberOfPostsLabel.text = "Beginner"
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
             else if numberOfBattles >= 10 && numberOfBattles < 25 {
+                self.nextLevelLabel.text = "Create "
+                self.nextLevelLabel.text?.append(String(25-numberOfBattles))
+                self.nextLevelLabel.text?.append(" Battles to unlock the next level")
                 let imageName = UIImage(named: "Advanced")
+                self.numberOfPostsLabel.text = "Advanced"
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
             else if numberOfBattles >= 25 && numberOfBattles < 45 {
+                self.nextLevelLabel.text = "Create "
+                self.nextLevelLabel.text?.append(String(45-numberOfBattles))
+                self.nextLevelLabel.text?.append(" Battles to unlock the next level")
                 let imageName = UIImage(named: "Profi")
+                self.numberOfPostsLabel.text = "Profi"
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
             else if numberOfBattles >= 45 {
+                self.nextLevelLabel.text = "Every level unlocked - more levels comming soon"
                 let imageName = UIImage(named: "Expert")
+                self.numberOfPostsLabel.text = "Expert"
                 UIView.transition(with: self.userImage, duration: 0.5, options: .transitionFlipFromTop,animations:{ self.userImage.image = imageName } , completion: nil)
             }
             
