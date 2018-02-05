@@ -711,23 +711,25 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9z-4j-Sxv">
                                         <rect key="frame" x="50" y="291" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="J3q-fS-PC6" id="vid-ok-E6C"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ub5-my-ALg">
                                         <rect key="frame" x="50" y="340" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="J3q-fS-PC6" id="nZg-vj-kcD"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-nL-VSQ" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-nL-VSQ" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
                                         <rect key="frame" x="50" y="75" width="275" height="116"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="116" id="7ln-8X-Zlm"/>
@@ -775,18 +777,6 @@
                                             <action selector="signInButton:" destination="J3q-fS-PC6" eventType="touchUpInside" id="l0A-C4-4Fx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-iK-Qxc">
-                                        <rect key="frame" x="239" y="16" width="128" height="51"/>
-                                        <color key="backgroundColor" red="0.8805609029652921" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="128" id="ifj-wV-ixz"/>
-                                            <constraint firstAttribute="height" constant="51" id="mMq-yA-DjJ"/>
-                                        </constraints>
-                                        <state key="normal" title="skip"/>
-                                        <connections>
-                                            <segue destination="6kt-wu-ceZ" kind="show" id="56N-zR-d2n"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4W-nC-9hm" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
                                         <rect key="frame" x="50" y="388" width="275" height="56"/>
                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -823,9 +813,6 @@
                                     <constraint firstItem="a9z-4j-Sxv" firstAttribute="top" secondItem="15m-OO-3uN" secondAttribute="top" constant="291" id="IFo-VR-s8k"/>
                                     <constraint firstItem="a9z-4j-Sxv" firstAttribute="trailing" secondItem="Ub5-my-ALg" secondAttribute="trailing" id="JjK-mV-jk0"/>
                                     <constraint firstItem="j4W-nC-9hm" firstAttribute="centerX" secondItem="eIj-mv-g70" secondAttribute="centerX" id="KHn-Ec-Pkv"/>
-                                    <constraint firstItem="VOf-nL-VSQ" firstAttribute="top" secondItem="hBK-iK-Qxc" secondAttribute="bottom" constant="8" symbolic="YES" id="Mea-S9-jEo"/>
-                                    <constraint firstItem="hBK-iK-Qxc" firstAttribute="top" secondItem="15m-OO-3uN" secondAttribute="top" constant="16" id="MyR-bz-iMJ"/>
-                                    <constraint firstItem="hBK-iK-Qxc" firstAttribute="trailing" secondItem="15m-OO-3uN" secondAttribute="trailingMargin" id="OjQ-Py-HjH"/>
                                     <constraint firstAttribute="bottom" secondItem="eIj-mv-g70" secondAttribute="bottom" constant="6" id="Xh9-M4-WST"/>
                                     <constraint firstItem="Ub5-my-ALg" firstAttribute="trailing" secondItem="j4W-nC-9hm" secondAttribute="trailing" id="Yfc-no-cBo"/>
                                     <constraint firstAttribute="trailing" secondItem="VOf-nL-VSQ" secondAttribute="trailing" constant="50" id="ZQZ-2g-g4O"/>
@@ -912,20 +899,20 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKo-K8-uBo">
                                         <rect key="frame" x="20" y="263" width="335" height="30"/>
-                                        <color key="backgroundColor" red="0.6470588235294118" green="0.36078431372549019" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YG-AQ-g9A" id="DGj-Z7-E6U"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zje-hx-XId">
                                         <rect key="frame" x="20" y="337" width="335" height="30"/>
-                                        <color key="backgroundColor" red="0.27058823529411763" green="0.53725490196078429" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YG-AQ-g9A" id="D18-nD-KFH"/>
                                         </connections>
@@ -935,7 +922,7 @@
                                         <color key="backgroundColor" red="0.84313725490196079" green="0.83921568627450982" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YG-AQ-g9A" id="Qmo-SJ-kOf"/>
                                         </connections>
@@ -945,7 +932,7 @@
                                         <color key="backgroundColor" red="0.84313725490196079" green="0.83921568627450982" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YG-AQ-g9A" id="Gcm-DA-Lrf"/>
                                         </connections>
