@@ -26,7 +26,7 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     var refHandle: DatabaseHandle?
     
     let manager = CLLocationManager()
-    var locationRadius:Double = 10
+    var locationRadius:Double = 50
     
     var idArr = [String]()
     var battlesArr:[[String:AnyObject]]?
@@ -220,17 +220,27 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
                             self.battlesArr = [dic]
                         }
                         self.idArr.append(rest.key)
+                        self.noBattlesLeftView.isHidden = true
                     }
                     else {
                         print("There is no fight in your location")
-                        display = false
-                        
-//                        let alert = UIAlertController(title: "Nothing found!", message: "Apparently there are no battles in your area.", preferredStyle: .alert)
-//                        alert.addAction(UIAlertAction(title: "OK 😢!", style: .default, handler: { (action) in
-//                            alert.dismiss(animated: true, completion: nil)
-//                        }))
-//                        self.present(alert, animated: true, completion: nil)
+                        if let arr = self.battlesArr {
+                            if arr.isEmpty {
+                                //display = false
+                                self.noBattlesLeftView.isHidden = false
+                            } else {
+                                //display = true
+                                self.noBattlesLeftView.isHidden = true
+                            }
+                        } else {
+                            //display = false
+                            self.noBattlesLeftView.isHidden = false
+                        }
                     }
+                    print("####################")
+                    print(self.battlesArr)
+                    print("####################")
+
                 }
             }
             completion(display)

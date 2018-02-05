@@ -549,10 +549,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0DT-wv-qjQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0DT-wv-qjQ" customClass="FLAnimatedImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
                                                 </imageView>
-                                                <view alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-N3-Kzz" userLabel="BlackOverlay">
+                                                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-N3-Kzz" userLabel="BlackOverlay">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
@@ -618,13 +618,13 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4N-Mo-Pic" userLabel="NoBattlesLeftView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emx-kp-k1h">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emx-kp-k1h" customClass="FLAnimatedImageView">
                                         <rect key="frame" x="0.0" y="40" width="375" height="221"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="221" id="iJj-Fs-zUd"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately there are no battles left." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTO-sa-5Gb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately there are no battles left in your area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTO-sa-5Gb">
                                         <rect key="frame" x="20" y="277" width="335" height="107.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="107.5" id="9Bq-5n-GRe"/>
@@ -1936,16 +1936,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your battle has been created!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-z6-v7l">
-                                <rect key="frame" x="16" y="135" width="351" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your battle has been created!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-z6-v7l">
+                                <rect key="frame" x="16" y="171" width="351" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="d7H-Cg-vif"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLA-Je-QVA">
                                 <rect key="frame" x="16" y="303" width="343" height="60"/>
-                                <color key="backgroundColor" red="0.78754526376724243" green="0.39840668439865112" blue="0.18178129196166992" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="QZc-J6-YhY"/>
                                 </constraints>
@@ -1957,19 +1959,44 @@
                                     <action selector="backToBattle:" destination="FJX-uj-TRZ" eventType="touchUpInside" id="RUQ-zY-sHi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have a look at the most popular battles." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkK-bz-w9d">
+                                <rect key="frame" x="16" y="235" width="359" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="hap-4N-0tW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUh-WX-cNp">
+                                <rect key="frame" x="8" y="109" width="359" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="CUh-WX-cNp" firstAttribute="trailing" secondItem="gZU-z6-v7l" secondAttribute="trailing" id="6RS-T8-KCr"/>
+                            <constraint firstItem="CUh-WX-cNp" firstAttribute="top" secondItem="Pta-UP-RrD" secondAttribute="top" constant="89" id="6Vo-Il-XMz"/>
                             <constraint firstItem="Pta-UP-RrD" firstAttribute="trailing" secondItem="JLA-Je-QVA" secondAttribute="trailing" constant="16" id="7V9-FV-zb3"/>
+                            <constraint firstItem="WkK-bz-w9d" firstAttribute="leading" secondItem="JLA-Je-QVA" secondAttribute="leading" id="8Bx-z1-7pV"/>
+                            <constraint firstItem="gZU-z6-v7l" firstAttribute="top" secondItem="CUh-WX-cNp" secondAttribute="bottom" constant="8" symbolic="YES" id="MJY-wp-2NX"/>
                             <constraint firstItem="JLA-Je-QVA" firstAttribute="centerY" secondItem="scX-58-iIF" secondAttribute="centerY" id="P70-yF-vBc"/>
+                            <constraint firstAttribute="trailing" secondItem="WkK-bz-w9d" secondAttribute="trailing" id="Umt-in-jPc"/>
+                            <constraint firstItem="CUh-WX-cNp" firstAttribute="centerX" secondItem="JLA-Je-QVA" secondAttribute="centerX" id="WcO-zD-phc"/>
                             <constraint firstItem="JLA-Je-QVA" firstAttribute="leading" secondItem="Pta-UP-RrD" secondAttribute="leading" constant="16" id="dao-uu-GaO"/>
+                            <constraint firstItem="JLA-Je-QVA" firstAttribute="top" secondItem="WkK-bz-w9d" secondAttribute="bottom" constant="40" id="n6r-dw-u3n"/>
+                            <constraint firstItem="gZU-z6-v7l" firstAttribute="leading" secondItem="WkK-bz-w9d" secondAttribute="leading" id="yrb-fM-ZSr"/>
+                            <constraint firstItem="WkK-bz-w9d" firstAttribute="top" secondItem="gZU-z6-v7l" secondAttribute="bottom" constant="11" id="zJM-cy-fWO"/>
+                            <constraint firstItem="CUh-WX-cNp" firstAttribute="leading" secondItem="Pta-UP-RrD" secondAttribute="leading" constant="8" id="zSE-gU-3Yu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pta-UP-RrD"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxC-PX-nWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6353" y="1729"/>
+            <point key="canvasLocation" x="6352.8000000000002" y="1728.4857571214395"/>
         </scene>
         <!--Create a battle-->
         <scene sceneID="suI-Zh-IFi">
@@ -2508,6 +2535,7 @@ Local battles can be found in the location tab (the left one)</string>
                             <constraint firstItem="Qds-9x-dsx" firstAttribute="centerX" secondItem="BmZ-vg-9X8" secondAttribute="centerX" id="pv3-J0-Xvj"/>
                             <constraint firstItem="OcV-V8-cl4" firstAttribute="leading" secondItem="GpU-ly-dPF" secondAttribute="leadingMargin" constant="-8" id="wlV-Ij-s5k"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="KLA-Ug-pi0"/>
                     </view>
                     <connections>
                         <outlet property="radiusLabel" destination="BmZ-vg-9X8" id="TER-IZ-1TA"/>
