@@ -729,7 +729,7 @@
                                             <outlet property="delegate" destination="J3q-fS-PC6" id="nZg-vj-kcD"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-nL-VSQ" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-nL-VSQ" customClass="CustomButton" customModule="WhoWouldWin" customModuleProvider="target">
                                         <rect key="frame" x="50" y="75" width="275" height="116"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="116" id="7ln-8X-Zlm"/>
@@ -806,6 +806,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="eIj-mv-g70" firstAttribute="centerX" secondItem="15m-OO-3uN" secondAttribute="centerX" id="1Q6-lM-i1h"/>
+                                    <constraint firstItem="VOf-nL-VSQ" firstAttribute="top" secondItem="15m-OO-3uN" secondAttribute="top" constant="75" id="9m1-zK-B4C"/>
                                     <constraint firstItem="VOf-nL-VSQ" firstAttribute="leading" secondItem="15m-OO-3uN" secondAttribute="leading" constant="50" id="AsY-Ty-3qZ"/>
                                     <constraint firstItem="VOf-nL-VSQ" firstAttribute="leading" secondItem="a9z-4j-Sxv" secondAttribute="leading" id="EOf-l7-nuO"/>
                                     <constraint firstItem="a9z-4j-Sxv" firstAttribute="leading" secondItem="Ub5-my-ALg" secondAttribute="leading" id="G7a-Y7-WW0"/>
@@ -1589,7 +1590,7 @@
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find answers  to the questions  that won't let you sleep. 😴🙇‍♀️🤔🙇‍♂️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGP-kq-RQH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find answers  to the questions  which won't let you sleep. 😴🙇‍♀️🤔🙇‍♂️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGP-kq-RQH">
                                                     <rect key="frame" x="23" y="80" width="330" height="162"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="330" id="21U-Wq-Zyv"/>
@@ -2540,6 +2541,6 @@ Local battles can be found in the location tab (the left one)</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="b8w-bO-MXi"/>
-        <segue reference="ZFo-vw-s75"/>
+        <segue reference="Kcc-U2-lqg"/>
     </inferredMetricsTieBreakers>
 </document>
