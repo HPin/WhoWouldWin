@@ -156,7 +156,7 @@ class MyBattleViewController: UIViewController, UICollectionViewDataSource, UICo
         
             cell.percentLabel.isHidden = false
             
-            UIView.animate(withDuration: 1.25, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 cell.percentLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
                 
                 if indexPath.row == 0 {

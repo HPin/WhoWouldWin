@@ -104,7 +104,6 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         myBattlesCat = [:]
         
         getCategories { (categories) in
-            print("yeeeeeeeeees1 \(categories.count)")
             self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
                 if successCat{
                     self.displayBattle()
@@ -165,14 +164,10 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func displayBattle() {
         let arr = myBattlesCat
         
-        let len = arr.count // if battles are empty --- For my harri baby --- oh yeah jacko :3
-        if len != 0 {   // fuck valentin
+        let len = arr.count // check if battles are empty
+        if len != 0 {
             noBattlesLeftView.isHidden = true
             topView.isHidden = false
-            print("Fuck you valentin witzeneder")
-            print("#diescheibeisthässlich")
-            print("#diescheibemussplatzen")
-            print("glg :*")
             
             let catArr = Array(arr.keys)
             randomIndexCat = Int(arc4random_uniform(UInt32(catArr.count)))
@@ -400,7 +395,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func loadNextBattle() {
         
-        UIView.animate(withDuration: 0.3, delay: 5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
