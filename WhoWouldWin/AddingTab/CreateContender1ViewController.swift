@@ -74,30 +74,35 @@ class CreateContender1ViewController: UIViewController, UINavigationControllerDe
     @IBAction func continueButton(_ sender: UIButton) {
         // save text field input
         
-        if nameTextField.text != "" {
-            if let name = nameTextField.text {
+        if let name = nameTextField.text {
+        
+            if name != "" && name.count < 20 {
                 name1 = name
-            } else {
-                name1 = ""
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    // remove name input items from screen
+                    self.nameTextField.transform = CGAffineTransform(translationX: 500, y: 0)
+                    self.continueButton.transform = CGAffineTransform(translationX: 0, y: 800)
+                }) { (finished) in
+                    self.nameTextField.isHidden = true
+                    self.continueButton.isHidden = true
+                    self.buttonFlyIn()
+                }
+                
+            } else if name == "" {
+                // error msg if no input
+                let alert = UIAlertController(title: "ERROR", message: "Enter a name first.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else if name.count >= 20 {
+                let alert = UIAlertController(title: "ERROR", message: "Name is too long.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
-            
-            UIView.animate(withDuration: 0.25, animations: {
-                // remove name input items from screen
-                self.nameTextField.transform = CGAffineTransform(translationX: 500, y: 0)
-                self.continueButton.transform = CGAffineTransform(translationX: 0, y: 800)
-            }) { (finished) in
-                self.nameTextField.isHidden = true
-                self.continueButton.isHidden = true
-                self.buttonFlyIn()
-            }
-            
-        } else {
-            // error msg if no input
-            let alert = UIAlertController(title: "ERROR", message: "Enter a name first.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: { (action) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
         }
         
         

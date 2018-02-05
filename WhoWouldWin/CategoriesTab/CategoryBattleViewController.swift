@@ -367,7 +367,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     
     func loadNextBattle() {
         
-        UIView.animate(withDuration: 0.3, delay: 5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
