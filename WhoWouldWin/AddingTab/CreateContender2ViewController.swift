@@ -172,7 +172,10 @@ class CreateContender2ViewController: UIViewController, UINavigationControllerDe
             imageView.sd_setImage(with: gifDownSized.url)
         }
         
-        if let gifOrig = item.originalImage {
+//        if let gifOrig = item.originalImage { // full quality
+//            self.gifURL2 = gifOrig.url?.absoluteString
+//        }
+        if let gifOrig = item.downsizedImage {   // low quality
             self.gifURL2 = gifOrig.url?.absoluteString
         }
         
