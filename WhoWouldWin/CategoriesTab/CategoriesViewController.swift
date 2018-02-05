@@ -15,6 +15,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var refHandle: DatabaseHandle?
     var categories = ["Beauty Contest", "Dance Battle", "Fight", "Rap Battle"]
     var categoryClicked: String?
+    var clickedIndex = -1
     
     @IBOutlet weak var topCollectionView: UICollectionView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
@@ -134,8 +135,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
             categoryClicked = categories[indexPath.row]
             
             performSegue(withIdentifier: "categorySegue", sender: self)
-        } else {    // else: top collection view
-            // segue for hottest and most recent...
+        } else {
+            clickedIndex = indexPath.row
+            performSegue(withIdentifier: "fromCatToSpecial", sender: self)
         }
         
     }
@@ -143,9 +145,12 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "categorySegue" {
             if let detailsVC = segue.destination as? CategoryBattleViewController {
-                
                 detailsVC.categoryName = self.categoryClicked
-                
+            }
+        }
+        else if segue.identifier == "fromCatToSpecial" {
+            if let detailsVC = segue.destination as? SpecialBattlesViewController {
+                detailsVC.kindOfBattle = clickedIndex
             }
         }
     }

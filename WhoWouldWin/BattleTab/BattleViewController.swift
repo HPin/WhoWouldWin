@@ -33,6 +33,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         var Image2: String?
         var Votes2: Int
     }
+    
     var randomIndexCat = 0
     var randomIndexBattle = 0
     
