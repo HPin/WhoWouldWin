@@ -87,8 +87,8 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     override func viewDidLayoutSubviews() {
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
         centerCircleView.layer.borderWidth = 4
-        //let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
-        //centerCircleView.layer.borderColor = myColor.cgColor
+        let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        centerCircleView.layer.backgroundColor = myColor.cgColor
         centerCircleView.layer.borderColor = UIColor.white.cgColor
     }
     
@@ -440,6 +440,7 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
         
         UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: -800, y:0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
@@ -457,8 +458,10 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: 800, y:0)
             UIView.animate(withDuration: 0.25, animations: {
                 self.battleCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.centerCircleView.transform = CGAffineTransform(translationX: 0, y:0)
             })
         })
         

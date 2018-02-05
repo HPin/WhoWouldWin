@@ -38,45 +38,6 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var centerCircleImageView: UIImageView!
     @IBOutlet weak var battleCollectionView: UICollectionView!
     
-//    @IBAction func nextButton(_ sender: CustomButton) {
-//        vote1Button.isHidden = false
-//        vote2Button.isHidden = false
-//        nextButton.isHidden = true
-//
-//        battlesArr?.remove(at: randomIndex)
-//        idArr.remove(at: randomIndex)
-//        displayBattle()
-//    }
-//    @IBAction func vote1Button(_ sender: UIButton) {
-//        votesContender1 += 1
-//
-//        let ID = idArr[randomIndex]
-//        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-//
-//        battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
-//
-//        self.percent1Label.text = String(votesContender1)
-//
-//        vote1Button.isHidden = true
-//        vote2Button.isHidden = true
-//        nextButton.isHidden = false
-//    }
-//
-//    @IBAction func vote2Button(_ sender: UIButton) {
-//        votesContender2 += 1
-//
-//        let ID = idArr[randomIndex]
-//        let battleRef = ref?.child("Categories").child(categoryName).child(ID)
-//
-//        battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
-//
-//        self.percent2Label.text = String(votesContender2)
-//
-//        vote1Button.isHidden = true
-//        vote2Button.isHidden = true
-//        nextButton.isHidden = false
-//    }
-    
     override func viewDidLayoutSubviews() {
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
         centerCircleView.layer.borderWidth = 4
@@ -370,6 +331,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         
         UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: -800, y:0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
@@ -387,8 +349,10 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: 800, y:0)
             UIView.animate(withDuration: 0.25, animations: {
                 self.battleCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.centerCircleView.transform = CGAffineTransform(translationX: 0, y:0)
             })
         })
     
