@@ -94,51 +94,8 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         battleCollectionView?.reloadData()
-        
-//        switch categoryName {
-//        case "Beauty Contest":
-//            centerCircleImageView.image = UIImage(named: "cellBeauty2 Contest")
-//        case "Fight":
-//            centerCircleImageView.image = UIImage(named: "cellFight2")
-//        case "Rap Battle":
-//            centerCircleImageView.image = UIImage(named: "cellRap5 Battle")
-//        case "Dance Battle":
-//            centerCircleImageView.image = UIImage(named: "cellDance Battle")
-//        default:
-//            centerCircleImageView.image = UIImage(named: "cellFight")
-//        }
     }
-    
-    
-//    @IBAction func vote1Button(_ sender: UIButton) {
-//        votesContender1 += 1
-//
-//        let ID = idArr[randomIndex]
-//        let battleRef = ref?.child("Locations").child(ID)
-//
-//        battleRef?.child("Contender 1").child("Votes").setValue(votesContender1)
-//
-//        percentage1Label.text = String(votesContender1)
-//
-//        vote1Button.isHidden = true
-//        vote2Button.isHidden = true
-//        nextButton.isHidden = false
-//    }
-//    @IBAction func vote2Button(_ sender: UIButton) {
-//        votesContender2 += 1
-//
-//        let ID = idArr[randomIndex]
-//        ref = Database.database().reference()
-//        let battleRef = ref?.child("Locations").child(ID)
-//
-//        battleRef?.child("Contender 2").child("Votes").setValue(votesContender2)
-//
-//        percentage2Label.text = String(votesContender2)
-//
-//        vote1Button.isHidden = true
-//        vote2Button.isHidden = true
-//        nextButton.isHidden = false
-//    }
+
     
   
     
@@ -237,9 +194,6 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
                             self.noBattlesLeftView.isHidden = false
                         }
                     }
-                    print("####################")
-                    print(self.battlesArr)
-                    print("####################")
 
                 }
             }
@@ -257,10 +211,27 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
         if let arr = battlesArr {
             let len = arr.count
             if len != 0 {
+                
                 //errorLabel.isHidden = true
                 randomIndex = Int(arc4random_uniform(UInt32(len)))
                 
                 let dict = arr[randomIndex]
+                
+                if let cat = dict["Category"] as? String {
+                    switch cat {
+                    case "Beauty Contest":
+                        centerCircleImageView.image = UIImage(named: "cellBeauty2 Contest")
+                    case "Fight":
+                        centerCircleImageView.image = UIImage(named: "cellFight2")
+                    case "Rap Battle":
+                        centerCircleImageView.image = UIImage(named: "cellRap5 Battle")
+                    case "Dance Battle":
+                        centerCircleImageView.image = UIImage(named: "cellDance Battle")
+                    default:
+                        centerCircleImageView.image = UIImage(named: "cellFight")
+                    }
+                    self.navigationItem.title = cat
+                }
                 
                 if let name1 = dict["Contender 1"]?["Name"] as? String {
                     nameContender1 = name1
@@ -469,6 +440,7 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
         
         UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: -800, y:0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
@@ -486,8 +458,10 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: 800, y:0)
             UIView.animate(withDuration: 0.25, animations: {
                 self.battleCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.centerCircleView.transform = CGAffineTransform(translationX: 0, y:0)
             })
         })
         

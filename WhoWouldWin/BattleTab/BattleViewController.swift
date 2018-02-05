@@ -398,6 +398,7 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         UIView.animate(withDuration: 0.3, delay: 3.5, options: .curveEaseIn, animations: {
             self.battleCollectionView.transform = CGAffineTransform(translationX: -800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: -800, y:0)
         }, completion: { (finished) in
             self.hasVotedFor1 = false
             self.hasVotedFor2 = false
@@ -409,8 +410,10 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.displayBattle()
             
             self.battleCollectionView.transform = CGAffineTransform(translationX: 800, y: 0)
+            self.centerCircleView.transform = CGAffineTransform(translationX: 800, y:0)
             UIView.animate(withDuration: 0.25, animations: {
                 self.battleCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.centerCircleView.transform = CGAffineTransform(translationX: 0, y:0)
             })
         })
         

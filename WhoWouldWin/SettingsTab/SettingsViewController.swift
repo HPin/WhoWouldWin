@@ -88,6 +88,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                                 completion(0)
                             }
                         }
+                        else{
+                            completion(0)
+                        }
                     }
                 }
             }
