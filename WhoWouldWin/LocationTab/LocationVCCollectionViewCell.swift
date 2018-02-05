@@ -10,8 +10,8 @@ import UIKit
 
 class LocationVCCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var ContenderImageView: UIImageView!
-    @IBOutlet weak var VoteOverlay: UIView!
-    @IBOutlet weak var ContenderNameLabel: UILabel!
-    @IBOutlet weak var ContenderPercentageLabel: UILabel!
+    @IBOutlet weak var contenderImageView: UIImageView!
+    @IBOutlet weak var colorOverlay: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
 }

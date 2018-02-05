@@ -104,7 +104,6 @@ class BattleViewController: UIViewController, UICollectionViewDataSource, UIColl
         myBattlesCat = [:]
         
         getCategories { (categories) in
-            print("yeeeeeeeeees1 \(categories.count)")
             self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
                 if successCat{
                     self.displayBattle()
