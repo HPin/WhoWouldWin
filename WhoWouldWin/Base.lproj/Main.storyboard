@@ -668,7 +668,7 @@
                         <viewLayoutGuide key="safeArea" id="dKC-84-svG"/>
                     </view>
                     <navigationItem key="navigationItem" id="ASe-Pp-98F">
-                        <barButtonItem key="rightBarButtonItem" title="Change Radius" id="XYG-vs-scs">
+                        <barButtonItem key="rightBarButtonItem" title="Radius" id="XYG-vs-scs">
                             <connections>
                                 <action selector="showOverlayButton:" destination="WMl-wW-d8n" id="Ic6-4b-raH"/>
                             </connections>

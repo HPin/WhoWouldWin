@@ -100,6 +100,7 @@ class CategoryBattleViewController: UIViewController, UICollectionViewDataSource
         default:
             centerCircleImageView.image = UIImage(named: "cellFight")
         }
+        self.navigationItem.title = categoryName
     }
     
     override func viewDidLoad() {
