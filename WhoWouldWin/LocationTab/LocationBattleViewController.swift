@@ -33,6 +33,45 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
     var randomIndex: Int = 0
     var votesContender1: Int = 0
     var votesContender2: Int = 0
+    
+    // ------------------- overlay delegate stuff -------------------
+    
+    @IBOutlet weak var overlaySubview: UIView!
+    
+    
+    // pass reference to self into overlay, otherwise we encounter a nil object there
+    lazy var addOverlay: LocationViewController = {
+        let overlay = LocationViewController()
+        overlay.locationBattleVC = self
+        return overlay
+    }()
+    
+    func dismissTheOverlay() {
+        addOverlay.dismissOverlay()
+    }
+    
+    func getRadius(radius: Int) {
+        self.locationRadius = Double(radius)
+        getData { (display) in
+            if display {
+                self.displayBattle()
+            }
+        }
+    }
+    
+    @IBAction func showOverlayButton(_ sender: UIBarButtonItem) {
+        addOverlay.createOverlay()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showOverlaySegue" {
+            if let sender = segue.destination as? LocationViewController {
+                sender.delegate = self
+            }
+        }
+    }
+// -------------------END: overlay delegate stuff -------------------
 
     
     @IBAction func nextButton(_ sender: UIButton) {
@@ -79,6 +118,9 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        overlaySubview.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 300)
+        
         getData { (display) in
             if display {
                 self.displayBattle()
@@ -93,7 +135,11 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         guard let myLocation:CLLocation = manager.location else {
-            print("Couldn't get current location!")
+            let alert = UIAlertController(title: "Could not get location!", message: "Make sure to enable location services.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         let myLatitude = myLocation.coordinate.latitude
@@ -127,6 +173,12 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate 
                     else {
                         print("There is no fight in your location")
                         display = false
+                        
+                        let alert = UIAlertController(title: "Nothing found!", message: "Apparently there are no battles in your area.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK 😢!", style: .default, handler: { (action) in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }

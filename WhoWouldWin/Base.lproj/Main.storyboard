@@ -524,73 +524,6 @@
             </objects>
             <point key="canvasLocation" x="1898" y="33"/>
         </scene>
-        <!--Location View Controller-->
-        <scene sceneID="SNr-De-M8u">
-            <objects>
-                <viewController id="oqg-fD-DGu" customClass="LocationViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u6W-cO-8Eg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-38-6qD">
-                                <rect key="frame" x="87.5" y="549" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.17172203860365165" blue="0.22042818973073575" alpha="0.49331121575342468" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="88m-DU-KHi"/>
-                                    <constraint firstAttribute="width" constant="200" id="be1-6a-uKd"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButton:" destination="oqg-fD-DGu" eventType="touchUpInside" id="RX0-ak-6Yz"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-58-aoW">
-                                <rect key="frame" x="10" y="74" width="355" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="355" id="TEQ-hD-4mp"/>
-                                    <constraint firstAttribute="height" constant="400" id="lzm-U3-AN7"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="oqg-fD-DGu" id="k63-dP-KCa"/>
-                                </connections>
-                            </mapView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-NL-aF0">
-                                <rect key="frame" x="85.5" y="494" width="204" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8tO-e0-1dE"/>
-                                    <constraint firstAttribute="height" constant="35" id="dGG-Yu-5dE"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="sliderMap:" destination="oqg-fD-DGu" eventType="valueChanged" id="hE9-bs-D0d"/>
-                                </connections>
-                            </slider>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="uaR-NL-aF0" firstAttribute="centerX" secondItem="u6W-cO-8Eg" secondAttribute="centerX" id="KIz-8X-Io3"/>
-                            <constraint firstItem="Xg2-c5-qWF" firstAttribute="trailing" secondItem="3r6-58-aoW" secondAttribute="trailing" constant="10" id="LZg-nw-Eq0"/>
-                            <constraint firstItem="Ka7-38-6qD" firstAttribute="top" secondItem="uaR-NL-aF0" secondAttribute="bottom" constant="20" id="Qwp-vF-5dP"/>
-                            <constraint firstItem="uaR-NL-aF0" firstAttribute="top" secondItem="3r6-58-aoW" secondAttribute="bottom" constant="20" id="Uyq-lb-3Z5"/>
-                            <constraint firstItem="3r6-58-aoW" firstAttribute="leading" secondItem="Xg2-c5-qWF" secondAttribute="leading" constant="10" id="WRV-jv-u78"/>
-                            <constraint firstItem="3r6-58-aoW" firstAttribute="top" secondItem="Xg2-c5-qWF" secondAttribute="top" constant="10" id="nbO-ro-GNU"/>
-                            <constraint firstItem="Ka7-38-6qD" firstAttribute="centerX" secondItem="u6W-cO-8Eg" secondAttribute="centerX" id="nsD-I3-vUM"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Xg2-c5-qWF"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="OyV-Gi-8vk"/>
-                    <connections>
-                        <outlet property="mapView" destination="3r6-58-aoW" id="ESv-ZO-jr8"/>
-                        <outlet property="sliderMap" destination="uaR-NL-aF0" id="qgV-gn-e01"/>
-                        <outlet property="submitButton" destination="Ka7-38-6qD" id="Bg1-q0-jvl"/>
-                        <segue destination="WMl-wW-d8n" kind="show" identifier="locationSegue" id="Bn3-wn-dHa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33a-zq-pGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4044" y="838"/>
-        </scene>
         <!--Location Battle View Controller-->
         <scene sceneID="GWM-zg-A3P">
             <objects>
@@ -687,6 +620,13 @@
                                             <constraint firstAttribute="height" constant="221" id="DCY-cQ-87A"/>
                                         </constraints>
                                     </imageView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-QO-dWk">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <segue destination="pMI-Uf-Y0w" kind="embed" identifier="showOverlaySegue" id="OYy-Wc-Nbc"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.034920876080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -720,10 +660,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dKC-84-svG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ASe-Pp-98F">
+                        <barButtonItem key="rightBarButtonItem" title="Change Radius" id="XYG-vs-scs">
+                            <connections>
+                                <action selector="showOverlayButton:" destination="WMl-wW-d8n" id="Ic6-4b-raH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="overlaySubview" destination="x9e-QO-dWk" id="Kbl-x4-2bP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIL-Ou-Zwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4928.8000000000002" y="837.93103448275872"/>
+            <point key="canvasLocation" x="4150" y="838"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="69q-uu-dpK">
@@ -1131,7 +1081,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="oqg-fD-DGu" kind="relationship" relationship="rootViewController" id="pBg-NM-vpd"/>
+                        <segue destination="WMl-wW-d8n" kind="relationship" relationship="rootViewController" id="xnH-eV-Vcc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMb-BT-kvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2472,6 +2422,89 @@ Local battles can be found in the location tab (the left one)</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZn-7M-Jlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="838"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="uVg-Hi-Y7g">
+            <objects>
+                <viewController id="pMI-Uf-Y0w" customClass="LocationViewController" customModule="WhoWouldWin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GpU-ly-dPF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uaR-NL-aF0">
+                                <rect key="frame" x="85" y="197" width="204" height="36"/>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="radiusSlider:" destination="pMI-Uf-Y0w" eventType="valueChanged" id="OW2-qH-l4S"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcV-V8-cl4">
+                                <rect key="frame" x="8" y="52" width="359" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the search radius." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-9x-dsx">
+                                <rect key="frame" x="8" y="81" width="359" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMT-jM-S3E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Search Options" id="VuV-zF-jn8">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D33-Pw-UUb">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="pMI-Uf-Y0w" id="bjq-1J-Dg5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="q37-ud-Jcq">
+                                            <connections>
+                                                <action selector="saveButton:" destination="pMI-Uf-Y0w" id="Boj-ik-Jl4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius: 50 km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmZ-vg-9X8">
+                                <rect key="frame" x="87" y="125" width="200" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="uaR-NL-aF0" secondAttribute="bottom" constant="68" id="4if-Kq-naD"/>
+                            <constraint firstAttribute="trailing" secondItem="XMT-jM-S3E" secondAttribute="trailing" id="5yj-mf-J5Y"/>
+                            <constraint firstItem="XMT-jM-S3E" firstAttribute="leading" secondItem="GpU-ly-dPF" secondAttribute="leading" id="B9F-3K-tFR"/>
+                            <constraint firstItem="XMT-jM-S3E" firstAttribute="top" secondItem="GpU-ly-dPF" secondAttribute="top" id="DAw-u1-JOu"/>
+                            <constraint firstItem="XMT-jM-S3E" firstAttribute="centerX" secondItem="OcV-V8-cl4" secondAttribute="centerX" id="GFF-79-rBz"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="top" secondItem="OcV-V8-cl4" secondAttribute="bottom" constant="40" id="JJp-nO-J1T"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="top" secondItem="Qds-9x-dsx" secondAttribute="bottom" constant="16" id="MC5-oi-eRp"/>
+                            <constraint firstItem="OcV-V8-cl4" firstAttribute="top" secondItem="XMT-jM-S3E" secondAttribute="bottom" constant="8" id="MWE-ql-dlF"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="leading" secondItem="GpU-ly-dPF" secondAttribute="leadingMargin" constant="71" id="Qs2-9I-7pR"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="centerY" secondItem="GpU-ly-dPF" secondAttribute="centerY" id="Ro0-5d-sE5"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="trailing" secondItem="uaR-NL-aF0" secondAttribute="trailing" id="UPs-tK-aOX"/>
+                            <constraint firstItem="Qds-9x-dsx" firstAttribute="top" secondItem="XMT-jM-S3E" secondAttribute="bottom" constant="37" id="VLy-qA-Ysr"/>
+                            <constraint firstItem="BmZ-vg-9X8" firstAttribute="leading" secondItem="uaR-NL-aF0" secondAttribute="leading" id="eeB-X7-W2M"/>
+                            <constraint firstItem="uaR-NL-aF0" firstAttribute="top" secondItem="BmZ-vg-9X8" secondAttribute="bottom" constant="22" id="fqr-BF-bl2"/>
+                            <constraint firstItem="OcV-V8-cl4" firstAttribute="trailing" secondItem="Qds-9x-dsx" secondAttribute="trailing" id="gfx-lo-veX"/>
+                            <constraint firstItem="OcV-V8-cl4" firstAttribute="leading" secondItem="Qds-9x-dsx" secondAttribute="leading" id="ht0-Zj-fGI"/>
+                            <constraint firstItem="Qds-9x-dsx" firstAttribute="centerX" secondItem="BmZ-vg-9X8" secondAttribute="centerX" id="pv3-J0-Xvj"/>
+                            <constraint firstItem="OcV-V8-cl4" firstAttribute="leading" secondItem="GpU-ly-dPF" secondAttribute="leadingMargin" constant="-8" id="wlV-Ij-s5k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="radiusLabel" destination="BmZ-vg-9X8" id="TER-IZ-1TA"/>
+                        <outlet property="radiusSlider" destination="uaR-NL-aF0" id="Y9j-Pe-hPl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNi-ql-NqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4928.8000000000002" y="1002.9985007496252"/>
         </scene>
     </scenes>
     <resources>
