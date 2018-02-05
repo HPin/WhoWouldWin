@@ -87,8 +87,8 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     override func viewDidLayoutSubviews() {
         centerCircleView.layer.cornerRadius = centerCircleView.frame.width / 2
         centerCircleView.layer.borderWidth = 4
-        //let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
-        //centerCircleView.layer.borderColor = myColor.cgColor
+        let myColor : UIColor = UIColor.init(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        centerCircleView.layer.backgroundColor = myColor.cgColor
         centerCircleView.layer.borderColor = UIColor.white.cgColor
     }
     
