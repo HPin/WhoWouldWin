@@ -16,6 +16,7 @@ class CustomTabBar: ESTabBarController {
         super.viewDidLoad()
         
         
+        
         //tabBar.shadowImage = UIImage(named: "transparent")
         tabBar.backgroundImage = UIImage(named: "background_tb")
         
