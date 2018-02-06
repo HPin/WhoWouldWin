@@ -25,6 +25,7 @@ class CustomTabBar: ESTabBarController {
         let v4 = self.storyboard?.instantiateViewController(withIdentifier: "addTab") as! UINavigationController
         let v5 = self.storyboard?.instantiateViewController(withIdentifier: "settTab") as! UINavigationController
         
+        
         v1.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "tabbar_loc"), selectedImage: UIImage(named: "tabbar_loc"), tag: 0)
         v2.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(),title: nil, image: UIImage(named: "tabbar_cat"), selectedImage: UIImage(named: "tabbar_cat"), tag: 1)
         
