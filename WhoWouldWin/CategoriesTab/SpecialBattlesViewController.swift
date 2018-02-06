@@ -70,10 +70,11 @@ class SpecialBattlesViewController: UIViewController,UICollectionViewDelegate, U
             getCategories { (categories) in
                 self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
                     if successCat{
-                        self.getUnpopularBattles(battles: self.myBattlesCat, completion: { (filteredBattles) in
+                        self.getMostPopularBattles(battles: self.myBattlesCat, completion: { (filteredBattles) in
                             self.myBattlesCat = filteredBattles
                             self.displayBattle()
                         })
+                        
                     }
                 })
             }
@@ -82,11 +83,10 @@ class SpecialBattlesViewController: UIViewController,UICollectionViewDelegate, U
             getCategories { (categories) in
                 self.getBattlesFromCategories(categories: categories, completion: { (successCat) in
                     if successCat{
-                        self.getMostPopularBattles(battles: self.myBattlesCat, completion: { (filteredBattles) in
+                        self.getUnpopularBattles(battles: self.myBattlesCat, completion: { (filteredBattles) in
                             self.myBattlesCat = filteredBattles
                             self.displayBattle()
                         })
-                        
                     }
                 })
             }
