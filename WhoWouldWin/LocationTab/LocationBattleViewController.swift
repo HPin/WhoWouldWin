@@ -63,11 +63,11 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     
     func getRadius(radius: Int) {
         self.locationRadius = Double(radius)
-        getData { (display) in
-            if display {
-                self.displayBattle()
-            }
-        }
+//        getData { (display) in
+//            if display {
+//                self.displayBattle()
+//            }
+//        }
     }
     
     @IBAction func showOverlayButton(_ sender: UIBarButtonItem) {
