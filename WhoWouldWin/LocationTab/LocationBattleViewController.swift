@@ -139,8 +139,8 @@ class LocationBattleViewController: UIViewController, CLLocationManagerDelegate,
     
     func getData(completion: @escaping (Bool) -> Void){
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.startUpdatingLocation()
         guard let myLocation:CLLocation = manager.location else {
             let alert = UIAlertController(title: "Could not get location!", message: "Make sure to enable location services.", preferredStyle: .alert)

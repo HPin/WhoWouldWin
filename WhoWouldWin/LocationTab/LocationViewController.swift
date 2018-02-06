@@ -110,8 +110,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 //        radiusLabel.text = text
         
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        
         manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
     }
     
