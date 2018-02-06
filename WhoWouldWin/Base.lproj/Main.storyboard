@@ -2140,7 +2140,7 @@
                                     <constraint firstAttribute="height" constant="60" id="iTz-A4-SYF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create Location Battle">
+                                <state key="normal" title="Create Local Battle">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -2211,8 +2211,8 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-1j-bZ5">
                                         <rect key="frame" x="8" y="8" width="327" height="401"/>
-                                        <string key="text">GLOBAL, LOCAL?? 🧐  It's easy... Global battles can be seen (oh, wonder) from anywhere, while local battles can only be seen in a certain geographical area around your own location.  Global battles can be found in the main battle tab (the one in the middle).
-Local battles can be found in the location tab (the left one)</string>
+                                        <mutableString key="text">GLOBAL, LOCAL?? 🧐  It's easy... Global battles can be seen  from anywhere, while local battles can only be seen in a certain geographical area around your own location.  Global battles can be found in the main battle tab.
+Local battles can be found in the location tab (the left one)</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
